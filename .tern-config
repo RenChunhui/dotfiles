@@ -1,7 +1,9 @@
 {
   "plugins": {
     "node": {},
-    "es_modules": {}
+    "node_resolve": {},
+    "es_modules": {},
+    "modules": {}
   },
   "libs": [
     "browser",

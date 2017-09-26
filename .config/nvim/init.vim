@@ -9,8 +9,6 @@
 " Copyright (c) 2017 Ren Chunhui. All rights reserved.
 "
 
-
-
 " 自动安装 {{{
 " -----------------------------------------------------------------------------
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
@@ -30,6 +28,7 @@ call plug#begin('~/.config/nvim/plugged')
 " -------------------------------------
 Plug 'vim-airline/vim-airline'                                    " 状态栏
 Plug 'ryanoasis/vim-devicons'                                     " icons
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'mhartington/oceanic-next'
@@ -37,16 +36,21 @@ Plug 'mhartington/oceanic-next'
 " 辅助功能
 " -------------------------------------
 Plug 'scrooloose/nerdtree'                                        " 目录树
+Plug 'Xuyuanp/nerdtree-git-plugin'                                " git 插件
 Plug 'kien/ctrlp.vim'                                             " 文件查找
 Plug 'Raimondi/delimitMate'                                       " 自动关闭括号
 Plug 'editorconfig/editorconfig-vim'                              " EditorConfig
+Plug 'rizzatti/dash.vim'                                          " Dash API
+"Plug 'Yggdroot/indentLine'
+Plug 'moll/vim-node'
 
 " 程序语言
 " -------------------------------------
 Plug 'othree/html5.vim'                                           " HTML5
+Plug 'alvan/vim-closetag', { 'for': 'html'}                       " 自动关闭标签
 Plug 'cakebaker/scss-syntax.vim',{ 'for': 'scss'}                 " scss
 Plug 'othree/yajs.vim', { 'for': 'javascript' }                   " js语法高亮
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }   
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }           " javascript
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }                       " React.js
 Plug 'othree/jsdoc-syntax.vim'                                    " JSDoc
@@ -54,7 +58,7 @@ Plug 'othree/jsdoc-syntax.vim'                                    " JSDoc
 " 自动补全
 " -------------------------------------
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Valloric/YouCompleteMe'                                     
+Plug 'Valloric/YouCompleteMe'
 Plug 'ternjs/tern_for_vim'
 
 call plug#end()
@@ -67,7 +71,6 @@ call plug#end()
 syntax enable                                                     " 开启语法高亮功能
 syntax on                                                         " 允许用指定语法高亮配色方案替换默认方案
 
-
 set mouse=a                                                       " 启用鼠标
 set termguicolors
 set encoding=utf-8                                                " 编码
@@ -78,6 +81,12 @@ set textwidth=80                                                  " 文本宽度
 set wildmenu                                                      " vim 自身命令行模式智能补全
 set laststatus=2                                                  " 总是显示状态栏
 set number                                                        " 开启行号显示
+
+set guioptions-=m
+set guioptions-=t
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
 
 " 主题
 " -------------------------------------
@@ -91,24 +100,59 @@ colorscheme OceanicNext
 " 插件设置 {{{
 " -----------------------------------------------------------------------------
 
-" 插件启用
-" -------------------------------------
-let g:deoplete#enable_at_startup = 1
-let g:webdevicons_enable = 1                                      " devicons
-let g:airline_theme='oceanicnext'
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
-
 " 界面风格
 " -------------------------------------
+
+" ariline
+let g:airline#extensions#tabline#enabled = 0                      " 禁用标签行
+
+" devicons
+let g:webdevicons_enable = 1                                      " 启用插件
 let g:WebDevIconsOS = 'Darwin'
 let g:webdevicons_enable_nerdtree = 1                             " 添加到NerdTree
 let g:webdevicons_enable_unite = 1
 let g:webdevicons_enable_vimfiler = 1
 let g:webdevicons_enable_ctrlp = 1
 
+" oceanicnext 主题
+let g:airline_theme='oceanicnext'
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+
 " 辅助功能
 " -------------------------------------
+
+" NERDTree
+autocmd vimenter * NERDTree                                       " 自动打开目录树
+let NERDTreeShowHidden = 1                                        " 是否显示隐藏文件
+let NERDTreeIgnore=['\.pyc','\.DS_Store','\.swp']                 " 忽略一下文件的显示
+let g:NERDTreeShowIgnoredStatus = 1
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+" ctrlp
+set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|vscode|idea)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+" editorconfig
+"let g:EditorConfig_exec_path = './../../.editorconfig'
+
+" closetag
+let g:closetag_filenames = '*.html'
 
 " 程序语言
 " -------------------------------------
@@ -123,6 +167,11 @@ autocmd FileType scss set iskeyword+=-
 
 " 自动补全
 " -------------------------------------
+
+" deoplete
+let g:deoplete#enable_at_startup = 1                              " 插件启用
+
+" YouCompleteMe
 let g:ycm_semantic_triggers =  {
   \   'javascript,typescript' : ['.'],
   \   'css': [ 're!^\s{4}', 're!:\s+' ],
