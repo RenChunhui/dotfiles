@@ -54,12 +54,14 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }           " javascript
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }                       " React.js
 Plug 'othree/jsdoc-syntax.vim'                                    " JSDoc
+Plug 'posva/vim-vue'                                              " Vue
 
 " 自动补全
 " -------------------------------------
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Valloric/YouCompleteMe'
 Plug 'ternjs/tern_for_vim'
+Plug 'SirVer/ultisnips'
 
 call plug#end()
 " }}}
@@ -81,6 +83,7 @@ set textwidth=80                                                  " 文本宽度
 set wildmenu                                                      " vim 自身命令行模式智能补全
 set laststatus=2                                                  " 总是显示状态栏
 set number                                                        " 开启行号显示
+set ts=4
 
 set guioptions-=m
 set guioptions-=t
@@ -112,7 +115,14 @@ let g:WebDevIconsOS = 'Darwin'
 let g:webdevicons_enable_nerdtree = 1                             " 添加到NerdTree
 let g:webdevicons_enable_unite = 1
 let g:webdevicons_enable_vimfiler = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
 let g:webdevicons_enable_ctrlp = 1
+let g:airline_powerline_fonts = 1
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['css'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
 
 " oceanicnext 主题
 let g:airline_theme='oceanicnext'
@@ -154,11 +164,25 @@ let g:ctrlp_custom_ignore = {
 " closetag
 let g:closetag_filenames = '*.html'
 
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+let g:UltiSnipsSnippetsDir = "~/.config/nvim/UltiSnips"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 " 程序语言
 " -------------------------------------
+
+" Javascript
 autocmd BufReadPre *.js let b:javascript_lib_use_react = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_vue = 1
 
+" Vue
+autocmd FileType vue syntax sync fromstart
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.scss
+let g:vue_disable_pre_processors=1
+
+" React.js
 let g:jsx_ext_required = 0                                        " react.js使用.js扩展名
 let g:jsx_pragma_required = 1
 
@@ -172,6 +196,8 @@ autocmd FileType scss set iskeyword+=-
 let g:deoplete#enable_at_startup = 1                              " 插件启用
 
 " YouCompleteMe
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
 let g:ycm_semantic_triggers =  {
   \   'javascript,typescript' : ['.'],
   \   'css': [ 're!^\s{4}', 're!:\s+' ],
