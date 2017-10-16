@@ -29,6 +29,9 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'                                    " 状态栏
 Plug 'ryanoasis/vim-devicons'                                     " icons
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" 主题
+" -------------------------------------
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'mhartington/oceanic-next'
@@ -41,7 +44,7 @@ Plug 'kien/ctrlp.vim'                                             " 文件查找
 Plug 'Raimondi/delimitMate'                                       " 自动关闭括号
 Plug 'editorconfig/editorconfig-vim'                              " EditorConfig
 Plug 'rizzatti/dash.vim'                                          " Dash API
-"Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 Plug 'moll/vim-node'
 
 " 程序语言
@@ -95,7 +98,7 @@ set guioptions-=L
 " -------------------------------------
 let g:molokai_original = 1
 let g:rehash256 = 1
-colorscheme OceanicNext
+colorscheme solarized
 " }}}
 
 
@@ -169,6 +172,12 @@ let g:UltiSnipsSnippetsDir = "~/.config/nvim/UltiSnips"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" indentLine
+let g:indentLine_enabled = 0                                      " 启用插件
+let g:indentLine_char = "┊"
+let g:indentLine_color_term = 1                                  " 255 颜色值
+
 
 " 程序语言
 " -------------------------------------
