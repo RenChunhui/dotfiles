@@ -41,7 +41,6 @@ Plug 'mhartington/oceanic-next'
 Plug 'scrooloose/nerdtree'                                        " 目录树
 Plug 'Xuyuanp/nerdtree-git-plugin'                                " git 插件
 Plug 'kien/ctrlp.vim'                                             " 文件查找
-Plug 'Raimondi/delimitMate'                                       " 自动关闭括号
 Plug 'editorconfig/editorconfig-vim'                              " EditorConfig
 Plug 'rizzatti/dash.vim'                                          " Dash API
 Plug 'Yggdroot/indentLine'
@@ -80,13 +79,17 @@ set mouse=a                                                       " 启用鼠标
 set termguicolors
 set encoding=utf-8                                                " 编码
 set guifont=<FONT_NAME>:h<FONT_SIZE>
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h13
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h12
 set shell=/bin/zsh                                                " 将shell设置为zsh
 set textwidth=80                                                  " 文本宽度
 set wildmenu                                                      " vim 自身命令行模式智能补全
 set laststatus=2                                                  " 总是显示状态栏
 set number                                                        " 开启行号显示
 set ts=4
+
+" 不要生成swap文件，当buffer被丢弃的时候隐藏它
+setlocal noswapfile
+set bufhidden=hide
 
 set guioptions-=m
 set guioptions-=t
@@ -96,9 +99,9 @@ set guioptions-=L
 
 " 主题
 " -------------------------------------
-let g:molokai_original = 1
+"let g:molokai_original = 1
 let g:rehash256 = 1
-colorscheme solarized
+colorscheme OceanicNext
 " }}}
 
 
@@ -138,7 +141,7 @@ let g:oceanic_next_terminal_italic = 1
 " NERDTree
 autocmd vimenter * NERDTree                                       " 自动打开目录树
 let NERDTreeShowHidden = 1                                        " 是否显示隐藏文件
-let NERDTreeIgnore=['\.pyc','\.DS_Store','\.swp']                 " 忽略一下文件的显示
+let NERDTreeIgnore=['\.pyc','\.DS_Store','\.swp','\.git','\.vscode']
 let g:NERDTreeShowIgnoredStatus = 1
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -205,13 +208,10 @@ autocmd FileType scss set iskeyword+=-
 let g:deoplete#enable_at_startup = 1                              " 插件启用
 
 " YouCompleteMe
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
 let g:ycm_semantic_triggers =  {
   \   'javascript,typescript' : ['.'],
   \   'css': [ 're!^\s{4}', 're!:\s+' ],
   \ }
-
 " }}}
 
 
@@ -224,6 +224,15 @@ nmap <Leader>fl :NERDTreeToggle<CR>                               " 打开目录
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+function! CleverTab()
+    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+        return "\<Tab>"
+    else
+        return "\<C-N>"
+    endif
+endfunction
+inoremap <Tab> <C-R>=CleverTab()<CR>
 " }}}
 
 
