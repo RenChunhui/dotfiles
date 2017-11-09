@@ -35,6 +35,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'mhartington/oceanic-next'
+Plug 'joshdick/onedark.vim'
 
 " 辅助功能
 " -------------------------------------
@@ -100,8 +101,13 @@ set guioptions-=L
 " 主题
 " -------------------------------------
 "let g:molokai_original = 1
-let g:rehash256 = 1
-colorscheme OceanicNext
+"let g:rehash256 = 1
+"colorscheme OceanicNext
+
+" onedark
+let g:onedark_termcolors=256
+colorscheme onedark
+let g:airline_theme='onedark'
 " }}}
 
 
@@ -131,9 +137,9 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['css'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
 
 " oceanicnext 主题
-let g:airline_theme='oceanicnext'
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
+"let g:airline_theme='oceanicnext'
+"let g:oceanic_next_terminal_bold = 1
+"let g:oceanic_next_terminal_italic = 1
 
 " 辅助功能
 " -------------------------------------
@@ -141,7 +147,7 @@ let g:oceanic_next_terminal_italic = 1
 " NERDTree
 autocmd vimenter * NERDTree                                       " 自动打开目录树
 let NERDTreeShowHidden = 1                                        " 是否显示隐藏文件
-let NERDTreeIgnore=['\.pyc','\.DS_Store','\.swp','\.git','\.vscode']
+let NERDTreeIgnore=['\.pyc','\.DS_Store','\.swp','\.git','\.vscode','\.svn']
 let g:NERDTreeShowIgnoredStatus = 1
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -159,7 +165,7 @@ let g:NERDTreeIndicatorMapCustom = {
 " ctrlp
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|vscode|idea)$',
+  \ 'dir':  '\v[\/]\.(git|hg|svn|vscode|idea|node_modules)$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
@@ -254,11 +260,6 @@ autocmd FileType javascript,typescript,json setl foldmethod=syntax
 " }}}
 
 
-
-" 代码片段 {{{
-" -----------------------------------------------------------------------------
-
-" }}}
 
 
 
