@@ -25,7 +25,7 @@ header() {
 
 # Oh My Zsh
 install_zsh() {
-	if [ ! -d "~/.oh-my-zsh"]
+	if [ ! -d "~/.oh-my-zsh" ]
 	then
 		info 'Installing Oh My Zsh...'
 		sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -45,19 +45,25 @@ install_homebrew() {
 
 # Homebrew package
 brew_package() {
-	packages = (
+	packages=(
 		wget
+		node
 		yarn
+		tmux
 		neovim
 	)
 
-	casks = (
+	casks=(
 		iterm2
 		google-chrome
     google-chrome-canary
 		webstorm
 		qq
-		wechat
+		iina
+		visual-studio-code
+		shadowsocksx-ng
+		sketch
+		the-unarchiver
 	)
 
 	brew install "${packages[@]}"
@@ -67,11 +73,21 @@ brew_package() {
 	brew cleanup
 }
 
+yarn_package() {
+	packages=(
+		tern
+		webpack
+	)
+
+	yarn global add "${packages[@]}"
+}
+
 main() {
 	header
 	install_zsh
 	install_homebrew
 	brew_package
+	yarn_package
 }
 
 main
