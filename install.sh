@@ -29,6 +29,8 @@ install_zsh() {
 	then
 		info 'Installing Oh My Zsh...'
 		sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+		git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 		info 'Down'
 	fi
 }
@@ -54,6 +56,7 @@ brew_package() {
 	)
 
 	casks=(
+		alfred
 		iterm2
 		google-chrome
     google-chrome-canary
@@ -82,12 +85,21 @@ yarn_package() {
 	yarn global add "${packages[@]}"
 }
 
+link_dotfiles() {
+	ln -s ~/.dotfiles/.tmux.config ~/.tmux.config
+	ln -s ~/.dotfiles/.vimrc ~/.vimrc
+	ln -s ~/.dotfiles/.vim ~/.vim
+	ln -s ~/.dotfiles/.zshrc ~/.zshrc
+	ln -s ~/.dotfiles/.tern-config ~/.tern-config
+}
+
 main() {
 	header
 	install_zsh
 	install_homebrew
 	brew_package
 	yarn_package
+	link_dotfiles
 }
 
 main
