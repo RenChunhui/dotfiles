@@ -86,9 +86,18 @@ yarn_package() {
 }
 
 link_dotfiles() {
+	info 'Add tmux、vim、nvim、zsh dotfiles'
 	ln -s ~/.dotfiles/.tmux.config ~/.tmux.config
 	ln -s ~/.dotfiles/.vimrc ~/.vimrc
-	ln -s ~/.dotfiles/.vim ~/.vim
+	ln -s ~/.dotfiles.vim ~/.vim
+
+	if [ ! -d "~/.config" ]
+	then
+		mkdir ~/.config
+		ln -s ~/.dotfiles/.vim ~/.config/nvim
+		ln -s ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
+	fi
+
 	ln -s ~/.dotfiles/.zshrc ~/.zshrc
 	ln -s ~/.dotfiles/.tern-config ~/.tern-config
 }
