@@ -59,7 +59,6 @@ brew_package() {
 		alfred
 		iterm2
 		google-chrome
-    google-chrome-canary
 		webstorm
 		qq
 		iina
