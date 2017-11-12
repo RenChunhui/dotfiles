@@ -29,7 +29,7 @@ install_zsh() {
 	then
 		info 'Installing Oh My Zsh...'
 		sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-		git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+		git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 		info 'Down'
 	fi
@@ -47,7 +47,7 @@ install_homebrew() {
 
 # Homebrew package
 brew_package() {
-	packages=(
+	PACKAGES=(
 		wget
 		node
 		yarn
@@ -55,7 +55,11 @@ brew_package() {
 		neovim
 	)
 
-	casks=(
+	info 'Installing packages...'
+	brew install "${PACKAGES[@]}"
+	info 'Cleaning up...'
+	
+	CASKS=(
 		alfred
 		iterm2
 		google-chrome
@@ -67,21 +71,21 @@ brew_package() {
 		sketch
 		the-unarchiver
 	)
-
-	brew install "${packages[@]}"
-	brew cask install "${casks[@]}"
+	
+	info 'Installing cask apps...'
+	brew cask install "${CASKS[@]}"
 
 	# Remove outdated versions from the cellar
 	brew cleanup
 }
 
 yarn_package() {
-	packages=(
+	YARN_PACKAGES=(
 		tern
 		webpack
 	)
 
-	yarn global add "${packages[@]}"
+	yarn global add "${YARN_PACKAGES[@]}"
 }
 
 link_dotfiles() {
@@ -108,6 +112,7 @@ main() {
 	brew_package
 	yarn_package
 	link_dotfiles
+	info 'Installing complete'
 }
 
 main
