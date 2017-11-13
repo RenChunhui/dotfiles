@@ -233,3 +233,9 @@ ln -s ~/.dotfiles/.tern-config ~/.tern-config
 # Join a Wi-Fi Network
 networksetup -setairportnetwork en0 chunhui.studio Rch500235
 networksetup -setairportnetwork en0 TY_2.4G ty12345678
+
+# iTerm theme
+open "${HOME}/.dotfiles/iterm/themes/one-dark.itermcolors"
+
+# Don’t display the annoying prompt when quitting iTerm
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
