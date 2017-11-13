@@ -1,1 +1,0 @@
-/Users/chunhui/.dotfiles/.vimrc
