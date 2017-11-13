@@ -1,5 +1,10 @@
-# dotfiles
-macOS 一键配置前端开发环境
+# Ren Chunhui's Dotfiles 
+
+一键配置 [iTerm]() + [Zsh]() + [Vim]()/[NeoVim]() + [Tmux]() 前端开发环境
+
+常用工具[Alfred]()、[Xcode]()、[WebStorm]()、[VSCode]()、[Sketch]()、[Chrome]()、[QQ]()、[WeChat]()、[ShadowsocksX]()、[IINA]()、[Pages]()、[Numbers]()
+
+全局 Yarn 包 [TernJS]()、[Webpack]()、[Typescript]()
 
 ## 安装
 
