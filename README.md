@@ -1,5 +1,15 @@
 # dotfiles
-macOS 配置文件
+macOS 一键配置前端开发环境
 
-**Install**
-curl https://raw.githubusercontent.com/RenChunhui/dotfiles/master/scripts/install.sh | bash
+## 安装
+
+``` sh
+$ curl https://raw.githubusercontent.com/RenChunhui/dotfiles/master/scripts/install.sh | bash
+```
+
+## 参考
+- [Nick Plekhanov's Dotfiles](https://github.com/nicksp/dotfiles.git)
+
+## 许可证
+
+[MIT license](LICENSE).
