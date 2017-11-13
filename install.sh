@@ -31,7 +31,7 @@ install_zsh() {
 		sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 		git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-		info 'Down'
+		info 'Complete install Oh My Zsh'
 	fi
 }
 
@@ -58,7 +58,7 @@ brew_package() {
 	info 'Installing packages...'
 	brew install "${PACKAGES[@]}"
 	info 'Cleaning up...'
-	
+
 	CASKS=(
 		alfred
 		iterm2
@@ -71,7 +71,7 @@ brew_package() {
 		sketch
 		the-unarchiver
 	)
-	
+
 	info 'Installing cask apps...'
 	brew cask install "${CASKS[@]}"
 
@@ -92,7 +92,7 @@ link_dotfiles() {
 	info 'Add tmux、vim、nvim、zsh dotfiles'
 	ln -s ~/.dotfiles/.tmux.config ~/.tmux.config
 	ln -s ~/.dotfiles/.vimrc ~/.vimrc
-	ln -s ~/.dotfiles.vim ~/.vim
+	ln -s ~/.dotfiles/.vim ~/.vim
 
 	if [ ! -d "~/.config" ]
 	then

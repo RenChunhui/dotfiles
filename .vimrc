@@ -9,19 +9,17 @@
 " Copyright (c) 2017 Ren Chunhui. All rights reserved.
 "
 
-if empty(glob('~/.dotfiles/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.dotfiles/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  augroup plug_install
-    autocmd VimEnter * PlugInstall
-  augroup END
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " 插件
 source ~/.dotfiles/.vim/plugins.vim
 
 " 常规设置
-source ~/.dotfiles/.vim/settings.vim
+" source ~/.dotfiles/.vim/settings.vim
 
 " 快捷键
-source ~/.dotfiles/.vim/keymap.vim
+" source ~/.dotfiles/.vim/keymap.vim
