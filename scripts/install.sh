@@ -215,8 +215,8 @@ ln -s ~/.dotfiles/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/.vim ~/.vim
 
 # Neovim
-ln -s ~/.dotfiles/.vim ~/.config/nvim
-ln -s ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
+ln -s ~/.vim ~/.config/nvim
+ln -s ~/.vimrc ~/.config/nvim/init.vim
 
 # Tmux
 ln -s ~/.dotfiles/.tmux.config ~/.tmux.config
