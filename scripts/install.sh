@@ -59,6 +59,7 @@ print_info '                         /)          /)       ,                     
 print_info '                        (/      __  (/                                '
 print_info '                     (__/ )_(_(_/ (_/ )_(_(__(_                       '
 print_info '                                                                      '
+print_info '                                                                      '
 print_info ' Author: Ren Chunhui                                                  '
 print_info ' repo:   https://github.com/RenChunhui/dotfiles                       '
 print_info ' E-mail: renchunhui2008@gmail.com                                     '
@@ -90,6 +91,22 @@ if ! xcode-select --print-path &> /dev/null; then
   print_result $? 'Agree with the XCode Command Line Tools licence'
 fi
 
+
+
+###############################################################################
+# Oh My Zsh																																		#
+###############################################################################
+if [ ! -d "~/.oh-my-zsh" ]
+then
+	print_info 'Installing Oh My Zsh...'
+
+	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+fi
+
+# Reload Zsh settings
+source ~/.zshrc
 
 
 ###############################################################################
@@ -190,6 +207,7 @@ yarn global add "${packages[@]}"
 git clone https://github.com/RenChunhui/dotfiles.git ~/.dotfiles
 
 # Zsh
+rm -rf .zshrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
 # Vim
@@ -205,23 +223,6 @@ ln -s ~/.dotfiles/.tmux.config ~/.tmux.config
 
 # TernJS
 ln -s ~/.dotfiles/.tern-config ~/.tern-config
-
-
-
-###############################################################################
-# Oh My Zsh																																		#
-###############################################################################
-if [ ! -d "~/.oh-my-zsh" ]
-then
-	print_info 'Installing Oh My Zsh...'
-
-	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-	git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-fi
-
-# Reload Zsh settings
-source ~/.zshrc
 
 
 
