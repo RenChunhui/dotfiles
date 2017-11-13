@@ -19,7 +19,7 @@ endif
 source ~/.dotfiles/.vim/plugins.vim
 
 " 常规设置
-" source ~/.dotfiles/.vim/settings.vim
+source ~/.dotfiles/.vim/settings.vim
 
 " 快捷键
-" source ~/.dotfiles/.vim/keymap.vim
+source ~/.dotfiles/.vim/keymap.vim
