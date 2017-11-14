@@ -94,22 +94,6 @@ fi
 
 
 ###############################################################################
-# Oh My Zsh																																		#
-###############################################################################
-if [ ! -d "~/.oh-my-zsh" ]
-then
-	print_info 'Installing Oh My Zsh...'
-
-	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-	git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-fi
-
-# Reload Zsh settings
-source ~/.zshrc
-
-
-###############################################################################
 # Homebrew																																		#
 ###############################################################################
 if test ! $(which brew)
@@ -200,6 +184,20 @@ yarn global add "${packages[@]}"
 
 
 ###############################################################################
+# Oh My Zsh																																		#
+###############################################################################
+if [ ! -d "~/.oh-my-zsh" ]
+then
+	print_info 'Installing Oh My Zsh...'
+
+	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+fi
+
+
+
+###############################################################################
 # Symlinks to link dotfiles																										#
 ###############################################################################
 
@@ -215,8 +213,8 @@ ln -s ~/.dotfiles/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/.vim ~/.vim
 
 # Neovim
-ln -s ~/.vim ~/.config/nvim
-ln -s ~/.vimrc ~/.config/nvim/init.vim
+ln -s ~/.dotfiles/.vim ~/.config/nvim
+ln -s ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
 
 # Tmux
 ln -s ~/.dotfiles/.tmux.config ~/.tmux.config
