@@ -66,6 +66,8 @@ print_info ' E-mail: renchunhui2008@gmail.com                                   
 print_info '                                                                      '
 print_info '----------------------------------------------------------------------'
 
+
+
 ###############################################################################
 # XCode Command Line Tools                                                    #
 ###############################################################################
@@ -157,7 +159,6 @@ brew cask install "${apps[@]}"
 # App Store Apps        																											#
 ###############################################################################
 apps=(
-	497799835		# Xcode
 	836500024		# WeChat
 	409201541		# Pages
 	409203825		# Numbers
@@ -186,8 +187,7 @@ yarn global add "${packages[@]}"
 ###############################################################################
 # Oh My Zsh																																		#
 ###############################################################################
-if [ ! -d "~/.oh-my-zsh" ]
-then
+if [[ ! -d $dir/oh-my-zsh/ ]]; then
 	print_info 'Installing Oh My Zsh...'
 
 	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -227,10 +227,6 @@ ln -s ~/.dotfiles/.tern-config ~/.tern-config
 ###############################################################################
 # macOS defaults                                                              #
 ###############################################################################
-
-# Join a Wi-Fi Network
-networksetup -setairportnetwork en0 chunhui.studio Rch500235
-networksetup -setairportnetwork en0 TY_2.4G ty12345678
 
 # iTerm theme
 open "${HOME}/.dotfiles/iterm/themes/one-dark.itermcolors"
