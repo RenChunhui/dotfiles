@@ -16,7 +16,7 @@ ask() {
 }
 
 ask_for_confirmation() {
-  print_question "$1 (y/n) "
+  print_question "$1 (Y/N) "
   read -n 1
   printf "\n"
 }
@@ -68,168 +68,187 @@ print_info '--------------------------------------------------------------------
 
 
 
-###############################################################################
-# XCode Command Line Tools                                                    #
-###############################################################################
-if ! xcode-select --print-path &> /dev/null; then
-  # Prompt user to install the XCode Command Line Tools
-  xcode-select --install &> /dev/null
 
-  # Wait until the XCode Command Line Tools are installed
-  until xcode-select --print-path &> /dev/null; do
-    sleep 5
-  done
+# 安装 XCode 命令行工具
+install_xcode_tools() {
+	if ! xcode-select --print-path &> /dev/null; then
+		# Prompt user to install the XCode Command Line Tools
+		xcode-select --install &> /dev/null
 
-  print_result $? 'Install XCode Command Line Tools'
+		# Wait until the XCode Command Line Tools are installed
+		until xcode-select --print-path &> /dev/null; do
+			sleep 5
+		done
 
-  # Point the `xcode-select` developer directory to the appropriate directory from within `Xcode.app`
-  sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+		print_result $? 'Install XCode Command Line Tools'
 
-  print_result $? 'Make "xcode-select" developer directory point to Xcode'
+		# Point the `xcode-select` developer directory to the appropriate directory from within `Xcode.app`
+		sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 
-  # Prompt user to agree to the terms of the Xcode license
-  sudo xcodebuild -license
+		print_result $? 'Make "xcode-select" developer directory point to Xcode'
 
-  print_result $? 'Agree with the XCode Command Line Tools licence'
-fi
+		# Prompt user to agree to the terms of the Xcode license
+		sudo xcodebuild -license
 
+		print_result $? 'Agree with the XCode Command Line Tools licence'
+	fi
+}
 
+# 安装 Homebrew
+install_homebrew() {
+	if test ! $(which brew)
+	then
+		print_info '安装 Homebrew...'
 
-###############################################################################
-# Homebrew																																		#
-###############################################################################
-if test ! $(which brew)
-then
-	print_info 'Installing Homebrew...'
+		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	fi
+}
 
-	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
+# 安装 Homebrew 工具包
+install_brew_packages() {
+	apps=(
+		mas
+		wget
+		node
+		yarn
+		tmux
+		python
+		python3
+		neovim
+	)
 
-brew tap homebrew/versions
-brew tap homebrew/dupes
-brew tap Goles/battery
+	print_info '安装 Homebrew 工具包...'
+	brew install "${apps[@]}"
+	brew cleanup
 
-brew update
-brew upgrade --all
+	print_info '安装 NeoVim 依赖 Python...'
+	pip2 install neovim --upgrade
+	pip3 install neovim --upgrade
+}
 
+# 安装 App
+install_apps() {
+	apps=(
+		alfred
+		iterm2
+		google-chrome
+		webstorm
+		qq
+		iina
+		visual-studio-code
+		shadowsocksx-ng
+		sketch
+		the-unarchiver
+	)
 
+	ask_for_confirmation "以下将安装软件: Alfred、iTerm2、Chrome、Webstorm、VSCode、QQ、IINA、ShadowsocksX、Sketch、The Unarchiver,你也可以跳过之后安装..."
+  if answer_is_yes; then
+		brew cask install "${apps[@]}"
+  fi
+}
 
-###############################################################################
-# Homebrew packages																														#
-###############################################################################
-apps=(
-	mas
-	wget
-	node
-	yarn
-	tmux
-	neovim
-)
+# 安装来自 App Store 软件
+install_store_apps() {
+	apps=(
+		836500024		# WeChat
+		409201541		# Pages
+		409203825		# Numbers
+	)
 
-print_info 'Installing brew packages...'
+	ask_for_confirmation "以下从 App Store 安装 WeChat、Pages、Numbers，你也可以跳过之后安装..."
+	if answer_is_yes; then
+		mas install "${apps[@]}"
+	fi
+}
 
-brew install "${apps[@]}"
-brew cleanup
+# 安装全局 Yarn 包
+install_yarn_packages() {
+	packages=(
+		tern
+		webpack
+		typescript
+	)
 
+	print_info '安装 Yarn 全局包...'
 
+	yarn global add "${packages[@]}"
+}
 
-###############################################################################
-# Homebrew cask packages																											#
-###############################################################################
-apps=(
-	alfred
-	iterm2
-	google-chrome
-	webstorm
-	qq
-	iina
-	visual-studio-code
-	shadowsocksx-ng
-	sketch
-	the-unarchiver
-)
+# Oh My Zsh
+install_zsh() {
+	if [[ ! -d $dir/oh-my-zsh/ ]]; then
+		print_info '安装 Oh My Zsh...'
 
-print_info 'Installing brew cask packages...'
+		sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+		git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+	fi
+}
 
-brew cask install "${apps[@]}"
+# 软链接相关配置文件
+symlinks_dotfiles() {
+	ask_for_confirmation '软链接配置文件'
 
+	if answer_is_yes; then
+		# Clone dotfiles
+		git clone https://github.com/RenChunhui/dotfiles.git ~/.dotfiles
 
+		# Vim
+		ln -s ~/.dotfiles/.vimrc ~/.vimrc
+		ln -s ~/.dotfiles/.vim ~/.vim
 
-###############################################################################
-# App Store Apps        																											#
-###############################################################################
-apps=(
-	836500024		# WeChat
-	409201541		# Pages
-	409203825		# Numbers
-)
+		# Neovim
+		ln -s ~/.dotfiles/.vim ~/.config/nvim
+		ln -s ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
 
-print_info "Installing App Store apps..."
+		# Tmux
+		ln -s ~/.dotfiles/.tmux.config ~/.tmux.config
 
-mas install "${apps[@]}"
+		# TernJS
+		ln -s ~/.dotfiles/.tern-config ~/.tern-config
 
+		# Zsh
+		rm -rf .zshrc
+		ln -s ~/.dotfiles/.zshrc ~/.zshrc
+	fi
+}
 
-###############################################################################
-# Yarn packages																																#
-###############################################################################
-packages=(
-	tern
-	webpack
-	typescript
-)
+# 配置 Vim & Neovim
+setup_vim() {
+	ask_for_confirmation '安装Vim/NeoVim插件'
 
-print_info 'Installing Yarn packages...'
+	if answer_is_yes; then
+		vim
+	fi
+}
 
-yarn global add "${packages[@]}"
+# 系统设置
+setup_macos() {
+	ask_for_confirmation 'macOS 系统设置'
 
+	if answer_is_yes; then
+		# iterm 主题
+		open "${HOME}/.dotfiles/iterm/themes/one-dark.itermcolors"
 
+		# iterm 退出不显示提示
+		defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+	fi
+}
 
-###############################################################################
-# Oh My Zsh																																		#
-###############################################################################
-if [[ ! -d $dir/oh-my-zsh/ ]]; then
-	print_info 'Installing Oh My Zsh...'
+main() {
+	install_xcode_tools
+	install_homebrew
+	install_brew_packages
+	install_apps
+	install_store_apps
+	install_yarn_packages
+	install_zsh
+	symlinks_dotfiles
+	setup_vim
+	setup_macos
 
-	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-	git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-fi
+	print_success '安装完成!'
+}
 
+main
 
-
-###############################################################################
-# Symlinks to link dotfiles																										#
-###############################################################################
-
-# Clone my github dotfiles
-git clone https://github.com/RenChunhui/dotfiles.git ~/.dotfiles
-
-# Zsh
-rm -rf .zshrc
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
-
-# Vim
-ln -s ~/.dotfiles/.vimrc ~/.vimrc
-ln -s ~/.dotfiles/.vim ~/.vim
-
-# Neovim
-ln -s ~/.dotfiles/.vim ~/.config/nvim
-ln -s ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
-
-# Tmux
-ln -s ~/.dotfiles/.tmux.config ~/.tmux.config
-
-# TernJS
-ln -s ~/.dotfiles/.tern-config ~/.tern-config
-
-
-
-###############################################################################
-# macOS defaults                                                              #
-###############################################################################
-
-# iTerm theme
-open "${HOME}/.dotfiles/iterm/themes/one-dark.itermcolors"
-
-# Don’t display the annoying prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
