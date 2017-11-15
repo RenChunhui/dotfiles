@@ -5,7 +5,7 @@ set mouse=a                                                       " 启用鼠标
 set termguicolors
 set encoding=utf-8                                                " 编码
 set guifont=<FONT_NAME>:h<FONT_SIZE>
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h12
+set guifont=DroidSansMono\ Nerd\ Font:h12
 set shell=/bin/zsh                                                " 将shell设置为zsh
 set textwidth=80                                                  " 文本宽度
 set wildmenu                                                      " vim 自身命令行模式智能补全
@@ -27,3 +27,5 @@ if has('nvim')
 	let g:python2_host_prog = '/usr/local/bin/python'
 	let g:python3_host_prog = '/usr/local/bin/python3'
 endif
+
+let g:airline_powerline_fonts = 1

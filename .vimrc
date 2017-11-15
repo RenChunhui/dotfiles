@@ -16,10 +16,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " 插件
-source ~/.dotfiles/.vim/plugins.vim
+source ~/.vim/plugins.vim
 
 " 常规设置
-source ~/.dotfiles/.vim/settings.vim
+source ~/.vim/settings.vim
 
 " 快捷键
-source ~/.dotfiles/.vim/keymap.vim
+source ~/.vim/keymap.vim

@@ -8,8 +8,17 @@
 
 ## 安装
 
-``` sh
-$ curl https://raw.githubusercontent.com/RenChunhui/dotfiles/master/scripts/install.sh | bash
+``` bash
+$ git clone https://github.com/RenChunhui/dotfiles.git .dotfiles
+$ cd .dotfiles
+$ chmod +x ./install.sh
+$ ./install.sh	
+```
+
+## Vim & NeoVim 安装
+``` bash
+$ cd ~/.vim/plugged/YouCompleteMe
+$ ./install.py --js-completer
 ```
 
 ## 参考

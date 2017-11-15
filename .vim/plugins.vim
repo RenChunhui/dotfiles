@@ -28,7 +28,7 @@ Plug 'editorconfig/editorconfig-vim'                              " EditorConfig
 " 自动补全
 " -------------------------------------
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 Plug 'ternjs/tern_for_vim'
 Plug 'SirVer/ultisnips'
 
