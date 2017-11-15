@@ -2,7 +2,7 @@
 
 一键配置 [iTerm]() + [Zsh]() + [Vim]()/[NeoVim]() + [Tmux]() 前端开发环境
 
-常用工具[Alfred]()、[Xcode]()、[WebStorm]()、[VSCode]()、[Sketch]()、[Chrome]()、[QQ]()、[WeChat]()、[ShadowsocksX]()、[IINA]()、[Pages]()、[Numbers]()
+常用工具[Alfred]()、[WebStorm]()、[VSCode]()、[Sketch]()、[Chrome]()、[QQ]()、[WeChat]()、[ShadowsocksX]()、[IINA]()、[Pages]()、[Numbers]()
 
 全局 Yarn 包 [TernJS]()、[Webpack]()、[Typescript]()
 
@@ -16,6 +16,9 @@ $ ./install.sh
 ```
 
 ## Vim & NeoVim 安装
+
+**插件YouCompleteMe所需的Python已在初使wx.qq.com环境中配置完成**
+
 ``` bash
 $ cd ~/.vim/plugged/YouCompleteMe
 $ ./install.py --js-completer

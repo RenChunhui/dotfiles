@@ -89,11 +89,11 @@ install_brew_packages() {
 		neovim
 	)
 
-	print_info '安装 Homebrew 工具包...'
+	print_info 'Install Homebrew packages...'
 	brew install "${apps[@]}"
 	brew cleanup
 
-	print_info '安装 NeoVim 依赖 Python...'
+	print_info 'Install Python for neovim...'
 	pip2 install neovim --upgrade
 	pip3 install neovim --upgrade
 }
