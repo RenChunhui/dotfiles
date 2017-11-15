@@ -190,18 +190,18 @@ symlinks_dotfiles() {
 		case $prompt in
 			[Yy]*)
 				# Vim
-				ln -fs ~/.dotfiles/.vimrc ~/.vimrc
-				ln -fs ~/.dotfiles/.vim ~/.vim
+				ln -s ~/.dotfiles/.vimrc ~/.vimrc
+				ln -s ~/.dotfiles/.vim ~/.vim
 
 				# Neovim
-				ln -fs ~/.dotfiles/.vim ~/.config/nvim
-				ln -fs ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
+				ln -s ~/.dotfiles/.vim ~/.config/nvim
+				ln -s ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
 
 				# Tmux
-				ln -fs ~/.dotfiles/.tmux.config ~/.tmux.config
+				ln -s ~/.dotfiles/.tmux.config ~/.tmux.config
 
 				# TernJS
-				ln -fs ~/.dotfiles/.tern-config ~/.tern-config
+				ln -s ~/.dotfiles/.tern-config ~/.tern-config
 
 				# Zsh
 				ln -fs ~/.dotfiles/.zshrc ~/.zshrc

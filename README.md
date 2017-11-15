@@ -17,7 +17,7 @@ $ ./install.sh
 
 ## Vim & NeoVim 安装
 
-**插件YouCompleteMe所需的Python已在初使wx.qq.com环境中配置完成**
+**插件YouCompleteMe所需的Python已在初使化环境中配置完成**
 
 ``` bash
 $ cd ~/.vim/plugged/YouCompleteMe
