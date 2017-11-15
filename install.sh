@@ -198,7 +198,7 @@ symlinks_dotfiles() {
 				ln -s ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
 
 				# Tmux
-				ln -s ~/.dotfiles/.tmux.config ~/.tmux.config
+				ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 
 				# TernJS
 				ln -s ~/.dotfiles/.tern-config ~/.tern-config
