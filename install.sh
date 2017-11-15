@@ -4,51 +4,22 @@
 # Functions 																										              #
 ###############################################################################
 
-answer_is_yes() {
-  [[ "$REPLY" =~ ^[Yy]$ ]] \
-    && return 0 \
-    || return 1
-}
-
-ask() {
-  print_question "$1"
-  read
-}
-
-ask_for_confirmation() {
-  print_question "$1 (Y/N) "
-  read -n 1
-  printf "\n"
-}
-
-# Print output in red
-print_error() {
-  printf "\e[0;31m  [✖] $1 $2\e[0m\n"
-}
-
-# Print output in purple
+# INFO
 print_info() {
   printf "\e[0;35m $1\e[0m\n"
 }
 
-# Print output in yellow
-print_question() {
-  printf "\e[0;33m  [?] $1\e[0m"
-}
 
-# Print output in green
+# SUCCESS
 print_success() {
   printf "\e[0;32m  [✔] $1\e[0m\n"
 }
 
-print_result() {
-	[ $1 -eq 0 ] \
-    && print_success "$2" \
-    || print_error "$2"
-
-  [ "$3" == "true" ] && [ $1 -ne 0 ] \
-    && exit
+# ERROR
+print_error() {
+  printf "\e[0;31m  [✖] $1 $2\e[0m\n"
 }
+
 
 ###############################################################################
 # Header 			   																												      #
@@ -112,6 +83,7 @@ install_brew_packages() {
 		node
 		yarn
 		tmux
+		cmake
 		python
 		python3
 		neovim
@@ -126,7 +98,7 @@ install_brew_packages() {
 	pip3 install neovim --upgrade
 }
 
-# 安装 App
+# Install Apps
 install_apps() {
 	apps=(
 		alfred
@@ -141,13 +113,21 @@ install_apps() {
 		the-unarchiver
 	)
 
-	ask_for_confirmation "以下将安装软件: Alfred、iTerm2、Chrome、Webstorm、VSCode、QQ、IINA、ShadowsocksX、Sketch、The Unarchiver,你也可以跳过之后安装..."
-  if answer_is_yes; then
-		brew cask install "${apps[@]}"
-  fi
+	while true; do
+		read -p "Install [ Alfred|iTerm2|Chrome|Webstorm|VSCode|QQ|IINA|ShadowsocksX|Sketch|The Unarchiver ]? [y/n] " prompt
+		case $prompt in
+			[Yy]*)
+				brew cask install "${apps[@]}"
+				break;;
+			[Nn]*)
+				break;;
+			*)
+				print_error 'Please answer yes or no.';;
+		esac
+	done
 }
 
-# 安装来自 App Store 软件
+# Install apps from Apple Store
 install_store_apps() {
 	apps=(
 		836500024		# WeChat
@@ -155,13 +135,21 @@ install_store_apps() {
 		409203825		# Numbers
 	)
 
-	ask_for_confirmation "以下从 App Store 安装 WeChat、Pages、Numbers，你也可以跳过之后安装..."
-	if answer_is_yes; then
-		mas install "${apps[@]}"
-	fi
+	while true; do
+		read -p "Install [ Wechat|Pages|Numbers ] from Apple Store? [y/n]" prompt
+		case $prompt in
+			[Yy]*)
+				mas install "${apps[@]}"
+				break;;
+			[Nn]*)
+				break;;
+			*)
+				print_error 'Please answer yes or no.';;
+		esac
+	done
 }
 
-# 安装全局 Yarn 包
+# Install global yarn packages
 install_yarn_packages() {
 	packages=(
 		tern
@@ -169,14 +157,24 @@ install_yarn_packages() {
 		typescript
 	)
 
-	print_info '安装 Yarn 全局包...'
+	while true; do
+		read -p "Install Yarn packages [ TernJS|Webpack|Typescript ]? [y/n] " prompt
+		case $prompt in
+			[Yy]*)
+				yarn global add "${packages[@]}"
+				break;;
+			[Nn]*)
+				break;;
+			*)
 
-	yarn global add "${packages[@]}"
+				print_error 'Please answer yes or no.';;
+		esac
+	done
 }
 
-# Oh My Zsh
+# Install Oh My Zsh
 install_zsh() {
-	if [[ ! -d $dir/oh-my-zsh/ ]]; then
+	if [[ ! -d $dir/oh-my-zsh ]]; then
 		print_info '安装 Oh My Zsh...'
 
 		sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -187,52 +185,57 @@ install_zsh() {
 
 # 软链接相关配置文件
 symlinks_dotfiles() {
-	ask_for_confirmation '软链接配置文件'
+	while true; do
+		read -p "Symlinks dotfiles? [y/n]" prompt
+		case $prompt in
+			[Yy]*)
+				# Vim
+				ln -fs ~/.dotfiles/.vimrc ~/.vimrc
+				ln -fs ~/.dotfiles/.vim ~/.vim
 
-	if answer_is_yes; then
-		# Clone dotfiles
-		git clone https://github.com/RenChunhui/dotfiles.git ~/.dotfiles
+				# Neovim
+				ln -fs ~/.dotfiles/.vim ~/.config/nvim
+				ln -fs ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
 
-		# Vim
-		ln -s ~/.dotfiles/.vimrc ~/.vimrc
-		ln -s ~/.dotfiles/.vim ~/.vim
+				# Tmux
+				ln -fs ~/.dotfiles/.tmux.config ~/.tmux.config
 
-		# Neovim
-		ln -s ~/.dotfiles/.vim ~/.config/nvim
-		ln -s ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
+				# TernJS
+				ln -fs ~/.dotfiles/.tern-config ~/.tern-config
 
-		# Tmux
-		ln -s ~/.dotfiles/.tmux.config ~/.tmux.config
+				# Zsh
+				ln -fs ~/.dotfiles/.zshrc ~/.zshrc
 
-		# TernJS
-		ln -s ~/.dotfiles/.tern-config ~/.tern-config
-
-		# Zsh
-		rm -rf .zshrc
-		ln -s ~/.dotfiles/.zshrc ~/.zshrc
-	fi
+				# Font
+				cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+				break;;
+			[Nn]*)
+				break;;
+			*)
+				print_error 'Please answer yes or no.';;
+		esac
+	done
 }
 
-# 配置 Vim & Neovim
-setup_vim() {
-	ask_for_confirmation '安装Vim/NeoVim插件'
-
-	if answer_is_yes; then
-		vim
-	fi
-}
-
-# 系统设置
+# macOS settings
 setup_macos() {
-	ask_for_confirmation 'macOS 系统设置'
+	while true; do
+		read -p "macOS settings? [y/n] " prompt
+		case $prompt in
+			[Yy]*)
+				# iterm theme
+				open "${HOME}/.dotfiles/iterm/themes/one-dark.itermcolors"
 
-	if answer_is_yes; then
-		# iterm 主题
-		open "${HOME}/.dotfiles/iterm/themes/one-dark.itermcolors"
+				# Don’t display the annoying prompt when quitting iTerm
+				defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+				break;;
+			[Nn]*)
+				break;;
+			*)
 
-		# iterm 退出不显示提示
-		defaults write com.googlecode.iterm2 PromptOnQuit -bool false
-	fi
+				print_error 'Please answer yes or no.';;
+		esac
+	done
 }
 
 main() {
@@ -244,10 +247,9 @@ main() {
 	install_yarn_packages
 	install_zsh
 	symlinks_dotfiles
-	setup_vim
 	setup_macos
 
-	print_success '安装完成!'
+	print_success 'Complete install!'
 }
 
 main
