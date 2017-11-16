@@ -11,7 +11,8 @@ set textwidth=80                                                  " 文本宽度
 set wildmenu                                                      " vim 自身命令行模式智能补全
 set laststatus=2                                                  " 总是显示状态栏
 set number                                                        " 开启行号显示
-set ts=4
+set tabstop=2 shiftwidth=2 expandtab
+set relativenumber number																					" 相对行号: 行号变成相对，可以用 nj/nk 进行跳转
 
 " 不要生成swap文件，当buffer被丢弃的时候隐藏它
 setlocal noswapfile
@@ -29,3 +30,12 @@ if has('nvim')
 endif
 
 let g:airline_powerline_fonts = 1
+
+" autocmd FileType html setlocal foldmethod=syntax
+autocmd FileType html setlocal fdl=99
+
+" autocmd FileType javascript call JavaScriptFold()
+autocmd FileType javascript,html,css,scss,typescript setlocal foldlevel=99
+autocmd FileType javascript,typescript,css,scss,json setlocal foldmethod=marker
+autocmd FileType javascript,typescript,css,scss,json setlocal foldmarker={,}
+autocmd FileType coffee setl foldmethod=indent

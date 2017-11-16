@@ -1,1 +1,1 @@
-/Users/chunhui/.dotfiles/.vimrc
+/Users/chunhui/.vimrc

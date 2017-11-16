@@ -194,8 +194,8 @@ symlinks_dotfiles() {
 				ln -s ~/.dotfiles/.vim ~/.vim
 
 				# Neovim
-				ln -s ~/.dotfiles/.vim ~/.config/nvim
-				ln -s ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
+				ln -fs ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
+				ln -fs ~/.dotfiles/.vim ~/.config/nvim
 
 				# Tmux
 				ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
