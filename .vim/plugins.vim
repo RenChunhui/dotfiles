@@ -5,7 +5,9 @@ call plug#begin('~/.dotfiles/.vim/plugged')
 Plug 'vim-airline/vim-airline'                                    " 状态栏
 Plug 'ryanoasis/vim-devicons'                                     " icons
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'joshdick/onedark.vim'
+Plug 'joshdick/onedark.vim'																				" one dark 主题
+Plug 'sheerun/vim-polyglot'																				" 加强语法高亮
+
 
 " 程序语言
 " -------------------------------------
@@ -33,3 +35,17 @@ Plug 'ternjs/tern_for_vim'
 Plug 'SirVer/ultisnips'
 
 call plug#end()
+
+
+
+" joshdick/onedark.vim
+" -------------------------------------
+
+" 设置状态栏主题
+let g:airline_theme='onedark'
+" 加强注释效果
+let g:onedark_terminal_italics=1
+
+" NERDTree
+" -------------------------------------
+autocmd vimenter * NERDTree																						" 启动VIM自动打开目录

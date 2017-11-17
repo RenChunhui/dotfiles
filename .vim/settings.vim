@@ -29,6 +29,9 @@ if has('nvim')
 	let g:python3_host_prog = '/usr/local/bin/python3'
 endif
 
+" 主题设置
+colorscheme onedark
+
 let g:airline_powerline_fonts = 1
 
 " autocmd FileType html setlocal foldmethod=syntax
