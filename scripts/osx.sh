@@ -28,6 +28,13 @@ sudo systemsetup -setrestartfreeze on
 # 切勿进入电脑睡眠模式
 sudo systemsetup -setcomputersleep Off > /dev/null
 
+# 打开关闭窗口时禁用动画
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
+# 打开 Quick Look 窗口时禁用动画
+defaults write -g QLPanelAnimationDuration -float 0
+
+
 
 
 ###############################################################################
@@ -124,8 +131,11 @@ defaults write com.apple.dock tilesize -int 48
 # 最小化/最大化窗口效果
 defaults write com.apple.dock mineffect -string "scale"
 
-# 不启用 Dock 动画效果
+# Dock 打开应用时禁用动画
 defaults write com.apple.dock launchanim -bool false
+
+# 禁用 Spotlight
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
 
 
 
@@ -138,6 +148,15 @@ defaults write com.apple.terminal StringEncodings -array 4
 
 # 退出 iterm 时不显示提示
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+
+
+###############################################################################
+# Others                                                                      #
+###############################################################################
+
+# 阻止 Photo 自动打开
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 done
 
