@@ -40,6 +40,7 @@ YouCompleteMe
 
 ``` bash
 $ cd scripts
+$ chmod +x ./osx.sh
 $ ./osx.sh
 ```
 

@@ -158,6 +158,4 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 # 阻止 Photo 自动打开
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
-done
-
-echo '设置完成，其中一些更改需要注销/重新启动才能生效'
+printf "\e[0;32m  [✔] 设置完成，其中一些更改需要注销/重新启动才能生效\e[0m\n"
