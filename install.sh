@@ -101,7 +101,6 @@ install_brew_packages() {
 # Install Apps
 install_apps() {
 	apps=(
-		alfred
 		iterm2
 		google-chrome
 		webstorm
