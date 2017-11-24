@@ -135,7 +135,7 @@ defaults write com.apple.dock mineffect -string "scale"
 defaults write com.apple.dock launchanim -bool false
 
 # 禁用 Spotlight
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+# sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
 
 
 
