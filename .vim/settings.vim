@@ -1,7 +1,7 @@
 syntax enable                                                     " 开启语法高亮功能
 syntax on                                                         " 允许用指定语法高亮配色方案替换默认方案
 
-set mouse=a                                                       " 启用鼠标
+set mouse=                                                        " 禁用鼠标
 set termguicolors
 set encoding=utf-8                                                " 编码
 set guifont=<FONT_NAME>:h<FONT_SIZE>
