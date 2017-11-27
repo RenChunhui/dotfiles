@@ -85,3 +85,6 @@ setopt CHECK_JOBS
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# 终端打开 macvim
+alias vim='mvim -v'
