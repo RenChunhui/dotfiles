@@ -20,7 +20,14 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                                " git 插件
 Plug 'kien/ctrlp.vim'                                             " 文件查找
 Plug 'editorconfig/editorconfig-vim'                              " EditorConfig
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+if has('nvim')
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+	Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 Plug 'Valloric/YouCompleteMe'
 Plug 'ternjs/tern_for_vim'
 Plug 'SirVer/ultisnips'
