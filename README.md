@@ -1,5 +1,7 @@
 # Ren Chunhui's Dotfiles 
 
+[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg?style=flat-square)]()
+
 本配置比较适合Web前端开发人员，打造 [iTerm]() + [Zsh]() + [Vim]()/[NeoVim]() + [Tmux]() 开发，自动补全使用效率好的[YouCompleteMe]()(已解决YouCompleteMe安装却提示需要Python的问题)
 
 提示安装常用工具及App，如使用工具不一样的，可自已进行相关配置
