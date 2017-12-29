@@ -1,4 +1,4 @@
-call plug#begin('~/.dotfiles/.vim/plugged')
+call plug#begin('~/.dotfiles/.config/nvim/plugged')
 
 Plug 'vim-airline/vim-airline'                                    " 状态栏
 Plug 'ryanoasis/vim-devicons'                                     " icons
@@ -20,13 +20,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                                " git 插件
 Plug 'kien/ctrlp.vim'                                             " 文件查找
 Plug 'editorconfig/editorconfig-vim'                              " EditorConfig
 
-if has('nvim')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-	Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'Valloric/YouCompleteMe'
 Plug 'ternjs/tern_for_vim'
@@ -38,7 +32,7 @@ call plug#end()
 
 " 加载插件列表
 function! SourceConfig()
-	let path = '~/.vim/plugins'
+	let path = '~/.config/nvim/plugins'
 	let file_list = split(globpath(path,'*.vim'),'\n')
 
 	for file in file_list

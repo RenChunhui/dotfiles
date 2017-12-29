@@ -87,6 +87,7 @@ install_brew_packages() {
 		python
 		python3
 		neovim
+		aria2
 	)
 
 	print_info 'Install Homebrew packages...'
@@ -188,13 +189,8 @@ symlinks_dotfiles() {
 		read -p "Symlinks dotfiles? [y/n]" prompt
 		case $prompt in
 			[Yy]*)
-				# Vim
-				ln -s ~/.dotfiles/.vimrc ~/.vimrc
-				ln -s ~/.dotfiles/.vim ~/.vim
-
 				# Neovim
-				ln -fs ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
-				ln -fs ~/.dotfiles/.vim ~/.config/nvim
+				ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
 
 				# Tmux
 				ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
@@ -203,7 +199,10 @@ symlinks_dotfiles() {
 				ln -s ~/.dotfiles/.tern-config ~/.tern-config
 
 				# Zsh
-				ln -fs ~/.dotfiles/.zshrc ~/.zshrc
+				ln -s ~/.dotfiles/.zshrc ~/.zshrc
+
+				# aria2
+				ln -s ~/.dotfiles/.aria2 ~/.aria2
 
 				# Font
 				cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf

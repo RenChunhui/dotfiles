@@ -9,17 +9,17 @@
 " Copyright (c) 2017 Ren Chunhui. All rights reserved.
 "
 
-if empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " 插件
-source ~/.vim/plugins.vim
+source ~/.config/nvim/plugins.vim
 
 " 常规设置
-source ~/.vim/settings.vim
+source ~/.config/nvim/settings.vim
 
 " 快捷键
-source ~/.vim/keymap.vim
+source ~/.config/nvim/keymap.vim

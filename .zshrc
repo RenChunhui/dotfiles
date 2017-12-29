@@ -87,4 +87,4 @@ setopt CHECK_JOBS
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # 终端打开 macvim
-alias vim='mvim -v'
+alias vim='nvim'
