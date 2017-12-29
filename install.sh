@@ -111,10 +111,12 @@ install_apps() {
 		shadowsocksx-ng
 		sketch
 		the-unarchiver
+		postman
+		foxmail
 	)
 
 	while true; do
-		read -p "Install [ Alfred|iTerm2|Chrome|Webstorm|VSCode|QQ|IINA|ShadowsocksX|Sketch|The Unarchiver ]? [y/n] " prompt
+		read -p "Install Apps? [y/n] " prompt
 		case $prompt in
 			[Yy]*)
 				brew cask install "${apps[@]}"
@@ -193,7 +195,7 @@ symlinks_dotfiles() {
 				ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
 
 				# Tmux
-				ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
+				# ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 
 				# TernJS
 				ln -s ~/.dotfiles/.tern-config ~/.tern-config
