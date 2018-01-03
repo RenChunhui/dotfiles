@@ -1,47 +1,42 @@
-# Ren Chunhui's Dotfiles 
-
-[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg?style=flat-square)]()
-
-
 ## 安装
-
-``` bash
+```bash
 $ git clone https://github.com/RenChunhui/dotfiles.git .dotfiles
 $ cd .dotfiles
 $ chmod +x ./install.sh
-$ ./install.sh	
+$ ./install.sh
 ```
 
-## Vim & NeoVim 安装
+## 结构
 
-**插件YouCompleteMe所需的Python已在初使化环境中配置完成**
+### NeoVim
 
-> 适合前端 Vue、React.js、Typescript 相关开发，
+### Tmux
 
-``` bash
-$ cd ~/.config/nvim/plugged/YouCompleteMe
-$ ./install.py --js-completer
-```
+### Fonts
 
-NeoVim
+### iTerm
 
-<img src="./screenshorts/neovim.png" width="100%" height="100%">
+### Packages
 
-YouCompleteMe
+#### Apps
 
-<img src="./screenshorts/YouCompleteMe.png" width="100%" height="100%">
+#### Tools
 
-## macOS 设置
+#### VSCode 扩展
 
-``` bash
-$ cd scripts
-$ chmod +x ./osx.sh
-$ ./osx.sh
-```
+#### App Store 软件
 
-## 参考
-- [Nick Plekhanov's Dotfiles](https://github.com/nicksp/dotfiles.git)
+#### Yarn 全局包
+
+### VSCode
+
+### ZSH
+
+## 参考文献
+
+- [rkalis](https://github.com/rkalis/dotfiles)
+- [nicksp](https://github.com/nicksp/dotfiles)
 
 ## 许可证
 
-[MIT license](LICENSE).
+[MIT license](LICENSE)
