@@ -10,3 +10,6 @@ ln -s ~/.dotfiles/.tern-config ~/.tern-config
 
 # Zsh
 ln -fs ~/.dotfiles/.zshrc ~/.zshrc
+
+# neovim
+ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
