@@ -8,4 +8,4 @@ os:
   - osx
 
 script:
-  - bash packages/setup.sh
+  - bash tesh.sh
