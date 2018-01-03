@@ -1,5 +1,9 @@
-language: python
+language: bash
+
+sudo: false
+
 os:
   - osx
+
 script:
   - bash ./install.sh
