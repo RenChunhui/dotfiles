@@ -8,4 +8,4 @@ os:
   - osx
 
 script:
-  - bash ./test.sh
+  - bash ./install.sh
