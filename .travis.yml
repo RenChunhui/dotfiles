@@ -8,4 +8,4 @@ os:
   - osx
 
 script:
-  - bash ./install.sh
+  - bash packages/setup.sh
