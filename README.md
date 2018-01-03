@@ -7,30 +7,15 @@ $ ./install.sh
 ```
 
 ## 结构
-
-### NeoVim
-
-### Tmux
-
-### Fonts
-
-### iTerm
-
-### Packages
-
-#### Apps
-
-#### Tools
-
-#### VSCode 扩展
-
-#### App Store 软件
-
-#### Yarn 全局包
-
-### VSCode
-
-### ZSH
+文件夹 | 描述
+----|----
+.config | NeoVim 配置 
+iterm | iTerm2主题与图标 
+macos | macOS 系统设置  
+packages | 软件及工具的安装
+scripts | 相关脚本
+vscode  | VSCode 相关配置
+zsh | zsh 安装
 
 ## 参考文献
 
