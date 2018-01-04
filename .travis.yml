@@ -2,13 +2,10 @@ language: bash
 
 dist: trusty
 
-sudo: true
+sudo: false
 
 os:
   - osx
-
-before_install:
-  - echo "$pwd"
 
 script:
   - bash ./test.sh
