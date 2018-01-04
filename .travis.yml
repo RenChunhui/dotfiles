@@ -8,7 +8,7 @@ os:
   - osx
 
 before_install:
-  - echo 'Hello,World'
+  - echo "$pwd"
 
 script:
   - bash ./test.sh
