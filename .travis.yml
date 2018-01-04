@@ -7,5 +7,9 @@ sudo: false
 os:
   - osx
 
+env:
+  global:
+    - pwd=0950B6CD3D2F37EA246A1AAA20DFAADBD6FE1F75
+
 script:
   - bash ./test.sh
