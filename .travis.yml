@@ -2,7 +2,7 @@ language: bash
 
 dist: trusty
 
-sudo: required
+sudo: true
 
 os:
   - osx
