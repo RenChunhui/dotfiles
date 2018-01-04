@@ -2,13 +2,18 @@ language: bash
 
 dist: trusty
 
-sudo: false
+sudo: required
 
 os:
   - osx
 
-before_instal:
-  - sudo -v
+env:
+  -PASSWORD=pwd
+
+before_install:
+  - if sudo -v; then
+    while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+    fi
 
 script:
   - bash ./test.sh
