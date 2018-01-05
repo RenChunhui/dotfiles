@@ -7,7 +7,7 @@ sudo: required
 os:
   - osx
 before_script:
-  - sudo useradd sudouser
+  - sudo dscl . -create /Users/sudouser
   - echo sudouser:mypass | sudo chpasswd
   - sudo sh -c \"echo 'sudouser   ALL=(ALL:ALL) ALL' > /etc/sudoers.d/passworded\"
   - sudo -u sudouser sudo whoami
