@@ -7,7 +7,10 @@ sudo: required
 os:
   - osx
 before_script:
-  - sudo vi /etc/sudoers
+  - sudo useradd sudouser
+  - echo sudouser:mypass | sudo chpasswd
+  - sudo sh -c \"echo 'sudouser   ALL=(ALL:ALL) ALL' > /etc/sudoers.d/passworded\"
+  - sudo -u sudouser sudo whoami
 
 script:
   - bash ./install.sh
