@@ -2,6 +2,8 @@ language: generic
 sudo: false
 os:
   - osx
+before_script:
+  - mas signin mas@example.com "ZdkM4f$gzF;gX3ABXNLf8KcCt.x.np"
 script:
   - bash packages/setup.sh
   - bash zsh/setup.sh
