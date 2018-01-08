@@ -1,19 +1,8 @@
 language: generic
-
-dist: trusty
-
-sudo: required
-
+sudo: false
 os:
   - osx
-before_script:
-  - sudo dscl . -create /Users/sudouser
-  - echo sudouser:mypass | sudo chpasswd
-  - sudo sh -c \"echo 'sudouser   ALL=(ALL:ALL) ALL' > /etc/sudoers.d/passworded\"
-  - sudo -u sudouser sudo whoami
-
 script:
   - bash ./install.sh
-
 notifications:
   email: false
