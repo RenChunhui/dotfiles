@@ -3,6 +3,9 @@ sudo: false
 os:
   - osx
 script:
-  - bash ./install.sh
+  - bash packages/setup.sh
+  - bash zsh/setup.sh
+  - bash macos/setup.sh
+  - bash scripts/symlink-dotfiles.sh
 notifications:
   email: false
