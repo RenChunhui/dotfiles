@@ -3,6 +3,7 @@ sudo: false
 os:
   - osx
 before_script:
+  - brew install mas
   - mas signin mas@example.com "ZdkM4f$gzF;gX3ABXNLf8KcCt.x.np"
 script:
   - bash packages/setup.sh
