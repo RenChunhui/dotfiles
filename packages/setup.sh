@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env sh
 
 DIR=$(dirname "$0")
 cd "$DIR"
@@ -7,8 +7,15 @@ cd "$DIR"
 
 COMMENT=\#*
 
+sudo -v
+
+print_info "Installing Brewfile packages..."
+brew bundle
+print_success "Finished installing Brewfile packages."
+
 find * -name "*.list" | while read fn; do
-  cmd="${fn%.*}"
+  path=${fn%.*}
+  cmd=${path#*/}
   set -- $cmd
 
   print_info "Installing $1 packages..."
