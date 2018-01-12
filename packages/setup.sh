@@ -11,6 +11,7 @@ sudo -v
 
 print_info "Installing Brewfile packages..."
 brew bundle
+brew install yarn mas
 print_success "Finished installing Brewfile packages."
 
 find * -name "*.list" | while read fn; do
