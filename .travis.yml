@@ -2,13 +2,7 @@ language: generic
 sudo: false
 os:
   - osx
-before_script:
-  - brew install mas
-  - mas signin mas@example.com "ZdkM4f$gzF;gX3ABXNLf8KcCt.x.np"
 script:
-  - bash packages/setup.sh
-  - bash zsh/setup.sh
-  - bash macos/setup.sh
-  - bash scripts/symlink-dotfiles.sh
+  - bash ./install.sh
 notifications:
   email: false
