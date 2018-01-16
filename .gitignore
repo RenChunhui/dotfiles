@@ -1,2 +1,6 @@
 .DS_Store
 .config/nvim/plugged/*
+
+docs/_site
+docs/.sass-cache
+docs/.jekyll-metadata
