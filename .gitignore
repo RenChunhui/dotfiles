@@ -4,3 +4,6 @@
 docs/_site
 docs/.sass-cache
 docs/.jekyll-metadata
+
+.config/nvim/repos
+.config/nvim/.cache
