@@ -1,0 +1,37 @@
+# 配置文件
+
+# 外观
+# --------------------
+Appearance:
+  # 主题
+  - theme: 0
+  # 文件图标
+  - fileIcon: 0
+
+# 快捷键
+# --------------------
+Keymap: 0
+
+# 编辑器
+# --------------------
+Editor:
+  # 常规
+  - General:
+    - mouse: 0              # 是否启用鼠标
+    - number: 1             # 是否显示行号
+  # 缩进
+  - Indents:
+    - textwidth: 80         # 文本宽度最大值
+  # 搜索
+  - Search:
+
+# 语言
+# --------------------
+Languages:
+  - html: 0
+  - css: 0
+  - javascript: 0
+  - typescript: 0
+  - json: 0
+
+
