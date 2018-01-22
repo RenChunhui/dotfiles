@@ -1,7 +1,7 @@
 # 配置文件
 
 # 外观
-# --------------------
+# ==========================================
 Appearance:
   # 主题
   - theme: 0
@@ -9,24 +9,60 @@ Appearance:
   - fileIcon: 0
 
 # 快捷键
-# --------------------
+# ==========================================
 Keymap: 0
 
-# 编辑器
-# --------------------
-Editor:
+# 常规设置
+# ==========================================
+General:
   # 常规
-  - General:
-    - mouse: 0              # 是否启用鼠标
-    - number: 1             # 是否显示行号
+  - mouse=nv
+  - fileformats=unix,dos,mac
   # 缩进
-  - Indents:
-    - textwidth: 80         # 文本宽度最大值
+  - textwidth=80                          # 文本宽度最大字符数
+  - noexpandtab
+  - tabstop=2
+  - shiftwidth=2
+  - smarttab
+  - autoindent
+  - smartindent
+  - shiftround
   # 搜索
-  - Search:
+  - ignorecase
+  - smartcase
+  - infercase
+  - hlsearch
+  - wrapscan
+  - showmatch
+  - matchpairs+=<:>
+  - matchtime=1
+  - cpoptions-=m
+  # 外观
+  - noshowmode
+  - shortmess=aoOTI
+  - scrolloff=2
+  - sidescrolloff=5
+  - number
+  - noruler
+  - list
+
+  - showtabline=2
+  - winwidth=30
+  - winheight=1
+  - pumheight=15
+  - helpheight=12
+  - previewheight=12
+
+  - noshowcmd
+  - cmdheight=2
+  - cmdwinheight=5
+  - noequalalways
+  - laststatus=2
+  - colorcolumn=80
+  - display=lastline
 
 # 语言
-# --------------------
+# ==========================================
 Languages:
   - html: 0
   - css: 0
@@ -34,4 +70,24 @@ Languages:
   - typescript: 0
   - json: 0
 
-
+# 插件列表
+# ==========================================
+Plugins:
+  - { repo: scrooloose/nerdtree }
+  - { repo: tiagofumo/vim-nerdtree-syntax-highlight}
+  - { repo: Xuyuanp/nerdtree-git-plugin}
+  - { repo: kien/ctrlp.vim}
+  - { repo: editorconfig/editorconfig-vim}
+  - { repo: }
+  - { repo: }
+  - { repo: }
+  - { repo: }
+  - { repo: }
+  - { repo: }
+  - { repo: }
+  - { repo: }
+  - { repo: }
+  - { repo: }
+  - { repo: }
+  - { repo: }
+  - { repo: }
