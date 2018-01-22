@@ -8,25 +8,19 @@
 " Since     : 2018-01-18
 " Repo      : https://github.com/renchunhui/dotfiles
 
+
+
 " YAML 配置
 function! LoadYAML()
+let config_path = expand('~/.config/nvim/config.yaml')
 
 python3 << EOF
 import yaml,vim
 
-config = open("./.config/nvim/config.yaml")
+config = open(vim.eval("config_path"))
 vim.vars['configData'] = yaml.load(config)
 EOF
 
-endfunction
-
-function! LoadConfig()
-	let path = '~/.config/nvim/user'
-	let file_list = split(globpath(path,'*.vim'),'\n')
-
-	for file in file_list
-		execute 'source' fnameescape(file)
-	endfor
 endfunction
 
 " 常规设置
@@ -38,15 +32,25 @@ endfunction
 
 " 插件安装
 function! AutoPlugins()
-  if empty(glob('~/.config/autoload/plug.vim'))
-    silent curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  if empty(glob('~/.config/nvim/autoload/plug.vim'))
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
   endif
 
   call plug#begin('~/.config/nvim/plugged')
+
+  for item in g:configData["Plugins"]
+    if has_key(item,'options')
+      execute "Plug '" . item['repo'] . "', { " . item['options'] . " }"
+    else
+      execute "Plug '" . item['repo'] . "'"
+    endif
+  endfor
+
   call plug#end()
 endfunction
 
 call LoadYAML()
 call AutoGeneral()
+call AutoPlugins()

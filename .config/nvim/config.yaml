@@ -16,8 +16,12 @@ Keymap: 0
 # ==========================================
 General:
   # 常规
-  - mouse=nv
+  - encoding=utf-8                        # 编码
+  - mouse=                                # 禁用鼠标
+  - termguicolors
+  - shell=/bin/zsh                        # 将 Shell 设置成 zsh
   - fileformats=unix,dos,mac
+  - wildmenu                              # vim 自身命令行模式智能补全
   # 缩进
   - textwidth=80                          # 文本宽度最大字符数
   - noexpandtab
@@ -42,7 +46,7 @@ General:
   - shortmess=aoOTI
   - scrolloff=2
   - sidescrolloff=5
-  - number
+  - number                                # 显示行号
   - noruler
   - list
 
@@ -61,9 +65,10 @@ General:
   - colorcolumn=80
   - display=lastline
 
-# 语言
+# 插件开关
 # ==========================================
-Languages:
+Switch:
+  - icon: 0
   - html: 0
   - css: 0
   - javascript: 0
@@ -78,16 +83,17 @@ Plugins:
   - { repo: Xuyuanp/nerdtree-git-plugin}
   - { repo: kien/ctrlp.vim}
   - { repo: editorconfig/editorconfig-vim}
-  - { repo: }
-  - { repo: }
-  - { repo: }
-  - { repo: }
-  - { repo: }
-  - { repo: }
-  - { repo: }
-  - { repo: }
-  - { repo: }
-  - { repo: }
-  - { repo: }
-  - { repo: }
-  - { repo: }
+
+  - { repo: vim-airline/vim-airline}
+  - { repo: ryanoasis/vim-devicons}
+  - { repo: joshdick/onedark.vim}
+
+  - { repo: othree/html5.vim}
+
+  - { repo: cakebaker/scss-syntax.vim, options: "'for': 'scss'" }
+  - { repo: othree/yajs.vim,           options: "'for': 'javascript'" }
+  - { repo: othree/javascript-libraries-syntax.vim}
+  - { repo: pangloss/vim-javascript,   options: "'for': 'javascript'" }
+
+  - { repo: othree/jsdoc-syntax.vim }
+  - { repo: ternjs/tern_for_vim }
