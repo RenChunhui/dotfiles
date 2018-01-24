@@ -60,6 +60,9 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 
+" macOS 使用平滑反锯齿的字体
+set autochdir
+
 if has('nvim')
 	let g:python2_host_prog = '/usr/local/bin/python'
 	let g:python3_host_prog = '/usr/local/bin/python3'
@@ -67,3 +70,8 @@ endif
 
 " 主题设置
 colorscheme onedark
+
+" Omni completion
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css,scss set omnifunc=csscomplete#CompleteCSS
+autocmd FileType javascript set omnifunc=jscomplete#CompleteJS

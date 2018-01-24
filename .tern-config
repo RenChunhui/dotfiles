@@ -1,7 +1,5 @@
 {
   "plugins": {
-    "node": {},
-    "node_resolve": {},
     "es_modules": {},
     "modules": {}
   },
