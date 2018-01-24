@@ -36,6 +36,9 @@ call dein#begin(expand('~/.config/nvim'))
   call dein#add('HerringtonDarkholme/yats.vim',{'on_ft':'typescript'})
   call dein#add('mhartington/nvim-typescript',{'on_ft':'typescript'})
 
+  " Vue
+  call dein#add('posva/vim-vue')
+
   if dein#check_install()
     call dein#install()
     let pluginsExist=1
