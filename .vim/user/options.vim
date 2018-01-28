@@ -1,12 +1,11 @@
-
 " 开启语法高亮功能
 syntax enable
 " 允许用指定语法高亮配色方案替换默认方案
 syntax on
+set termguicolors
 
 " 禁用鼠标
-set mouse=
-set termguicolors
+set mouse=a
 " 编码
 set encoding=utf-8
 set guifont=<FONT_NAME>:h<FONT_SIZE>
@@ -29,12 +28,12 @@ set shiftwidth=2
 set expandtab
 " 自动对齐
 set autoindent
-" 相对行号: 行号变成相对，可以用 nj/nk 进行跳转
-set relativenumber number
 " 显示括号配对情况
 set showmatch
 " 右下角显示光标位置的状态行
 set ruler
+" 显示未完成的命令
+set showcmd
 
 " 查找book时，当输入/b时会自动找到
 set incsearch
@@ -44,11 +43,14 @@ set hlsearch
 set incsearch
 " 搜索到文件两端时不重新搜索
 set nowrapscan
+" 区分大小写
+set ignorecase
 
 " 设置不自动换行
 set nowrap
 " 显示标签栏, 0 为隐藏
 set showtabline=2
+set list
 
 " 不要生成swap文件，当buffer被丢弃的时候隐藏它
 setlocal noswapfile
@@ -72,6 +74,7 @@ endif
 colorscheme onedark
 
 " Omni completion
+filetype plugin on
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css,scss set omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript set omnifunc=jscomplete#CompleteJS

@@ -10,7 +10,7 @@
 
 " 加载插件列表
 function! LoadConfig()
-	let path = '~/.config/nvim/plugins'
+	let path = '~/.vim/plugins'
 	let file_list = split(globpath(path,'*.vim'),'\n')
 
 	for file in file_list
@@ -19,9 +19,9 @@ function! LoadConfig()
 endfunction
 
 " 插件
-source $HOME/.config/nvim/plugins.vim
+source $HOME/.vim/plugins.vim
 
-" 常规设置
-source $HOME/.config/nvim/general.vim
+" 属性
+source $HOME/.vim/options.vim
 
 call LoadConfig()
