@@ -3,6 +3,6 @@ sudo: false
 os:
   - osx
 script:
-  - bash ./install.sh
+  - make install
 notifications:
   email: false
