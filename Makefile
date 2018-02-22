@@ -1,5 +1,5 @@
 # Install
-install: | brew vscode osx font
+install: | brew gem osx font vscode
 
 # Homebrew
 brew:
@@ -9,6 +9,7 @@ brew:
 # VSCode
 .PHONY: vscode
 vscode:
+	@code --install-extension akamud.vscode-theme-onedark
 	@code --install-extension formulahendry.auto-close-tag
 	@code --install-extension formulahendry.auto-rename-tag
 	@code --install-extension msjsdiag.debugger-for-chrome
@@ -16,7 +17,6 @@ vscode:
 	@code --install-extension ecmel.vscode-html-css
 	@code --install-extension abusaidm.html-snippets
 	@code --install-extension Zignd.html-css-class-completion
-	@code --install-extension zhuangtongfa.material-theme
 	@code --install-extension christian-kohler.path-intellisense
 	@code --install-extension octref.vetur
 	@code --install-extension vscodevim.vim
@@ -39,3 +39,7 @@ symlinks:
 .PHONY: font
 font:
 	cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+
+#	Gemfile
+gem:
+	bundle install
