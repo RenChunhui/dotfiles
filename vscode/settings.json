@@ -1,0 +1,8 @@
+{
+  "workbench.iconTheme": "vscode-icons",
+  "editor.minimap.enabled": false,
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "vim.enableNeovim": false,
+  "workbench.colorTheme": "Base16 Seti UI Dark",
+  "vsicons.projectDetection.disableDetect": true
+}

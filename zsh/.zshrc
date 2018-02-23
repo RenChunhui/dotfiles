@@ -10,4 +10,4 @@ source $ZSH/oh-my-zsh.sh
 
 setopt CHECK_JOBS
 
-alias vim="nvim"
+# alias vim="nvim"
