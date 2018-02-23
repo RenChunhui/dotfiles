@@ -134,8 +134,8 @@ defaults write com.apple.dock mineffect -string "scale"
 # Dock 打开应用时禁用动画
 defaults write com.apple.dock launchanim -bool false
 
-# 禁用 Spotlight
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+# 启用 Spotlight
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
 
 
 
@@ -146,8 +146,13 @@ sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.pl
 # 使用 UTF-8 编码
 defaults write com.apple.terminal StringEncodings -array 4
 
-# 退出 iterm 时不显示提示
+# iTerm2 - 退出时不显示提示
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+# iTerm2 - 字体设置
+/usr/libexec/PlistBuddy -c "Set 'New Bookmarks':0:'Normal Font' DroidSansMonoNerdFontC- 13" ~/Library/Preferences/com.googlecode.iTerm2.plist
+/usr/libexec/PlistBuddy -c "Set 'New Bookmarks':0:'Non Ascii Font' DroidSansMonoNerdFontC- 13" ~/Library/Preferences/com.googlecode.iTerm2.plist
+
 
 
 
