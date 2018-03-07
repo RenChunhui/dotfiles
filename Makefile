@@ -42,8 +42,7 @@ zsh:
 symlinks:
 	@ln -vsf ${PWD}/zsh/.zshrc ~/.zshrc
 	@ln -vsf ${PWD}/tmux/.tmux.conf ~/.tmux.conf
-	@ln -vsf ${PWD}/vim/.vimrc ~/.vimrc
-	@ln -vsf ${PWD}/vim/.vim ~/.vim
+	@ln -vsf ${PWD}/nvim ~/.config/nvim
 	@ln -vsf ${PWD}/vscode/settings.json ~/Library/Application\ Support/Code/User
 	@rm -rf ~/Library/Application\ Support/Code/User/snippets
 	@ln -vsf ${PWD}/vscode/snippets/ ~/Library/Application\ Support/Code/User

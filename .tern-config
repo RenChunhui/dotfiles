@@ -1,0 +1,15 @@
+{
+  "plugins": {
+    "node": {},
+    "node_resolve": {},
+    "es_modules": {},
+    "modules": {}
+  },
+  "libs": [
+    "browser",
+    "ecma5",
+    "ecma6",
+    "react"
+  ],
+  "ecmaVersion": 6
+}
