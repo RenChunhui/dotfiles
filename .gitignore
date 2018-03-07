@@ -1,9 +1,5 @@
 .DS_Store
 
-docs/_site
-docs/.sass-cache
-docs/.jekyll-metadata
-
-.config/configstore
-.config/nvim/repos
-.config/nvim/.cache
+nvim/plugged
+nvim/repos
+nvim/.cache
