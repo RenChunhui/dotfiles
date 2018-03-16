@@ -1,6 +1,3 @@
-" source ~/.vim/basic.vim
-" source ~/.vim/filetypes.vim
-
 "
 "                ╔══════════════════════════════════════════╗
 "                ║       ⎋ PERSONAL VIM CONFIG FILE ⎋       ║
@@ -34,7 +31,7 @@ call dein#add('othree/html5.vim',{'on_ft':'html'})
 call dein#add('alvan/vim-closetag',{'on_ft':'html'})
 
 " CSS
-call dein#add('hail2u/vim-css3-syntax',{'on_ft':'css'})
+call dein#add('hail2u/vim-css3-syntax',{'on_ft':'css,scss,sass'})
 call dein#add('ap/vim-css-color',{'on_ft':'css,scss,sass'})
 call dein#add('cakebaker/scss-syntax.vim',{'on_ft':'scss,sass'})
 call dein#add('othree/csscomplete.vim',{'on_ft':'css'})
@@ -50,6 +47,8 @@ call dein#add('othree/jspc.vim')
 " TypeScript
 call dein#add('leafgarland/typescript-vim')
 call dein#add('HerringtonDarkholme/yats.vim')
+call dein#add('mhartington/nvim-typescript')
+call dein#add('Quramy/tsuquyomi')
 
 call dein#add('kien/ctrlp.vim')
 
@@ -90,7 +89,6 @@ set noignorecase
 if has('nvim')
 	let g:python2_host_prog = '/usr/local/bin/python'
 	let g:python3_host_prog = '/usr/local/bin/python3'
-
 endif
 " }}}
 
