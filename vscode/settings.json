@@ -3,9 +3,9 @@
   "editor.minimap.enabled": false,
   "terminal.integrated.shell.osx": "/bin/zsh",
   "vim.enableNeovim": false,
-  "workbench.colorTheme": "Base16 Seti UI Dark",
   "vsicons.projectDetection.disableDetect": true,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "git.autofetch": true
+  "git.autofetch": true,
+  "workbench.colorTheme": "Base16 Default Dark"
 }
