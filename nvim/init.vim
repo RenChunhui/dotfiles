@@ -18,13 +18,18 @@ call dein#begin(expand('~/.config/nvim'))
 
 call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/deoplete.nvim')
+
+" Tools
 call dein#add('scrooloose/nerdtree')
-
-call dein#add('ryanoasis/vim-devicons')
-
 call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
-call dein#add('vim-airline/vim-airline')
 call dein#add('editorconfig/editorconfig-vim')
+call dein#add('ctrlpvim/ctrlp.vim')
+
+" Appearance
+call dein#add('ryanoasis/vim-devicons')
+call dein#add('vim-airline/vim-airline')
+call dein#add('vim-airline/vim-airline-themes')
+call dein#add('chriskempson/base16-vim')
 
 " HTML
 call dein#add('othree/html5.vim',{'on_ft':'html'})
@@ -50,8 +55,6 @@ call dein#add('HerringtonDarkholme/yats.vim')
 call dein#add('mhartington/nvim-typescript')
 call dein#add('Quramy/tsuquyomi')
 
-call dein#add('kien/ctrlp.vim')
-
 if dein#check_install()
   call dein#install()
   let pluginsExist=1
@@ -73,7 +76,7 @@ set title
 set number
 set showmode
 syntax enable
-colorscheme base16-seti
+colorscheme base16-default-dark
 set laststatus=2
 
 " Tabs and Indents
@@ -151,8 +154,12 @@ autocmd FileType typescript :set makeprg=tsc
 augroup airline_config
   " 启用插件
   let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#formatter = 'default'
+  let g:airline_theme='base16'
 augroup END
 " }}}
+
+let base16colorspace=256
 
 " NERDTree {{{
 augroup nerdtree_config
@@ -169,19 +176,27 @@ augroup END
 " Vim-Devicons {{{
 augroup devicons_config
   set guifont=DroidSansMono_Nerd_Font:h11
+  let g:webdevicons_enable = 1
+  let g:webdevicons_enable_nerdtree = 1
   let g:airline_powerline_fonts = 1
   let g:NERDTreeGitStatusNodeColorization = 1
   let g:webdevicons_enable_denite = 1
   let g:WebDevIconsOS = 'Darwin'
   let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+  let g:DevIconsEnableFoldersOpenClose = 1
   let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ''
-  let g:WebDevIconsUnicodeDecorateFolderNodes = 1
   let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
   let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['ts'] = ''
   let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['css'] = ''
   let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
   let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = ''
   let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
+
+  let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {} " needed
+  let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['ionic.config.json'] = ''
+  let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['package.json'] = ''
+  let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['package.lock'] = ''
+  let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.gitignore'] = ''
 augroup END
 " }}}
 
