@@ -2,7 +2,17 @@ language: generic
 sudo: false
 os:
   - osx
+before_install:
+  - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  - brew install mas
+  - brew install tmux
+  - brew install node
+  - brew install yarn
+  - brew cask install visual-studio-code
 script:
-  - make install
+  - make gem font vscode zsh symlinks osx
 notifications:
   email: false
+deploy:
+  api_key:
+    secure: c14083e9716741a48a119141b4781bf4b5c59568
