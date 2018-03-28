@@ -1,6 +1,9 @@
 # macOS 配置文件
 
 [![Build Status](https://travis-ci.org/RenChunhui/dotfiles.svg?branch=master)](https://travis-ci.org/RenChunhui/dotfiles)
+![homebrew](https://img.shields.io/homebrew/v/cake.svg)
+![GitHub language count](https://img.shields.io/github/languages/count/RenChunhui/dotfiles.svg)
+![GitHub followers](https://img.shields.io/github/followers/renchunhui.svg?style=social&label=Follow)
 
 ## 安装
 
