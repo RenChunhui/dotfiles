@@ -3,3 +3,5 @@
 nvim/plugged
 nvim/repos
 nvim/.cache
+
+.vim/plugged

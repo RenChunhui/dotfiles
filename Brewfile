@@ -26,7 +26,7 @@ cask 'quicklook-json'
 cask 'qlimagesize'
 cask 'webpquicklook'
 
-mas 'Xcode', id: 497799835
+# mas 'Xcode', id: 497799835
 mas 'WeChat', id: 836500024
 mas 'Pages', id: 409201541
 mas 'Numbers', id: 409203825
