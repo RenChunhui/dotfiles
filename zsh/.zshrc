@@ -11,4 +11,4 @@ source $ZSH/oh-my-zsh.sh
 setopt CHECK_JOBS
 
 # alias vim="nvim"
-export PATH=$PATH:~/Downloads/platform-tools/
+alias vim='/usr/local/Cellar/vim/8.0.1650_1/bin/vim'
