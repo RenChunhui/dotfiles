@@ -15,10 +15,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " plugins
-source ~/.vim/custom/plugins.vim
+source ~/.vim/config/plugins.vim
 
 " settings
-source ~/.vim/custom/settings.vim
+source ~/.vim/config/general.vim
 
-" auto complete
-source ~/.vim/custom/autocomplete.vim
+" key maps
+source ~/.vim/config/mappings.vim
+
+" filetype
+source ~/.vim/config/filetype.vim

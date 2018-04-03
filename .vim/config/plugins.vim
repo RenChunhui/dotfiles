@@ -11,15 +11,22 @@ Plug 'mhinz/vim-startify'
 " AutoComplete
 Plug 'Valloric/YouCompleteMe'
 Plug 'ternjs/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
+Plug 'SirVer/ultisnips'
 
 " HTML & CSS
 Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'alvan/vim-closetag', { 'for': 'html'}
 Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss','sass'] }
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'hail2u/vim-css3-syntax',{ 'for': ['sass','scss'] }
 
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'othree/yajs.vim', { 'for': 'javascript' }                   " js语法高亮
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }           " javascript
+Plug 'mxw/vim-jsx', { 'for': 'javascript' }                       " React.js
+Plug 'othree/jsdoc-syntax.vim'
 
 " TypeScript
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
@@ -37,24 +44,14 @@ call plug#end()
 filetype plugin indent on
 
 
-" Plugin settings --------------------------------------------------------- {{{
-" NERDTree {{{
-autocmd vimenter * NERDTree
-map <C-n> :NERDTreeToggle<CR>
-" }}}
+" 加载插件列表
+function! SourceConfig()
+	let path = '~/.vim/config/plugins'
+	let file_list = split(globpath(path,'*.vim'),'\n')
 
-" TypeScript {{{
-let g:typescript_compiler_binary = 'tsc'
-let g:typescript_compiler_options = ''
+	for file in file_list
+		execute 'source' fnameescape(file)
+	endfor
+endfunction
 
-autocmd FileType typescript :set makeprg=tsc
-" }}}
-
-" Tmux {{{
-" tmux 主题
-let g:tmuxline_theme = 'airline'
-let g:airline#extensions#tmuxline#enabled = 0
-" 不显示符号
-let g:tmuxline_powerline_separators = 0
-" }}}
-" }}}
+call SourceConfig()
