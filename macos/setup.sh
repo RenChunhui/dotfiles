@@ -163,4 +163,20 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 # 阻止 Photo 自动打开
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
+
+
+
+###############################################################################
+# VSCode                                                                      #
+###############################################################################
+
+# For VS Code
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+# For VS Code Insider
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
+
+# If necessary, reset global default
+defaults delete -g ApplePressAndHoldEnabled
+
 printf "\e[0;32m  [✔] 设置完成，其中一些更改需要注销/重新启动才能生效\e[0m\n"
