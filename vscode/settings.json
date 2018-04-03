@@ -2,10 +2,13 @@
   "workbench.iconTheme": "vscode-icons",
   "editor.minimap.enabled": false,
   "terminal.integrated.shell.osx": "/bin/zsh",
-  "vim.enableNeovim": false,
+  "vim.enableNeovim": true,
   "vsicons.projectDetection.disableDetect": true,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "git.autofetch": true,
-  "workbench.colorTheme": "Base16 Default Dark"
+  "workbench.colorTheme": "Atom One Dark",
+  "editor.fontSize": 13,
+  "vim.neovimPath": "/usr/local/bin/nvim",
+  "vim.leader": "<space>"
 }

@@ -30,6 +30,7 @@ vscode:
 	@code --install-extension octref.vetur
 	@code --install-extension vscodevim.vim
 	@code --install-extension robertohuertasm.vscode-icons
+	@code --install-extension ms-python.python
 
 # Oh-my-Zsh
 zsh:

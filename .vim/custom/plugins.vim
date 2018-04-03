@@ -30,11 +30,31 @@ Plug 'ynkdir/vim-vimlparser', { 'for': 'vim' }
 
 " Tmux
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
+Plug 'edkolev/tmuxline.vim', { 'for': 'tmux' }
 
 call plug#end()
 
 filetype plugin indent on
 
-" NERDTree
+
+" Plugin settings --------------------------------------------------------- {{{
+" NERDTree {{{
 autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
+" }}}
+
+" TypeScript {{{
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+
+autocmd FileType typescript :set makeprg=tsc
+" }}}
+
+" Tmux {{{
+" tmux 主题
+let g:tmuxline_theme = 'airline'
+let g:airline#extensions#tmuxline#enabled = 0
+" 不显示符号
+let g:tmuxline_powerline_separators = 0
+" }}}
+" }}}
