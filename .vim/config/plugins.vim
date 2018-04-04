@@ -6,7 +6,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'joshdick/onedark.vim'
-Plug 'mhinz/vim-startify'
 
 " AutoComplete
 Plug 'Valloric/YouCompleteMe'
@@ -22,10 +21,10 @@ Plug 'hail2u/vim-css3-syntax',{ 'for': ['sass','scss'] }
 
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'othree/yajs.vim', { 'for': 'javascript' }                   " js语法高亮
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }           " javascript
-Plug 'mxw/vim-jsx', { 'for': 'javascript' }                       " React.js
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'othree/jsdoc-syntax.vim'
 
 " TypeScript
@@ -35,9 +34,8 @@ Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'syngan/vim-vimlint', { 'for': 'vim' }
 Plug 'ynkdir/vim-vimlparser', { 'for': 'vim' }
 
-" Tmux
+" " Tmux
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
-Plug 'edkolev/tmuxline.vim', { 'for': 'tmux' }
 
 call plug#end()
 
