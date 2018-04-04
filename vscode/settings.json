@@ -10,5 +10,5 @@
   "workbench.colorTheme": "Atom One Dark",
   "editor.fontSize": 13,
   "vim.neovimPath": "/usr/local/bin/nvim",
-  "vim.leader": "<space>"
+  "vim.leader": "<space>",
 }
