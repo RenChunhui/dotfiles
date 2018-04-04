@@ -8,7 +8,7 @@
 ![GitHub stars](https://img.shields.io/github/stars/RenChunhui/dotfiles.svg?style=social&label=Stars)
 ![Twitter Follow](https://img.shields.io/twitter/follow/renchunhui2008.svg?style=social&label=Follow)
 
-<img src="screenshot/1.jpg" width = "1280" height = "800" alt="" align=center />
+![screenshot](screenshot/1.jpg)
 
 ## 安装
 
