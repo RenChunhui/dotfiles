@@ -12,7 +12,6 @@ script:
   - make gem
   - make font
   - make vscode
-  - make zsh
   - make symlinks
   - make osx
 notifications:
