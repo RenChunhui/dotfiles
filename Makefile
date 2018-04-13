@@ -49,6 +49,9 @@ symlinks:
 	@ln -vsf ${PWD}/.vimrc ~/.vimrc
 	@ln -vsf ${PWD}/.vim ~/.vim
 	@ln -vsf ${PWD}/.tern-config ~/.tern-config
+	@ln -vsf ${PWD}/.emacs.d ~/.emacs.d
+emacs:
+	@ln -vsf ${PWD}/.emacs.d ~/.emacs.d
 # 系统设置
 osx:
 	@chmod +x ./macos/setup.sh

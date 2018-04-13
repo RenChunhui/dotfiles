@@ -11,4 +11,5 @@
   "editor.fontSize": 13,
   "vim.neovimPath": "/usr/local/bin/nvim",
   "vim.leader": "<space>",
+  "git.confirmSync": false,
 }
