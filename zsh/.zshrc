@@ -4,7 +4,11 @@ ZSH_THEME="robbyrussell"
 
 HIST_STAMPS="yyyy-mm-dd"
 
-plugins=( zsh-autosuggestions zsh-syntax-highlighting git )
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
