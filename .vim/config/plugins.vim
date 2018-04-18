@@ -38,6 +38,9 @@ Plug 'ynkdir/vim-vimlparser', { 'for': 'vim' }
 " " Tmux
 Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 
+" Jekyll
+Plug 'tpope/vim-liquid', { 'for': 'html' }
+
 call plug#end()
 
 filetype plugin indent on
