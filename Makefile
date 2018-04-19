@@ -17,8 +17,6 @@ font:
 
 # VSCode
 vscode:
-	@code --install-extension akamud.vscode-theme-onedark
-	@code --install-extension golf1052.base16-generator
 	@code --install-extension msjsdiag.debugger-for-chrome
 	@code --install-extension EditorConfig.EditorConfig
 	@code --install-extension Zignd.html-css-class-completion
