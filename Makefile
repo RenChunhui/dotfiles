@@ -19,18 +19,13 @@ font:
 vscode:
 	@code --install-extension akamud.vscode-theme-onedark
 	@code --install-extension golf1052.base16-generator
-	@code --install-extension formulahendry.auto-close-tag
-	@code --install-extension formulahendry.auto-rename-tag
 	@code --install-extension msjsdiag.debugger-for-chrome
 	@code --install-extension EditorConfig.EditorConfig
-	@code --install-extension ecmel.vscode-html-css
-	@code --install-extension abusaidm.html-snippets
 	@code --install-extension Zignd.html-css-class-completion
-	@code --install-extension christian-kohler.path-intellisense
-	@code --install-extension octref.vetur
-	@code --install-extension vscodevim.vim
-	@code --install-extension robertohuertasm.vscode-icons
 	@code --install-extension ms-python.python
+	@code --install-extension octref.vetur
+	@code --install-extension robertohuertasm.vscode-icons
+
 
 # Oh-my-Zsh
 zsh:

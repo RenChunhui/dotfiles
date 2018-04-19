@@ -1,14 +1,37 @@
 {
   "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Atom One Dark",
+  "workbench.statusBar.feedback.visible": false,
+  
   "editor.minimap.enabled": false,
-  "terminal.integrated.shell.osx": "/bin/zsh",
-  "vim.enableNeovim": true,
+  "editor.wordWrap": "on",
+  "editor.fontSize": 13,
+
   "vsicons.projectDetection.disableDetect": true,
+
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+
   "git.autofetch": true,
-  "workbench.colorTheme": "Atom One Dark",
-  "editor.fontSize": 13,
-  "vim.neovimPath": "/usr/local/bin/nvim",
-  "vim.leader": "<space>",
+  
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.idea": true,
+    "**/.vscode": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true
+  },
+  
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.fontFamily": "",
+  "terminal.integrated.shell.osx": "/bin/zsh",
+
+  "npm.packageManager": "yarn",
+
+  "[makefile]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4
+  },
 }
