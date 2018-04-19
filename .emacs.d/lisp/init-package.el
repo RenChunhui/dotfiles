@@ -13,8 +13,9 @@
   all-the-icons
   ;; web 开发
   js2-mode
+  ;; init-html
   web-mode
-  ;; 主题样式
+  ;; init-themes
   atom-one-dark-theme
   monokai-theme
 ) "Default Packages")
