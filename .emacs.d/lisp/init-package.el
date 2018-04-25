@@ -1,37 +1,39 @@
-(when (>= emacs-major-version 24)
-    (require 'package)
-    (package-initialize)
-    (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                    ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
+;; 插件包
+;; ----------------------------------------------
 
+(require 'package)
+
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives '("popkit" . "http://elpa.popkit.org/packages/"))
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+
+(package-initialize)
 (require 'cl)
 
-;; 添加包
-(defvar mars/packages '(
-  ;; 自动补全
-  company
-  all-the-icons
-  ;; web 开发
-  js2-mode
-  ;; init-html
-  web-mode
-  ;; init-themes
-  atom-one-dark-theme
-  monokai-theme
-) "Default Packages")
+;; 在开始时安装包
+(defvar init-package '(
+		       company
 
-(setq package-selected-packages mars/packages)
+		       atom-one-dark-theme
+		       monokai-theme
+		       )
+  "List of packages needs to be installed at launch")
 
-(defun mars/packages-installed-p ()
-     (loop for pkg in mars/packages
-           when (not (package-installed-p pkg)) do (return nil)
-           finally (return t)))
+(defun init-package-installed-p ()
+  (loop for pkg in init-package
+	when (not (package-installed-p pkg)) do (return nil)
+	finally (return t)))
 
-(unless (mars/packages-installed-p)
-     (message "%s" "Refreshing package database...")
-     (package-refresh-contents)
-     (dolist (pkg mars/packages)
-       (when (not (package-installed-p pkg))
-         (package-install pkg))))
+(unless (init-package-installed-p)
+  ;; check for new packages (package versions)
+  (message "%s" "Emacs Prelude is now refreshing its package database...")
+  (package-refresh-contents)
+  (message "%s" "done.")
+
+  ;; install the missing packages
+  (dolist (pkg init-package)
+    (when (not (package-installed-p pkg))
+      (package-install pkg))))
 
 (provide 'init-package)
