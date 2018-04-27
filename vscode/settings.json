@@ -1,6 +1,6 @@
 {
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Atom One Dark",
+  "workbench.colorTheme": "Solarized Light",
   "workbench.statusBar.feedback.visible": false,
   
   "editor.minimap.enabled": false,
@@ -34,4 +34,5 @@
     "editor.insertSpaces": false,
     "editor.tabSize": 4
   },
+  "[typescript]": {},
 }

@@ -1,3 +1,4 @@
+
 ;; 插件包
 ;; ----------------------------------------------
 
@@ -11,14 +12,15 @@
 (package-initialize)
 (require 'cl)
 
-;; 在开始时安装包
-(defvar init-package '(
-		       company
-
-		       atom-one-dark-theme
-		       monokai-theme
-		       )
-  "List of packages needs to be installed at launch")
+(defvar init-package nil)
+(add-to-list 'init-package 'dashboard)
+(add-to-list 'init-package 'company)
+(add-to-list 'init-package 'neotree)
+(add-to-list 'init-package 'js2-mode)
+(add-to-list 'init-package 'nodejs-repl)
+(add-to-list 'init-package 'web-mode)
+(add-to-list 'init-package 'atom-one-dark-theme)
+(add-to-list 'init-package 'monokai-theme)
 
 (defun init-package-installed-p ()
   (loop for pkg in init-package
