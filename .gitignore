@@ -9,3 +9,5 @@ nvim/.cache
 .emacs.d/auto-save-list
 .emacs.d/elpa
 .emacs.d/site-list
+.emacs.d/.cache
+.emacs.d/*.data
