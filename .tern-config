@@ -3,7 +3,10 @@
     "node": {},
     "node_resolve": {},
     "es_modules": {},
-    "modules": {}
+    "modules": {},
+    "requirejs": {
+      "baseURL": "./"
+    }
   },
   "libs": [
     "browser",
