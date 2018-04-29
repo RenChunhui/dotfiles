@@ -2,6 +2,10 @@
 (defun emacs/init ()
   (emacs/remove-gui-elements)
   (setq inhibit-startup-screen t)
+  (line-number-mode t)
+  (column-number-mode t)
+  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+  (setq exec-path (append exec-path '("/usr/local/bin")))
   (load-theme 'atom-one-dark t))
 
 ;; 移除 GUI 元素
