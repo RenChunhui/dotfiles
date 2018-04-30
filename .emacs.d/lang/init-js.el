@@ -11,4 +11,4 @@
 			   (tern-mode)
 			   (company-mode)))
 
-(provide 'dev-es)
+(provide 'init-js)

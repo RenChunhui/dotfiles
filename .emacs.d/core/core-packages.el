@@ -1,4 +1,12 @@
-;; 插件包安装
+;;
+;;                ╔════════════════════════════════════════════╗
+;;                ║            ⎋ PACKAGES INSTALL ⎋            ║
+;;                ╚════════════════════════════════════════════╝
+;;
+;; Author    : Ren Chunhui
+;; Website   : https://renchunhui.github.io
+;; Repo      : https://github.com/renchunhui/dotfile
+;;
 
 (require 'package)
 
@@ -13,6 +21,7 @@
 (defvar emacs/packages nil)
 (add-to-list 'emacs/packages 'company)
 (add-to-list 'emacs/packages 'company-tern)
+(add-to-list 'emacs/packages 'tabbar)
 (add-to-list 'emacs/packages 'neotree)
 (add-to-list 'emacs/packages 'web-mode)
 (add-to-list 'emacs/packages 'js2-mode)
@@ -34,4 +43,4 @@
     (when (not (package-installed-p pkg))
       (package-install pkg))))
 
-(provide 'init-packages)
+(provide 'core-packages)
