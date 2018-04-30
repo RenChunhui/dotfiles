@@ -21,10 +21,12 @@
 
 (emacs/init)
 
+;; editor
+(require 'file-tree)
+
 ;; lang
 (require 'init-auto-complete)
 (require 'init-html)
 (require 'init-js)
 
 (provide 'init)
-

@@ -1,4 +1,14 @@
+;;
+;;                ╔═══════════════════════════╗
+;;                ║       ⎋ FILE TREE ⎋       ║
+;;                ╚═══════════════════════════╝
+;;
+;; Author    : Ren Chunhui
+;; Website   : https://renchunhui.github.io
+;; Repo      : https://github.com/renchunhui/dotfile
+;;
 
+;;; Require
 (require 'speedbar)
 (require 'advice)
 (require 'cl-lib)
@@ -12,13 +22,13 @@
   "Same frame speedbar."
   :group 'speedbar)
 
-(defcustom sr-speedbar-default-width 30
+(defcustom sr-speedbar-default-width 40
   "Initial width of `sr-speedbar-window' under window system."
   :type 'integer
   :group 'sr-speedbar)
 
 (defcustom sr-speedbar-max-width 50
-  "最大宽度设置.
+  "The max width limit that window allowed.
 Default, if hide `sr-speedbar' window will remember
 window width, except the window width larger than
 this value."
@@ -33,8 +43,8 @@ Default is t."
          (set symbol value))
   :group 'sr-speedbar)
 
-(defcustom sr-speedbar-right-side nil
-  "默认显示在左边.
+(defcustom sr-speedbar-right-side t
+  "Show the speedbar to the right side of the current window.
 If nil, the speedbar will appear on the left.
 Default is t."
   :type 'boolean
@@ -109,8 +119,9 @@ Default is nil."
   (defun ecb-deactivate ()))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Interactive functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;###autoload
-(defun sr-speedbar-toggle ()
+
+;; 目录树打开/关闭
+(defun file-tree-toggle ()
   "Toggle sr-speedbar window.
 Toggle visibility of sr-speedbar by resizing
 the `sr-speedbar-window' to a minimal width
@@ -119,11 +130,11 @@ Use this function to create or toggle visibility
 of a speedbar-window.  It will be created if necessary."
   (interactive)
   (if (sr-speedbar-exist-p)
-      (sr-speedbar-close)
-    (sr-speedbar-open)))
+      (file-tree-close)
+    (file-tree-open)))
 
-;;;###autoload
-(defun sr-speedbar-open ()
+;; 打开目录树
+(defun file-tree-open ()
   "Create `sr-speedbar' window."
   (interactive)
   (if (not (sr-speedbar-exist-p))
@@ -169,7 +180,8 @@ of a speedbar-window.  It will be created if necessary."
         (select-window current-window))
     (message "`sr-speedbar' window has exist.")))
 
-(defun sr-speedbar-close ()
+;; 关闭目录树
+(defun file-tree-close ()
   "Close `sr-speedbar' window and save window width."
   (interactive)
   (if (sr-speedbar-exist-p)
@@ -377,4 +389,4 @@ This advice can make `other-window' skip `sr-speedbar' window."
                (eq sr-speedbar-window (selected-window)))
       (other-window count))))
 
-(provide 'ui-explorer)
+(provide 'file-tree)

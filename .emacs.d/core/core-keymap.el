@@ -8,4 +8,6 @@
 ;; Repo      : https://github.com/renchunhui/dotfile
 ;;
 
+(global-set-key (kbd "s-b") 'file-tree-toggle)
+
 (provide 'core-keymap)
