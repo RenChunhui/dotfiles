@@ -12,7 +12,7 @@
   (emacs/user-info)
   (emacs/basic)
   (emacs/time)
-
+  (emacs/mode-line)
   (load-theme 'atom-one-dark t))
 
 ;; 移除 GUI 元素
@@ -31,10 +31,17 @@
 
 ;; 基本设置
 (defun emacs/basic ()
+  ;; 中文语言环境
+  (set-language-environment 'Chinese-GB)
+
+  ;; 文件编码
+  (set-buffer-file-coding-system 'utf-8)
+
   ;; 显示行列
   (global-linum-mode t)
-  (column-number-mode t)
-  (line-number-mode t)
+
+  ;; 高亮当前行
+  (global-hl-line-mode t)
 
   ;; 以 y/n 取代 yes/no
   (fset 'yes-or-no-p 'y-or-n-p)
@@ -51,6 +58,9 @@
 
   ;; 不生成临时文件
   (setq auto-save-mode nil)
+
+  ;; 字体设置
+  (set-default-font "DroidSansMono Nerd Font-13")
 
   ;; 滚动感觉
   (setq scroll-step 1
@@ -70,5 +80,13 @@
 
   ;; 时间变化频率
   (setq display-time-interval 60))
+
+;; custom mode line
+(defun emacs/mode-line ()
+  ;; enable the current line number
+  (line-number-mode t)
+
+  ;; enable battery infofation
+  (setq display-battery-mode t))
 
 (provide 'core-init)

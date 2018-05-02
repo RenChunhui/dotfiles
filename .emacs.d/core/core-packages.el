@@ -21,8 +21,7 @@
 (defvar emacs/packages nil)
 (add-to-list 'emacs/packages 'company)
 (add-to-list 'emacs/packages 'company-tern)
-(add-to-list 'emacs/packages 'tabbar)
-(add-to-list 'emacs/packages 'neotree)
+
 (add-to-list 'emacs/packages 'web-mode)
 (add-to-list 'emacs/packages 'js2-mode)
 (add-to-list 'emacs/packages 'atom-one-dark-theme)
