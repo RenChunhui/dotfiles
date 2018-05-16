@@ -1,6 +1,6 @@
 {
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Solarized Light",
+  "workbench.colorTheme": "Tomorrow Night Blue",
   "workbench.statusBar.feedback.visible": false,
   
   "editor.minimap.enabled": false,
