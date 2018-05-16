@@ -18,7 +18,7 @@ set ruler                           " 显示光标位置
 set title
 set number                          " 显示行号
 set showmode
-syntax enable
+" syntax enable
 colorscheme onedark                 " 主题
 
 " Tabs and Indents
