@@ -1,12 +1,12 @@
 # Install
-install:  brew gem font vscode zsh symlinks osx
+install:  brew gem font vscode zprezto symlinks osx
 
 # Homebrew
 brew:
 	@if test ! $$(which brew); then /usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; fi
 	@brew bundle
 
-#	Gemfile
+# Gemfile
 gem:
 	@sudo gem install bundler
 	@bundler install
@@ -20,7 +20,6 @@ vscode:
 	@code --install-extension msjsdiag.debugger-for-chrome
 	@code --install-extension EditorConfig.EditorConfig
 	@code --install-extension Zignd.html-css-class-completion
-	@code --install-extension ms-python.python
 	@code --install-extension octref.vetur
 	@code --install-extension robertohuertasm.vscode-icons
 
@@ -39,15 +38,16 @@ symlinks:
 	@ln -vsf ${PWD}/vscode/settings.json ~/Library/Application\ Support/Code/User
 	@rm -rf ~/Library/Application\ Support/Code/User/snippets
 	@ln -vsf ${PWD}/vscode/snippets/ ~/Library/Application\ Support/Code/User
-	@ln -vsf ${PWD}/.vimrc ~/.vimrc
 	@ln -vsf ${PWD}/.vim ~/.vim
 	@ln -vsf ${PWD}/.tern-config ~/.tern-config
-	@ln -vsf ${PWD}/.emacs.d ~/.emacs.d
+
+# emacs
 emacs:
-	@ln -vsf ${PWD}/.emacs.d ~/.emacs.d
+	@git clone https://github.com/RenChunhui/.emacs.d.git .emacs.d
+
 # 系统设置
 osx:
 	@chmod +x ./macos/setup.sh
 	@./macos/setup.sh
 
-.PHONY: font vscode zsh osx
+.PHONY: font vscode zsh osx emacs

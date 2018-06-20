@@ -5,6 +5,8 @@ brew 'wget'
 brew 'node'
 brew 'yarn'
 brew 'tmux'
+brew 'emacs', args: ['with-cocoa']
+brew 'offline-imap'
 
 cask 'alfred'
 cask 'iterm2'
@@ -27,6 +29,6 @@ cask 'qlimagesize'
 cask 'webpquicklook'
 
 # mas 'Xcode', id: 497799835
-mas 'WeChat', id: 836500024
-mas 'Pages', id: 409201541
-mas 'Numbers', id: 409203825
+# mas 'WeChat', id: 836500024
+# mas 'Pages', id: 409201541
+# mas 'Numbers', id: 409203825

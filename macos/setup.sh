@@ -55,16 +55,6 @@ sudo chflags uchg /Private/var/vm/sleepimage
 sudo pmset -a sms 0
 
 
-
-###############################################################################
-# 鼠标，键盘，蓝牙配件和输入设备                                            #
-###############################################################################
-
-# 提高蓝牙耳机音质
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
-
-
-
 ###############################################################################
 # 屏幕                                                                        #
 ###############################################################################
@@ -179,5 +169,14 @@ defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
 
 # If necessary, reset global default
 defaults delete -g ApplePressAndHoldEnabled
+
+
+
+###############################################################################
+# Xcode                                                                       #
+###############################################################################
+
+# 移除所有不可用模拟器
+xcrun simctl delete unavailable
 
 printf "\e[0;32m  [✔] 设置完成，其中一些更改需要注销/重新启动才能生效\e[0m\n"
