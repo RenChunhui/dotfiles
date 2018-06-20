@@ -1,6 +1,6 @@
 {
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Tomorrow Night Blue",
+  "workbench.colorTheme": "Atom One Dark",
   "workbench.statusBar.feedback.visible": false,
   
   "editor.minimap.enabled": false,
@@ -35,4 +35,5 @@
     "editor.tabSize": 4
   },
   "[typescript]": {},
+  "git.ignoreMissingGitWarning": true,
 }
