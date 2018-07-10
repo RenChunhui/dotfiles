@@ -36,4 +36,5 @@
   },
   "[typescript]": {},
   "git.ignoreMissingGitWarning": true,
+  "git.confirmSync": false,
 }
