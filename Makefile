@@ -15,7 +15,7 @@ gem:
 font:
 	@cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
 
-# VSCode
+# VSCode plugins
 vscode:
 	@code --install-extension msjsdiag.debugger-for-chrome
 	@code --install-extension EditorConfig.EditorConfig
@@ -33,21 +33,27 @@ zsh:
 
 # 软链接
 symlinks:
-	@ln -vsf ${PWD}/zsh/.zshrc ~/.zshrc
-	@ln -vsf ${PWD}/tmux/.tmux.conf ~/.tmux.conf
 	@ln -vsf ${PWD}/vscode/settings.json ~/Library/Application\ Support/Code/User
 	@rm -rf ~/Library/Application\ Support/Code/User/snippets
 	@ln -vsf ${PWD}/vscode/snippets/ ~/Library/Application\ Support/Code/User
-	@ln -vsf ${PWD}/.vim ~/.vim
 	@ln -vsf ${PWD}/.tern-config ~/.tern-config
+	@ln -vsf ${PWD}/.bash_profile ~/.bash_profile
+	@ln -vsf ${PWD}/.bashrc ~/.bashrc
+	@ln -vsf ${PWD}/.macos ~/.macos
+	@ln -vsf ${PWD}/tmux/.tmux.conf ~/.tmux.conf
+	@ln -vsf ${PWD}/.vimrc ~/.vimrc
+	@ln -vsf ${PWD}/vim ~/.vim
+	@ln -vsf ${PWD}/zsh/.zshrc ~/.zshrc
 
 # emacs
 emacs:
 	@git clone https://github.com/RenChunhui/.emacs.d.git .emacs.d
 
-# 系统设置
-osx:
-	@chmod +x ./macos/setup.sh
-	@./macos/setup.sh
+node:
+	yarn global add webpack
+	yarn global add webpack-cli
+	yarn global add stylelint
+	yarn global add eslint
+
 
 .PHONY: font vscode zsh osx emacs
