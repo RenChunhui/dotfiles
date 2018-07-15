@@ -1,10 +1,47 @@
+#
+# Copyright (c) 2018 Chunhui Ren
+#
+
+define message
+	@printf "\e[0;35m  $1\e[0m\n"
+endef
+
+define success
+	@printf "\e[0;32m  [✔] $1\e[0m\n"
+endef
+
+define error
+	@printf "\e[0;31m  [✖] $1 $2\e[0m\n"
+endef
+
 # Install
-install:  brew gem font vscode zprezto symlinks osx
+install:
+	@$(call message,安装 XCode 工具)
+	make xcode-tools
+	@$(call message,安装 Homebrew)
+	make brew
+	@$(call message,安装 Nerd Font)
+	make font
+	@$(call message,安装 VSCode 插件)
+	make vscode
+	@$(call message,安装 zsh)
+	make zsh
+	@$(call message,软链接)
+	make symlinks
+	@$(call message,克隆 Emacs 配置文件)
+	make emacs
+	@$(call message,安装全局 node 包)
+	make node
+
+# Install XCode command line tools
+xcode-tools:
+	@if ! xcode-select --print-path &> /dev/null; then xcode-select --install &> /dev/null; fi
 
 # Homebrew
 brew:
 	@if test ! $$(which brew); then /usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; fi
 	@brew bundle
+	@brew cleanup
 
 # Gemfile
 gem:
@@ -25,8 +62,14 @@ vscode:
 
 
 # Oh-my-Zsh
+.ONESHELL:
 zsh:
-	@if [[ ! -d $$dir/oh-my-zsh ]]; then sh -c "$$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"; fi
+	@if [[ ! -d $$dir/.oh-my-zsh ]]; \
+	then \
+		rm -rf ~/.oh-my-zsh; \
+	fi
+
+	@sh -c "$$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 	@git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 	@git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
@@ -43,11 +86,17 @@ symlinks:
 	@ln -vsf ${PWD}/tmux/.tmux.conf ~/.tmux.conf
 	@ln -vsf ${PWD}/.vimrc ~/.vimrc
 	@ln -vsf ${PWD}/vim ~/.vim
-	@ln -vsf ${PWD}/zsh/.zshrc ~/.zshrc
+	@ln -vsf ${PWD}.zshrc ~/.zshrc
 
 # emacs
+.ONESHELL:
 emacs:
-	@git clone https://github.com/RenChunhui/.emacs.d.git .emacs.d
+	@if [[ ! -d $$dir/.emacs.d ]]; \
+	then \
+		rm -rf ~/.emacs.d; \
+	fi
+
+	@git clone https://github.com/RenChunhui/.emacs.d.git ~/.emacs.d
 
 node:
 	yarn global add webpack
@@ -56,4 +105,4 @@ node:
 	yarn global add eslint
 
 
-.PHONY: font vscode zsh osx emacs
+.PHONY: xcode-tools font vscode zsh osx emacs node
