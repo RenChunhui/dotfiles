@@ -73,6 +73,9 @@ zsh:
 
 	@sh -c "$$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+	make zsh-plugins
+
+zsh-plugins:
 	@git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 	@git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
@@ -81,13 +84,21 @@ symlinks:
 	@ln -sf ${PWD}/vscode/settings.json ~/Library/Application\ Support/Code/User
 	@rm -rf ~/Library/Application\ Support/Code/User/snippets
 	@ln -sf ${PWD}/vscode/snippets/ ~/Library/Application\ Support/Code/User
+	@rm -rf ~/.tern-config
 	@ln -sf ${PWD}/.tern-config ~/.tern-config
+	@rm -rf ~/.bash_profile
 	@ln -sf ${PWD}/.bash_profile ~/.bash_profile
+	@rm -rf ~/.bashrc
 	@ln -sf ${PWD}/.bashrc ~/.bashrc
+	@rm -rf ~/.macos
 	@ln -sf ${PWD}/.macos ~/.macos
+	@rm -rf ~/.tmux.conf
 	@ln -sf ${PWD}/tmux/.tmux.conf ~/.tmux.conf
+	@rm -rf ~/.vimrc
 	@ln -sf ${PWD}/.vimrc ~/.vimrc
+	@rm -rf ~/.vim
 	@ln -sf ${PWD}/vim ~/.vim
+	@rm -rf ~/.zshrc
 	@ln -sf ${PWD}/.zshrc ~/.zshrc
 
 # emacs
@@ -108,4 +119,4 @@ node:
 	@yarn global add tern
 
 
-.PHONY: xcode-tools font vscode zsh osx emacs node
+.PHONY: xcode-tools font vscode zsh osx emacs node zsh-plugins
