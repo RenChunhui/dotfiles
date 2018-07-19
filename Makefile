@@ -59,6 +59,7 @@ vscode:
 	@code --install-extension Zignd.html-css-class-completion
 	@code --install-extension octref.vetur
 	@code --install-extension robertohuertasm.vscode-icons
+	@code --install-extension vsmobile.vscode-react-native
 
 
 # Oh-my-Zsh
@@ -67,6 +68,7 @@ zsh:
 	@if [[ ! -d $$dir/.oh-my-zsh ]]; \
 	then \
 		rm -rf ~/.oh-my-zsh; \
+		rm -rf ~/.zshrc; \
 	fi
 
 	@sh -c "$$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -76,17 +78,17 @@ zsh:
 
 # 软链接
 symlinks:
-	@ln -vsf ${PWD}/vscode/settings.json ~/Library/Application\ Support/Code/User
+	@ln -sf ${PWD}/vscode/settings.json ~/Library/Application\ Support/Code/User
 	@rm -rf ~/Library/Application\ Support/Code/User/snippets
-	@ln -vsf ${PWD}/vscode/snippets/ ~/Library/Application\ Support/Code/User
-	@ln -vsf ${PWD}/.tern-config ~/.tern-config
-	@ln -vsf ${PWD}/.bash_profile ~/.bash_profile
-	@ln -vsf ${PWD}/.bashrc ~/.bashrc
-	@ln -vsf ${PWD}/.macos ~/.macos
-	@ln -vsf ${PWD}/tmux/.tmux.conf ~/.tmux.conf
-	@ln -vsf ${PWD}/.vimrc ~/.vimrc
-	@ln -vsf ${PWD}/vim ~/.vim
-	@ln -vsf ${PWD}.zshrc ~/.zshrc
+	@ln -sf ${PWD}/vscode/snippets/ ~/Library/Application\ Support/Code/User
+	@ln -sf ${PWD}/.tern-config ~/.tern-config
+	@ln -sf ${PWD}/.bash_profile ~/.bash_profile
+	@ln -sf ${PWD}/.bashrc ~/.bashrc
+	@ln -sf ${PWD}/.macos ~/.macos
+	@ln -sf ${PWD}/tmux/.tmux.conf ~/.tmux.conf
+	@ln -sf ${PWD}/.vimrc ~/.vimrc
+	@ln -sf ${PWD}/vim ~/.vim
+	@ln -sf ${PWD}/.zshrc ~/.zshrc
 
 # emacs
 .ONESHELL:
@@ -99,10 +101,11 @@ emacs:
 	@git clone https://github.com/RenChunhui/.emacs.d.git ~/.emacs.d
 
 node:
-	yarn global add webpack
-	yarn global add webpack-cli
-	yarn global add stylelint
-	yarn global add eslint
+	@yarn global add webpack
+	@yarn global add webpack-cli
+	@yarn global add stylelint
+	@yarn global add eslint
+	@yarn global add tern
 
 
 .PHONY: xcode-tools font vscode zsh osx emacs node
