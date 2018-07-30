@@ -83,7 +83,7 @@ set smartindent " Automatically inserts one extra level of indentation in some c
 " Folding
 set foldlevelstart=99 " Start editing with all folds open.
 set foldmethod=indent " Use indent model for folding mechanism.
-set foldtext=kutsan#settings#foldtext() " Use custom fold text function for folds.
+" set foldtext=kutsan#settings#foldtext() " Use custom fold text function for folds.
 
 " Search
 let &grepprg = 'rg --vimgrep --no-messages --no-ignore --hidden --follow --smart-case --glob "!.git/" --glob "!node_modules/" --regexp' " Program to use for the :grep command.
