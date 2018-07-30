@@ -15,10 +15,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" let g:mapleader = "\<Space>"
-
-" source ~/.vim/core/plugins.vim
-
 " Enable loading {ftdetect,ftplugin,indent}/*.vim files.
 filetype plugin indent on
 

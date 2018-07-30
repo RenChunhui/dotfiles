@@ -60,7 +60,7 @@ vscode:
 	@code --install-extension octref.vetur
 	@code --install-extension robertohuertasm.vscode-icons
 	@code --install-extension vsmobile.vscode-react-native
-
+	@code --install-extension shinnn.stylelint
 
 # Oh-my-Zsh
 .ONESHELL:
@@ -93,7 +93,7 @@ symlinks:
 	@rm -rf ~/.macos
 	@ln -sf ${PWD}/.macos ~/.macos
 	@rm -rf ~/.tmux.conf
-	@ln -sf ${PWD}/tmux/.tmux.conf ~/.tmux.conf
+	@ln -sf ${PWD}/.tmux.conf ~/.tmux.conf
 	@rm -rf ~/.vimrc
 	@ln -sf ${PWD}/.vimrc ~/.vimrc
 	@rm -rf ~/.vim

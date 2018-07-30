@@ -37,4 +37,5 @@
   "git.ignoreMissingGitWarning": true,
   "git.confirmSync": false,
   "workbench.colorTheme": "One Dark Pro",
+  "workbench.startupEditor": "welcomePage",
 }
