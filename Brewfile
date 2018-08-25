@@ -6,7 +6,6 @@ brew 'node'
 brew 'yarn'
 brew 'tmux'
 brew 'emacs', args: ['with-cocoa']
-brew 'offline-imap'
 
 cask 'alfred'
 cask 'iterm2'
@@ -18,9 +17,7 @@ cask 'visual-studio-code'
 cask 'sketch'
 cask 'the-unarchiver'
 cask 'postman'
-cask 'foxmail'
 cask 'qingg'
-cask 'teamviewer'
 
 cask 'qlcolorcode'
 cask 'qlmarkdown'
