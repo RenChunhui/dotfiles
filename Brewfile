@@ -7,6 +7,8 @@ brew 'yarn'
 brew 'tmux'
 brew 'emacs', args: ['with-cocoa']
 brew 'offline-imap'
+brew 'vim'
+brew 'macvim'
 
 cask 'alfred'
 cask 'iterm2'

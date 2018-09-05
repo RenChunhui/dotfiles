@@ -18,6 +18,8 @@ endef
 install:
 	@$(call message,安装 XCode 工具)
 	make xcode-tools
+	@$(call message,清除系统自带工具)
+	make clear
 	@$(call message,安装 Homebrew)
 	make brew
 	@$(call message,安装 Nerd Font)
@@ -36,6 +38,13 @@ install:
 # Install XCode command line tools
 xcode-tools:
 	@if ! xcode-select --print-path &> /dev/null; then xcode-select --install &> /dev/null; fi
+
+# clear
+clear:
+	@sudo rm /usr/bin/vim
+	@sudo rm -rf /usr/share/vim
+	@sudo rm /usr/bin/emacs
+	@sudo rm -rf /usr/share/emacs
 
 # Homebrew
 brew:
@@ -61,6 +70,7 @@ vscode:
 	@code --install-extension robertohuertasm.vscode-icons
 	@code --install-extension vsmobile.vscode-react-native
 	@code --install-extension shinnn.stylelint
+	@code --install-extension vscodevim.vim
 
 # Oh-my-Zsh
 .ONESHELL:
@@ -94,10 +104,8 @@ symlinks:
 	@ln -sf ${PWD}/.macos ~/.macos
 	@rm -rf ~/.tmux.conf
 	@ln -sf ${PWD}/.tmux.conf ~/.tmux.conf
-	@rm -rf ~/.vimrc
-	@ln -sf ${PWD}/.vimrc ~/.vimrc
-	@rm -rf ~/.vim
-	@ln -sf ${PWD}/vim ~/.vim
+	@rm -rf ~/.config/nvim
+	@ln -sf ${PWD}/nvim ~/.config/nvim
 	@rm -rf ~/.zshrc
 	@ln -sf ${PWD}/.zshrc ~/.zshrc
 
@@ -117,6 +125,5 @@ node:
 	@yarn global add stylelint
 	@yarn global add eslint
 	@yarn global add tern
-
 
 .PHONY: xcode-tools font vscode zsh osx emacs node zsh-plugins
