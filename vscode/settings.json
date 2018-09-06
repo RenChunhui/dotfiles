@@ -1,7 +1,6 @@
 {
   "workbench.iconTheme": "vscode-icons",
-  "workbench.statusBar.feedback.visible": false,
-  
+
   "editor.minimap.enabled": false,
   "editor.wordWrap": "on",
   "editor.fontSize": 13,
@@ -12,7 +11,7 @@
   "explorer.confirmDragAndDrop": false,
 
   "git.autofetch": true,
-  
+
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -22,7 +21,7 @@
     "**/CVS": true,
     "**/.DS_Store": true
   },
-  
+
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "",
   "terminal.integrated.shell.osx": "/bin/zsh",
@@ -38,10 +37,7 @@
   "git.confirmSync": false,
   "workbench.colorTheme": "One Dark Pro",
   "workbench.startupEditor": "welcomePage",
-  "search.location": "panel",
   "workbench.activityBar.visible": true,
-  "workbench.editor.showTabs": false,
-  "workbench.statusBar.visible": true,
   "vim.easymotion": true,
   "vim.sneak": true,
   "vim.incsearch": true,
@@ -68,5 +64,20 @@
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-f>": false
-  }
+  },
+  "vim.statusBarColorControl": true,
+  "eslint.alwaysShowStatus": true,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f"
+  },
+  "workbench.statusBar.feedback.visible": false,
+  "workbench.tree.horizontalScrolling": true,
+  "workbench.editor.swipeToNavigate": true,
+  "window.nativeTabs": true,
+  "window.titleBarStyle": "native",
+  "php.validate.enable": false,
+  "vim.enableNeovim": true,
+  "vim.neovimPath": "/usr/local/bin/nvim"
 }
