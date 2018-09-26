@@ -5,6 +5,10 @@
   "editor.wordWrap": "on",
   "editor.fontSize": 13,
 
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": true,
+
   "vsicons.projectDetection.disableDetect": true,
 
   "explorer.confirmDelete": false,
@@ -72,12 +76,14 @@
     "statusBar.noFolderBackground": "#005f5f",
     "statusBar.debuggingBackground": "#005f5f"
   },
-  "workbench.statusBar.feedback.visible": false,
   "workbench.tree.horizontalScrolling": true,
   "workbench.editor.swipeToNavigate": true,
   "window.nativeTabs": true,
   "window.titleBarStyle": "native",
-  "php.validate.enable": false,
   "vim.enableNeovim": true,
-  "vim.neovimPath": "/usr/local/bin/nvim"
+  "vim.neovimPath": "/usr/local/bin/nvim",
+  "editor.cursorBlinking": "smooth",
+  "workbench.statusBar.feedback.visible": false,
+  "keyboard.touchbar.enabled": false,
+  "html.format.endWithNewline": true
 }

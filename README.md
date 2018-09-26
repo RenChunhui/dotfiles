@@ -3,17 +3,17 @@
     <img src="icons/logo.png" />
   </a>
 
-  <h3 align="center">Dotfiles</h3>
+  <h3 align="center">个人 Dotfiles 配置</h3>
 
-  <p align="center">
-    通过脚本，一键还原或同步管理自己的常用软件、工具、插件、配置等环境
+  <p align="left">
+    当需要重新安装系统，或者一台新机器，我们不得不下载软件，设置自己习惯的配置，插件安装，配置 vim、Emacs、shell 等一系列麻烦的动作。dotfiles 将使用一个命令完成所有动作，再也不用经历这些磨难了。
     <br>
   </p>
 </p>
 
 <br>
 
-## 状态
+- - -
 
 ![license](https://img.shields.io/github/license/renchunhui/dotfiles.svg)
 ![homebrew](https://img.shields.io/homebrew/v/cake.svg)
@@ -23,28 +23,25 @@
 ![GitHub stars](https://img.shields.io/github/stars/RenChunhui/dotfiles.svg?style=social&label=Stars)
 ![Twitter Follow](https://img.shields.io/twitter/follow/renchunhui2008.svg?style=social&label=Follow)
 
-## 工具 & 软件
+- - - 
 
-- [NodeJS]():
-- [Yarn]():
-- [Tmux]():
+## 目录
 
-- [Alfred](): 效率神器
-- [iTerm2](): 替代自带的Terminal免费的终端工具
-- [Chrome](): Chrome浏览器
-- [QQ](): QQ 聊天工具
-- [WeChat](): 微信聊天工具
-- [Visual Studio Code](): 微软推出的免费/开源编辑器
-- [Sketch](): UI交互设计
-- [Postman](): Postman 帮助我们快速测试API
-- [清歌输入法](): 五笔输入法
-- [Emacs](): Emacs是基于控制台的编辑器和高度可定制的
-
-- [qlcolorcode]():
-- [qlmarkdown]():
-- [quicklook-json]():
-- [qlimagesize]():
-- [webpquicklook]():
+- [安装](#安装)
+- [命令]()
+  - [xcode-tools]()
+  - [clear]()
+  - [brew]()
+  - [gem]()
+  - [font]()
+  - [vscode]()
+  - [zsh]()
+  - [zsh-plugins]()
+  - [symlinks]()
+  - [emacs]()
+  - [node]()
+  - [system]()
+- [版权许可证](#版权许可证)
 
 ## 安装
 
@@ -53,6 +50,91 @@ $ git clone https://github.com/RenChunhui/dotfiles.git .dotfiles
 $ cd .dotfiles
 $ make install
 ```
+
+## 内容
+
+### xcode-tools
+
+``` bash
+$ make xcode-tools
+```
+
+- 安装基础的 xcode 工具
+
+### clear
+
+``` bash
+$ make clear
+```
+
+- 卸载系统自带 Vim
+- 卸载系统自带 Emacs
+
+### brew
+
+``` bash
+$ make brew
+```
+
+- **mas:**
+- **wget:**
+- **Node:**
+- **Yarn:**
+- **Tmux:**
+- **Neovim:**
+- **Emacs:**
+- **Alfred:**
+- **iTerm2:**
+- **Chrome:**
+- **QQ:**
+- **IINA:**
+- **VSCode:**
+- **Shadowsocksx:**
+- **Sketch:**
+- **Unarchiver:**
+- **Postman:**
+- **清歌五笔输入法:**
+- **qlcolorcode:**
+- **qlmarkdown:**
+- **quicklook-json:**
+- **qlimagesize:**
+- **webpquicklook:**
+
+### gem
+
+``` bash
+$ make gem
+```
+
+- 常用包
+
+### font
+
+### vscode
+
+``` bash
+$ make vscode
+```
+
+### zsh
+
+### zsh-plugins
+
+### symlinks
+
+### [emacs](https://github.com/RenChunhui/.emacs.d)
+
+### node
+
+``` bash
+$ make node
+```
+
+- **webpack:**
+- **webpack-cli:**
+- **stylelint:**
+- **eslint:**
+- **tern:**
 
 ## 版权许可证
 

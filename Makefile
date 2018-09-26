@@ -100,14 +100,16 @@ symlinks:
 	@ln -sf ${PWD}/.bash_profile ~/.bash_profile
 	@rm -rf ~/.bashrc
 	@ln -sf ${PWD}/.bashrc ~/.bashrc
-	@rm -rf ~/.macos
-	@ln -sf ${PWD}/.macos ~/.macos
 	@rm -rf ~/.tmux.conf
 	@ln -sf ${PWD}/.tmux.conf ~/.tmux.conf
 	@rm -rf ~/.config/nvim
 	@ln -sf ${PWD}/nvim ~/.config/nvim
 	@rm -rf ~/.zshrc
 	@ln -sf ${PWD}/.zshrc ~/.zshrc
+
+system:
+	@chmod +x ${PWD}/.macos
+	@source ${PWD}/.macos
 
 # emacs
 .ONESHELL:

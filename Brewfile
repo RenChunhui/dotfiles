@@ -5,6 +5,7 @@ brew 'wget'
 brew 'node'
 brew 'yarn'
 brew 'tmux'
+brew 'neovim'
 brew 'emacs', args: ['with-cocoa']
 
 cask 'alfred'
