@@ -9,8 +9,6 @@
   "less.validate": false,
   "scss.validate": true,
 
-  "vsicons.projectDetection.disableDetect": true,
-
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
 
@@ -46,7 +44,7 @@
   "vim.sneak": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": true,
+  "vim.useCtrlKeys": false,
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
     {
@@ -71,11 +69,6 @@
   },
   "vim.statusBarColorControl": true,
   "eslint.alwaysShowStatus": true,
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#005f5f",
-    "statusBar.noFolderBackground": "#005f5f",
-    "statusBar.debuggingBackground": "#005f5f"
-  },
   "workbench.tree.horizontalScrolling": true,
   "workbench.editor.swipeToNavigate": true,
   "window.nativeTabs": true,
@@ -85,5 +78,8 @@
   "editor.cursorBlinking": "smooth",
   "workbench.statusBar.feedback.visible": false,
   "keyboard.touchbar.enabled": false,
-  "html.format.endWithNewline": true
+  "html.format.endWithNewline": true,
+  "javascript.preferences.quoteStyle": "single",
+  "vsicons.projectDetection.disableDetect": true,
+  "typescript.updateImportsOnFileMove.enabled": "never"
 }

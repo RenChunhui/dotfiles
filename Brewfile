@@ -6,7 +6,7 @@ brew 'node'
 brew 'yarn'
 brew 'tmux'
 brew 'neovim'
-brew 'emacs', args: ['with-cocoa']
+brew 'emacs', args: ['with-cocoa','with-xwidgets','srgb']
 
 cask 'alfred'
 cask 'iterm2'
