@@ -88,7 +88,7 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 defaults write com.apple.finder DisableAllAnimations -bool true
 
 # 显示文件的扩展名
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write NSGlobalDomain AppleShowAllExtensions -bool false
 
 # 显示状态栏
 defaults write com.apple.finder ShowStatusBar -bool true
