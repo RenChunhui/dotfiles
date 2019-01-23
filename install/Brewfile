@@ -8,8 +8,6 @@ tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 
-tap 'd12frosted/emacs-plus'
-
 brew "mas"
 brew "wget"
 brew "node"
@@ -19,7 +17,6 @@ brew "neovim"
 brew "aria2"
 brew "go"
 brew "dockutil"
-# brew "emacs", args: ["with-cocoa","srgb"]
 
 cask "alfred"
 cask "iterm2"
@@ -35,6 +32,7 @@ cask "postman"
 cask "qingg"
 cask "docker"
 cask "dropbox"
+cask "emacs"
 
 # Quick Look Plugins 
 # 参考: https://github.com/sindresorhus/quick-look-plugins

@@ -34,7 +34,11 @@ clear:
 	@sudo rm -rf /usr/share/emacs
 
 # 工具软件包安装
-packages: brew-packages node-packages gem-packages vscode-packages
+packages: 
+	@make brew-packages 
+	@make node-packages 
+	@make gem-packages 
+	@make vscode-packages
 
 # brew
 brew:
