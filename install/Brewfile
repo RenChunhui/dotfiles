@@ -1,8 +1,14 @@
 cask_args appdir: "/Applications"
 
-tap "caskroom/cask"
-tap "caskroom/fonts"
-tap "caskroom/bundle"
+tap "homebrew/bundle"
+tap "homebrew/core"
+
+tap "homebrew/cask"
+tap "homebrew/cask-drivers"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+
+tap 'd12frosted/emacs-plus'
 
 brew "mas"
 brew "wget"
@@ -12,11 +18,13 @@ brew "tmux"
 brew "neovim"
 brew "aria2"
 brew "go"
-brew "emacs", args: ["with-cocoa","srgb"]
+brew "dockutil"
+# brew "emacs", args: ["with-cocoa","srgb"]
 
 cask "alfred"
 cask "iterm2"
 cask "google-chrome"
+cask "hammerspoon"
 cask "qq"
 cask "iina"
 cask "visual-studio-code"
@@ -28,13 +36,14 @@ cask "qingg"
 cask "docker"
 cask "dropbox"
 
+# Quick Look Plugins 
+# 参考: https://github.com/sindresorhus/quick-look-plugins
 cask 'qlcolorcode'
 cask 'qlmarkdown'
 cask 'quicklook-json'
 cask 'betterzip'
 cask 'qlimagesize'
 cask 'webpquicklook'
-cask 'qlvideo'
 
 # mas 'Xcode', id: 497799835
 mas 'WeChat', id: 836500024

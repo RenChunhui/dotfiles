@@ -1,0 +1,16 @@
+language: generic
+
+sudo: false
+
+os: osx
+
+osx_image: xcode10.1
+
+before_install:
+  - sudo chown -R "$LOGNAME:admin" /usr/local
+
+script:
+  - make
+
+notifications:
+  email: false

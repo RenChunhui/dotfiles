@@ -1,13 +1,2 @@
 .DS_Store
 
-nvim/plugged
-nvim/repos
-nvim/.cache
-
-.vim/plugged
-
-.emacs.d/auto-save-list
-.emacs.d/elpa
-.emacs.d/site-list
-.emacs.d/.cache
-.emacs.d/*.data
