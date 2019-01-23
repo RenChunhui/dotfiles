@@ -58,8 +58,7 @@ node-packages: npm
 
 # gem
 gem-packages:
-	@sudo gem install bundler
-	@bundler install
+	@sudo gem install $(shell cat install/Gemfile)
 
 # vscode
 vscode:
