@@ -6,16 +6,12 @@ os: osx
 
 osx_image: xcode10.1
 
-# before_install:
-#  - sudo chown -R "$LOGNAME:admin" /usr/local
-
 addons:
   homebrew:
     brewfile: ./install/Brewfile
 
 script:
   - make node-packages
-  - make gem-packages
   - make vscode-packages
 
 notifications:
