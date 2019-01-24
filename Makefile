@@ -17,13 +17,13 @@ define error
 	@printf "\e[0;31m  [✖] $1 $2\e[0m\n"
 endef
 
-all: sudo base packages
+all: sudo xcode font packages link emacs macos
 
 sudo:
 	sudo -v
 	@while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-base:
+xcode:
 	@if ! xcode-select --print-path &> /dev/null; then xcode-select --install &> /dev/null; fi
 
 clear:
@@ -33,11 +33,14 @@ clear:
 	@sudo rm /usr/bin/emacs
 	@sudo rm -rf /usr/share/emacs
 
+# 字体安装
+font:
+	@cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+
 # 工具软件包安装
-packages: 
-	@make brew-packages 
-	@make node-packages 
-	@make gem-packages 
+packages:
+	@make brew-packages
+	@make node-packages
 	@make vscode-packages
 
 # brew
@@ -56,10 +59,6 @@ npm:
 node-packages: npm
 	@yarn global add $(shell cat install/npmfile)
 
-# gem
-gem-packages:
-	@sudo gem install $(shell cat install/Gemfile)
-
 # vscode
 vscode:
 	@if test ! $$(which code); then brew cask install visual-studio-code; fi
@@ -67,7 +66,20 @@ vscode:
 vscode-packages: vscode
 	@for extension in $$(cat install/Codefile); do code --install-extension $$extension; done
 
+# 软链接
 link:
+	@ln -sf ~/.dotfiles/config/tern/.tern-config ~/.tern-config
+	@ln -sf ~/.dotfiles/config/tmux/.tmux.conf ~/.tmux.conf
+
+	@if [[ ! -d ~/.config/nvim ]]; \
+	then \
+		rm -rf ~/.config/nvim; \
+	fi
+
+	@ln -sf ~/.dotfiles/config/nvim ~/.config/nvim
+
+# Emacs
+emacs:
 	@if [[ ! -d $$dir/.emacs.d ]]; \
 	then \
 		rm -rf ~/.emacs.d; \
@@ -78,7 +90,7 @@ link:
 # macos 设置
 macos:
 	@if test ! $$(which dockutil); then brew install dockutil; fi
-	@chmod +x ./macos/default.sh
-	@source ./macos/default.sh
+	@chmod +x bin/macos
+	@./bin/macos
 
 .PHONY: sudo clear macos

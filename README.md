@@ -15,6 +15,7 @@
 
 - - -
 
+[![Build Status](https://travis-ci.org/RenChunhui/dotfiles.svg?branch=master)](https://travis-ci.org/RenChunhui/dotfiles)
 ![license](https://img.shields.io/github/license/renchunhui/dotfiles.svg)
 ![homebrew](https://img.shields.io/homebrew/v/cake.svg)
 ![GitHub language count](https://img.shields.io/github/languages/count/RenChunhui/dotfiles.svg)

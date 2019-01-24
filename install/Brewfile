@@ -8,6 +8,7 @@ tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 
+brew "asciinema"
 brew "mas"
 brew "wget"
 brew "node"
@@ -34,12 +35,11 @@ cask "docker"
 cask "dropbox"
 cask "emacs"
 
-# Quick Look Plugins 
+# Quick Look Plugins
 # 参考: https://github.com/sindresorhus/quick-look-plugins
 cask 'qlcolorcode'
 cask 'qlmarkdown'
 cask 'quicklook-json'
-cask 'betterzip'
 cask 'qlimagesize'
 cask 'webpquicklook'
 
