@@ -16,7 +16,6 @@ brew "yarn"
 brew "tmux"
 brew "neovim"
 brew "aria2"
-brew "go"
 brew "dockutil"
 
 cask "alfred"
@@ -32,8 +31,9 @@ cask "the-unarchiver"
 cask "postman"
 cask "qingg"
 cask "docker"
-cask "dropbox"
+cask "onedrive"
 cask "emacs"
+cask "spotify"
 
 # Quick Look Plugins
 # 参考: https://github.com/sindresorhus/quick-look-plugins
@@ -42,6 +42,7 @@ cask 'qlmarkdown'
 cask 'quicklook-json'
 cask 'qlimagesize'
 cask 'webpquicklook'
+cask 'qlvideo'
 
 # mas 'Xcode', id: 497799835
 mas 'WeChat', id: 836500024

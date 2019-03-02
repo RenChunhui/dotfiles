@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018 Chunhui Ren
+# Copyright (c) 2019 Chunhui Ren
 #
 
 # dotfiles 配置路径
@@ -42,6 +42,7 @@ packages:
 	@make brew-packages
 	@make node-packages
 	@make vscode-packages
+	@sh -c "$(wget https://raw.githubusercontent.com/guarinogabriel/mac-cli/master/mac-cli/tools/install -O -)"
 
 # brew
 brew:
