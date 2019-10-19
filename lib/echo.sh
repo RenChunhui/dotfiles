@@ -18,32 +18,23 @@ LPURPLE=$(echo -en '\001\033[01;35m\002')
 LCYAN=$(echo -en '\001\033[01;36m\002')
 WHITE=$(echo -en '\001\033[01;37m\002')
 
+# 信息
+function info() {
+  echo ${CYAN}➜ $1${RESTORE}
+}
+
 # 正常
 function ok() {
-  echo ${GREEN}✔ ${RESTORE}$1
-}
-
-# 机器人
-function bot() {
-  echo ${MAGENTA}★ ${RESTORE}$1
-}
-
-# 运行
-function running() {
-  echo -en ${YELLOW}⟲ ${RESTORE}$1:
-}
-
-function action() {
-  echo ${CYAN}➤ ${RESTORE}$1...
+  echo ${GREEN}✔ $1${RESTORE}
 }
 
 # 警告
 function warn() {
-  echo ${YELLOW}⚠ ${RESTORE}$1
+  echo ${YELLOW}⚠ $1${RESTORE}
 }
 
 # 错误
 function error() {
-  echo ${RED}✖ ${RESTORE}$1
+  echo ${RED}✖ $1${RESTORE}
 }
 

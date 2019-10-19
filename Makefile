@@ -3,8 +3,8 @@
 #
 
 all:
-	@chmod +x ./install.sh
-	@./install.sh
+	@chmod +x ./scripts/install.sh
+	@./scripts/install.sh
 
 clean:
 	@chmod +x ./reset.sh
