@@ -87,7 +87,7 @@ source $PWD/install/gem.sh
 info "Fonts setting..."
 sudo mount -uw /
 sudo cp /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-*.otf /System/Library/Fonts/ || exit 1
-curl -fLo "DroidSansMono Nerd Font Complete.otf" \
+cd /System/Library/Fonts/ && curl -fLo "DroidSansMono Nerd Font Complete.otf" \
     https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
 
 ###############################################################################
