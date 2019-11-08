@@ -8,6 +8,11 @@ GREEN=$'\e[32m'
 CYAN=$'\e[36m'
 YELLOW=$'\e[33m'
 
+# Ask question
+ask() {
+  echo ${CYAN}？ $1${END}
+}
+
 # Base infomation
 info() {
   echo ${CYAN}➜ $1${END}
