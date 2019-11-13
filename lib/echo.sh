@@ -2,15 +2,11 @@
 #
 # 彩色打印输出.
 
-END=$'\e[0m'
-RED=$'\e[31m'
-GREEN=$'\e[32m'
-CYAN=$'\e[36m'
-YELLOW=$'\e[33m'
+source $PWD/lib/color.sh
 
 # Ask question
 ask() {
-  echo ${CYAN}？ $1${END}
+  echo ${CYAN}？$1${END}
 }
 
 # Base infomation
