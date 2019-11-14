@@ -38,9 +38,6 @@ defaults write com.apple.screencapture disable-shadow -bool true
 # 在非Apple LCD上启用亚像素字体渲染
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
-# 禁用软件自动更新检查
-defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool false
-
 
 
 ###############################################################################
@@ -86,6 +83,9 @@ defaults write com.apple.dock mineffect -string "scale"
 # Dock 打开应用时禁用动画
 defaults write com.apple.dock launchanim -bool false
 
+# 不显示最近应用
+defaults write com.apple.dock show-recents -bool false
+
 # 重新整理 Dock
 dockutil --no-restart --remove all
 dockutil --no-restart --add "/Applications/Google Chrome.app"
@@ -103,6 +103,8 @@ killall Dock
 # Software update                                                             #
 ###############################################################################
 
+# 禁用软件自动更新检查
+defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool false
 
 
 ###############################################################################

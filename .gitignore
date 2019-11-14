@@ -2,3 +2,4 @@
 *.netrwhist
 *.cache
 *repos
+scripts/playground.sh
