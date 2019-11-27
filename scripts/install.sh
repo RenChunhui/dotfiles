@@ -68,7 +68,7 @@ if test ! $(which brew); then
     brew tap homebrew/cask
     brew tap homebrew/cask-versions
   fi
-  
+
   ok "Homebrew"
 else
   ok "Homebrew"
@@ -93,6 +93,7 @@ source $PWD/install/brew-cask.sh
 source $PWD/install/mas.sh
 source $PWD/install/npm.sh
 source $PWD/install/gem.sh
+source $PWD/install/mongodb.sh
 
 ###############################################################################
 # Clear
@@ -123,3 +124,4 @@ cd ~/.dotfiles
 source $PWD/config/emacs.sh
 source $PWD/config/vim.sh
 source $PWD/config/osx.sh
+source $PWD/config/zsh.sh

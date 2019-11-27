@@ -5,3 +5,6 @@ mv ~/.config/nvim{,.bak}
 
 # Clone this repo.
 git clone https://github.com/renchunhui/nvim ~/.config/nvim
+
+sudo gem install neovim
+yarn global add neovim
