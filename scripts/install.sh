@@ -19,30 +19,8 @@ fi
 ###############################################################################
 # Oh My Zsh
 ###############################################################################
-info "Installing Oh My Zsh..."
-if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/batch-mode/tools/install.sh)" -s --batch || {
-    error "Could not install Oh My Zsh" >/dev/stderr
-    exit 1
-  }
-  ok
-fi
 
-if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
-  info "installing zsh-autosuggestions plugin"
-  git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-fi
-
-if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]]; then
-  info "installing zsh-syntax-highlighting plugin"
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-fi
-
-if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-completions" ]]; then
-  info "installing zsh-completions plugin"
-  git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
-fi
-ok "Oh My Zsh"
+source $PWD/config/zsh.sh
 
 ###############################################################################
 # Homebrew
@@ -95,6 +73,8 @@ source $PWD/install/npm.sh
 source $PWD/install/gem.sh
 source $PWD/install/mongodb.sh
 
+
+
 ###############################################################################
 # Clear
 ###############################################################################
@@ -103,16 +83,10 @@ source $PWD/install/mongodb.sh
 # Fonts
 ###############################################################################
 info "Fonts setting..."
-if [[ $CODENAME -eq "Mojave" ]]; then
-  sudo cp /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-*.otf /Library/Fonts/ || exit 1
-  cd /Library/Fonts/ && curl -fLo "DroidSansMono Nerd Font Complete.otf" \
-    https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
-else
-  sudo mount -uw /
-  sudo cp /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-*.otf /System/Library/Fonts/ || exit 1
-  cd /System/Library/Fonts/ && curl -fLo "DroidSansMono Nerd Font Complete.otf" \
-    https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
-fi
+
+brew tap homebrew/cask-fonts
+brew cask install font-meslo-nerd-font
+brew cask install font-DroidSansMono-nerd-font
 
 
 
@@ -124,4 +98,4 @@ cd ~/.dotfiles
 source $PWD/config/emacs.sh
 source $PWD/config/vim.sh
 source $PWD/config/osx.sh
-source $PWD/config/zsh.sh
+
