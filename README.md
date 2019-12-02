@@ -36,57 +36,9 @@ $ cd .dotfiles
 $ make
 ```
 
-## 内容
+## 功能流程
 
-> Emacs 配置可参考 https://github.com/renchunhui/.emacs.d
-
-- 常用软件
-  - Alfred
-  - iTerm2
-  - Chrome
-  - Hammerspoon
-  - QQ
-  - IINA
-  - Visual Studio Code
-  - Shadowsocks
-  - Sketch
-  - Unarchiver
-  - Postman
-  - 清歌输入法
-  - Docker
-  - OneDrive
-  - Emacs
-- Quick Look 插件
-  - qlcolorcode
-  - qlmarkdown
-  - quicklook-json
-  - qlimagesize
-  - webpquicklook
-  - qlvideo
-- App Store 软件安装
-  - Pages
-  - Numbers
-  - Word
-  - Excel
-  - Wechat
-- [Oh My Zsh](#) 安装及 `autosuggestions`、`syntax-highlighting`、`completions` 插件安装
-- 前端开发工具包安装
-- VSCode 插件安装
-- 清理系统自带 Vim & Emacs
-- 配置还原
-  - VSCode
-  - Tmux
-  - Oh My Zsh
-  - NeoVim
-  - Emacs
-- 字体添加
-  - Droid Sans Mono Nerd Font Complete
-  - SF Mono
-- macOS 系统设置
-  - 重新整理 Dock
-  - iTerm2 字体、主题设置
-  - [更多设置](./lib/macos.sh)
- 
+<img src="assets/flowchart.svg">
 
 ## 版权许可证
 

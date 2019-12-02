@@ -1,3 +1,6 @@
+#!/bin/sh
+
+info "Mongodb installing..."
 
 # Tap the MongoDB Homebrew Tap
 brew tap mongodb/brew

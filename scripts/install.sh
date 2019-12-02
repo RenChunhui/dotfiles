@@ -72,6 +72,7 @@ source $PWD/install/mas.sh
 source $PWD/install/npm.sh
 source $PWD/install/gem.sh
 source $PWD/install/mongodb.sh
+source $PWD/install/rust.sh
 
 
 
@@ -87,6 +88,13 @@ info "Fonts setting..."
 brew tap homebrew/cask-fonts
 brew cask install font-meslo-nerd-font
 brew cask install font-DroidSansMono-nerd-font
+
+if [[ $CODENAME -eq "Mojave" ]]; then
+  sudo cp /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-*.otf /Library/Fonts/ || exit 1
+else
+  sudo mount -uw /
+  sudo cp /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-*.otf /System/Library/Fonts/ || exit 1
+fi
 
 
 
