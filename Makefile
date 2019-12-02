@@ -1,11 +1,18 @@
 #
 # Copyright (c) 2019 Chunhui Ren
-#
+# prePane
 
-all:
-	@chmod +x ./install.sh
-	@./install.sh
 
-clean:
-	@chmod +x ./reset.sh
-	@./reset.sh
+install:
+	@chmod +x ./scripts/install.sh
+	@./scripts/install.sh
+
+uninstall:
+	@chmod +x ./scripts/uninstall.sh
+	@./scripts/uninstall.sh
+
+playground:
+	@chmod +x ./scripts/playground.sh
+	@./scripts/playground.sh
+
+.PHONY: install
