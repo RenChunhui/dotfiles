@@ -5,7 +5,6 @@
 source $PWD/lib/color.sh
 
 select_option() {
-    # little helpers for terminal print control and key input
     ESC=$( printf "\033")
     cursor_blink_on()  { printf "$ESC[?25h"; }
     cursor_blink_off() { printf "$ESC[?25l"; }
@@ -18,20 +17,16 @@ select_option() {
                          if [[ $key = $ESC[B ]]; then echo down;  fi
                          if [[ $key = ""     ]]; then echo enter; fi; }
 
-    # initially print empty new lines (scroll down if at bottom of screen)
     for opt; do printf "\n"; done
 
-    # determine current screen position for overwriting the options
     local lastrow=`get_cursor_row`
     local startrow=$(($lastrow - $#))
 
-    # ensure cursor and input echoing back on upon a ctrl+c during read -s
     trap "cursor_blink_on; stty echo; printf '\n'; exit" 2
     cursor_blink_off
 
     local selected=0
     while true; do
-        # print options by overwriting the last lines
         local idx=0
         for opt; do
             cursor_to $(($startrow + $idx))
@@ -43,7 +38,6 @@ select_option() {
             ((idx++))
         done
 
-        # user key control
         case `key_input` in
             enter) break;;
             up)    ((selected--));
@@ -53,7 +47,6 @@ select_option() {
         esac
     done
 
-    # cursor position back to normal
     cursor_to $lastrow
     printf "\n"
     cursor_blink_on
