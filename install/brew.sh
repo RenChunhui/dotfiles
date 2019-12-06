@@ -2,25 +2,18 @@
 #
 # Homebrew install tools.
 
-if test ! $(which brew)
-then
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
+source $HOME/.dotfiles/lib/requires.sh
 
-apps=(
-  mas
-  wget
-  node
-  yarn
-  tmux
-  neovim
-  aria2
-  dockutil
-  cloc
-  webp
-  screenfetch
-)
-
-brew install "${apps[@]}"
+install_brew mas
+install_brew wget
+install_brew node
+install_brew yarn
+install_brew tmux
+install_brew neovim
+install_brew dockutil
+install_brew cloc
+install_brew webp
+install_brew screenfetch
+install_brew mysql
 
 brew cleanup
