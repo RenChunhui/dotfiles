@@ -17,7 +17,6 @@ install_cask postman
 install_cask qingg
 install_cask docker
 install_cask onedrive
-install_cask emacs
 install_cask recordit
 install_cask qlcolorcode
 install_cask qlmarkdown
