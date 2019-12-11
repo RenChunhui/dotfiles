@@ -27,7 +27,7 @@ source $PWD/config/zsh.sh
 ###############################################################################
 info "checking homebrew..."
 if test ! $(which brew); then
-  ask "Please select the mirror source"
+  ask "请选择镜像源"
   options=("清华大学" "Homebrew 官网")
   select_option "${options[@]}"
   chioice=$?
@@ -71,7 +71,6 @@ source $PWD/install/brew-cask.sh
 source $PWD/install/mas.sh
 source $PWD/install/npm.sh
 source $PWD/install/gem.sh
-source $PWD/install/mongodb.sh
 source $PWD/install/rust.sh
 
 
@@ -80,10 +79,18 @@ source $PWD/install/rust.sh
 # Clear
 ###############################################################################
 
+info "清理系统自带 Emacs、Vim、Nano."
+sudo rm /usr/bin/vim
+sudo rm -rf /usr/share/vim
+sudo rm /usr/bin/emacs
+sudo rm -rf /usr/share/emacs
+sudo rm /usr/bin/nano
+sudo rm -rf /usr/share/nano
+
 ###############################################################################
 # Fonts
 ###############################################################################
-info "Fonts setting..."
+info "添加常用等宽字体."
 
 brew tap homebrew/cask-fonts
 brew cask install font-meslo-nerd-font
@@ -107,3 +114,21 @@ source $PWD/config/emacs.sh
 source $PWD/config/vim.sh
 source $PWD/config/osx.sh
 
+main() {
+  ask_for_sudo
+}
+
+ask_for_sudo() {
+  info "Prompting for sudo password."
+  if sudo --validate; then
+    # keep alive
+    while true; do sudo --non-interactive true; \
+                   sleep 10; kill -0 "$$" || exit; done 2>/dev/null &
+    success "Sudo password updated."
+  else
+    error "Sudo password update failed."
+    exit 1
+  fi
+}
+
+main "$@"
