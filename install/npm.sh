@@ -2,16 +2,12 @@
 #
 # Node packages.
 
-packages=(
-  sass
-  typescript
-  typescript-tslint-plugin
-  javascript-typescript-langserver
-  @angular/cli
-  bash-language-server
-  vscode-html-languageserver-bin
-  vscode-css-languageserver-bin
-  yaml-language-server
-)
+source $HOME/.dotfiles/lib/requires.sh
 
-yarn global add "${packages[@]}"
+install_npm sass
+install_npm typescript
+install_npm @angular/cli
+install_npm bash-language-server
+install_npm vscode-html-languageserver-bin
+install_npm vscode-css-languageserver-bin
+install_npm yaml-language-server

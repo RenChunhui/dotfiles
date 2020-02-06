@@ -15,7 +15,6 @@ install_cask sketch
 install_cask the-unarchiver
 install_cask postman
 install_cask qingg
-install_cask docker
 install_cask onedrive
 install_cask recordit
 install_cask qlcolorcode
@@ -23,4 +22,3 @@ install_cask qlmarkdown
 install_cask quicklook-json
 install_cask qlimagesize
 install_cask webpquicklook
-install_cask qlvideo

@@ -70,8 +70,6 @@ source $PWD/install/brew.sh
 source $PWD/install/brew-cask.sh
 source $PWD/install/mas.sh
 source $PWD/install/npm.sh
-source $PWD/install/gem.sh
-source $PWD/install/rust.sh
 
 
 
