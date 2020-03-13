@@ -13,7 +13,7 @@ install_brew neovim
 install_brew dockutil
 install_brew cloc
 install_brew webp
-install_brew screenfetch
-install_brew mysql@5.7
+# install_brew mysql@5.7
+install_brew mongodb
 
 brew cleanup
