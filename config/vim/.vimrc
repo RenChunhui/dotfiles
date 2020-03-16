@@ -26,11 +26,15 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 
 " Theme
-Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
 
+" Format
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'Yggdroot/indentLine'
+
+" Others
+Plug 'Yggdroot/LeaderF'
 Plug 'hecal3/vim-leader-guide'
 
 call plug#end()

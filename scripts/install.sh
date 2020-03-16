@@ -8,6 +8,25 @@ source $PWD/lib/mac_version.sh
 
 cat $PWD/assets/ascii.txt
 
+system_type=$(uname -s)
+
+if [ $system_type != "Darwin" ]; then
+  error "仅适应于 macOS 系统。"
+  exit;
+fi
+
+if [ $CODENAME != "Catalina" ]; then
+  warn "此配置需要 macOS Catalina，你的版本部分配置有兼容性问题。"
+fi
+
+if [ $CODENAME != "Catalina" ]; then
+  warn "此配置需要 macOS Catalina，你的版本部分配置有兼容性问题。"
+  read -r -p "${YELLOW}? 你确定要继续吗？ [y|N] ${END}" response
+  if [[ $response =~ (n|N) ]]; then
+    exit;
+  fi
+fi
+
 ###############################################################################
 # Xcode
 ###############################################################################
@@ -15,6 +34,12 @@ if ! xcode-select --print-path &> /dev/null; then
   info "ensuring build/install tools are available"
   xcode-select --install &> /dev/null;
 fi
+
+###############################################################################
+# Git
+###############################################################################
+
+source $PWD/config/git.sh
 
 ###############################################################################
 # Oh My Zsh
@@ -25,7 +50,7 @@ source $PWD/config/zsh.sh
 ###############################################################################
 # Homebrew
 ###############################################################################
-info "checking homebrew..."
+
 if test ! $(which brew); then
   ask "请选择镜像源"
   options=("清华大学" "Homebrew 官网")
@@ -43,36 +68,19 @@ if test ! $(which brew); then
     brew doctor
     export HOMEBREW_NO_AUTO_UPDATE=true
   else
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
-    brew tap homebrew/core
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     brew tap homebrew/cask
-    brew tap homebrew/cask-versions
-  fi
-
-  ok "Homebrew"
-else
-  ok "Homebrew"
-  read -r -p "run brew update && upgrade? [y|N] " response
-  if [[ $response =~ (y|yes|Y) ]]; then
-    info "updating homebrew..."
-    brew update
-    ok "homebrew updated"
-    info "upgrading brew packages..."
-    brew upgrade
-    ok "brews upgraded"
-  else
-    info "skipped brew package upgrades."
   fi
 fi
 
 ###############################################################################
 # Install
 ###############################################################################
-source $PWD/install/brew.sh
-source $PWD/install/brew-cask.sh
-source $PWD/install/mas.sh
-source $PWD/install/npm.sh
 
+brew install mas
+brew bundle --file $HOME/.dotfiles/install/Brewfile
+source $PWD/install/npm.sh
+source $PWD/install/rust.sh
 
 
 ###############################################################################
@@ -80,28 +88,20 @@ source $PWD/install/npm.sh
 ###############################################################################
 
 info "清理系统自带 Emacs、Vim、Nano."
-sudo rm /usr/bin/vim
-sudo rm -rf /usr/share/vim
-sudo rm /usr/bin/emacs
-sudo rm -rf /usr/share/emacs
-sudo rm /usr/bin/nano
-sudo rm -rf /usr/share/nano
+# sudo rm /usr/bin/vim
+# sudo rm -rf /usr/share/vim
+# sudo rm /usr/bin/emacs
+# sudo rm -rf /usr/share/emacs
+# sudo rm /usr/bin/nano
+# sudo rm -rf /usr/share/nano
 
 ###############################################################################
 # Fonts
 ###############################################################################
-info "添加常用等宽字体."
+info "添加 SF Mono."
 
-brew tap homebrew/cask-fonts
-brew cask install font-meslo-nerd-font
-brew cask install font-DroidSansMono-nerd-font
-
-if [[ $CODENAME -eq "Mojave" ]]; then
-  sudo cp /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-*.otf /Library/Fonts/ || exit 1
-else
-  sudo mount -uw /
-  sudo cp /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-*.otf /System/Library/Fonts/ || exit 1
-fi
+sudo mount -uw /
+sudo cp /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SFMono-*.otf /System/Library/Fonts/ || exit 1
 
 
 
@@ -109,9 +109,10 @@ fi
 # Config
 ###############################################################################
 
-cd ~/.dotfiles
-source $PWD/config/emacs.sh
+cd $HOME/.dotfiles
+
 source $PWD/config/vim.sh
+source $PWD/config/tmux.sh
 source $PWD/config/osx.sh
 
 main() {

@@ -70,34 +70,6 @@ defaults write com.apple.finder AppleShowAllFiles -bool true;
 
 
 
-###############################################################################
-# Dock                                                                        #
-###############################################################################
-
-# Dock 项目图标大小设置
-defaults write com.apple.dock tilesize -int 48
-
-# 最小化/最大化窗口效果
-defaults write com.apple.dock mineffect -string "scale"
-
-# Dock 打开应用时禁用动画
-defaults write com.apple.dock launchanim -bool false
-
-# 不显示最近应用
-defaults write com.apple.dock show-recents -bool false
-
-# 重新整理 Dock
-dockutil --no-restart --remove all
-dockutil --no-restart --add "/Applications/Google Chrome.app"
-dockutil --no-restart --add "/Applications/Sketch.app"
-dockutil --no-restart --add "/Applications/WeChat.app"
-dockutil --no-restart --add "/Applications/QQ.app"
-dockutil --no-restart --add "/Applications/iTerm.app"
-dockutil --no-restart --add "/Applications/System Preferences.app"
-
-killall Dock
-
-
 
 ###############################################################################
 # Software update                                                             #
@@ -111,17 +83,6 @@ defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool false
 # Spotlight                                                                   #
 ###############################################################################
 
-
-
-###############################################################################
-# Terminal                                                                    #
-###############################################################################
-
-# 使用 UTF-8 编码
-defaults write com.apple.terminal StringEncodings -array 4
-
-# 退出时不显示提示
-# defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 
 

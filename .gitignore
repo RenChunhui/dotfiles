@@ -3,3 +3,4 @@
 *.cache
 *repos
 scripts/playground.sh
+config/vim/config/plugged

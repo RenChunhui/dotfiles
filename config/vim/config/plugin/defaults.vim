@@ -15,7 +15,7 @@ set shortmess+=c
 set signcolumn=yes
 
 try
-  colorscheme dracula
+  colorscheme gruvbox
 catch
   colorscheme default
 endtry
