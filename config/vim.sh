@@ -1,4 +1,6 @@
 #!/bin/sh
 
-ln -s $HOME/.dotfiles/config/vim/.vimrc $HOME/.vimrc
-ln -s $HOME/.dotfiles/config/vim/config $HOME/.vim
+yarn global add neovim
+python3 -m pip install --user --upgrade pynvim
+
+git clone https://github.com/renchunhui/vim-config.git $HOME/.config/nvim
