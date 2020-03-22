@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# Dotfiles Manager
+
+source $HOME/.dotfiles/lib/foundation
+
+VERSION=1.0.0
+
+case  $1 in
+  "" | "h" | "help") sh $HOME/.dotfiles/commands/help
+  ;;
+  "add") sh $HOME/.dotfiles/commands/add "$2"
+  ;;
+  "clean") sh $HOME/.dotfiles/commands/clean "$2"
+  ;;
+  "config") sh $HOME/.dotfiles/commands/config "$2"
+  ;;
+  "remove") sh $HOME/.dotfiles/commands/remove "$2"
+  ;;
+  *)
+  fail "The specified command is invalid. For a list of available options,run ${GREEN}dm help${RESET}."
+  ;;
+esac

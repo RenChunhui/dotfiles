@@ -1,0 +1,4 @@
+editorconfig.editorconfig
+vscode-icons-team.vscode-icons
+angular.ng-template
+Zignd.html-css-class-completion

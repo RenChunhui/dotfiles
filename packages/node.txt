@@ -1,0 +1,6 @@
+sass
+typescript
+@angular/cli
+@nestjs/cli
+bash-language-server
+yaml-language-server

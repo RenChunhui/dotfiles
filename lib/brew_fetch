@@ -1,0 +1,45 @@
+#!/bin/sh
+
+source $HOME/.dotfiles/lib/foundation
+
+if test ! $(which brew); then
+  ask "请选择镜像源" "(方向键切换)"
+  mirrors=("GitHub" "清华大学" "中科大" "阿里")
+  radio "${mirrors[@]}"
+  mirror=$?
+
+  if [[ $mirror -eq 0 ]]; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  else if [[ $mirror -eq 1]]; then
+    brew_abort
+    /bin/bash $HOME/.dotfiles/lib/brew_tuna.sh
+    git clone https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core --depth=1
+    git clone https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask --depth=1
+    git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+    git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
+    export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+  else if [[ $mirror -eq 2]]; then
+    brew_abort
+    /bin/bash $HOME/.dotfiles/lib/brew_ustc.sh
+    git clone https://mirrors.ustc.edu.cn/homebrew-core.git/ /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core --depth=1
+    git clone https://mirrors.ustc.edu.cn/homebrew-cask.git/ /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask --depth=1
+    git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git/
+    git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git/
+    export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+  else
+    brew_abort
+    /bin/bash $HOME/.dotfiles/lib/brew_aliyun.sh
+    git clone https://mirrors.aliyun.com/homebrew/homebrew-core.git/ /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core --depth=1
+    git clone https://mirrors.aliyun.com/homebrew/homebrew-cask.git/ /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask --depth=1
+    git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git/
+    git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-cask.git/
+    export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+  fi
+
+  export HOMEBREW_NO_AUTO_UPDATE=1
+fi
+
+# 提示中止
+brew_abort() {
+  warn "当出现 ${DIM}/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core${RESET_DIM} 时,请使用 ${CYAN}⌃ + c${RESET} 中止，然后复制步骤完成"
+}

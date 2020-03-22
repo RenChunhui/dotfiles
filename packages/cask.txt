@@ -1,0 +1,16 @@
+alfred
+iterm2
+iina
+qingg
+google-chrome
+visual-studio-code
+the-unarchiver
+onedrive
+recordit
+navicat-for-postgresql
+
+qlcolorcode
+qlmarkdown
+quicklook-json
+qlimagesize
+webpquicklook

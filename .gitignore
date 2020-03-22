@@ -1,6 +1,1 @@
 .DS_Store
-*.netrwhist
-*.cache
-*repos
-scripts/playground.sh
-config/vim/config/plugged

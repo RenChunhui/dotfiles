@@ -1,18 +1,19 @@
-#
-# Copyright (c) 2019 Chunhui Ren
-# prePane
+export PATH := bin:$(PATH)
 
+all:
+	@sh lib/banner
 
-install:
-	@chmod +x ./scripts/install.sh
-	@./scripts/install.sh
+git:
+	@sh ./config/git/default.sh
 
-uninstall:
-	@chmod +x ./scripts/uninstall.sh
-	@./scripts/uninstall.sh
+zsh:
+	@sh ./config/zsh/default.sh
 
-playground:
-	@chmod +x ./scripts/playground.sh
-	@./scripts/playground.sh
+brew:
+	@sh ./lib/brew_fetch
 
-.PHONY: install
+action_brew:
+	@sh ./lib/packages.sh install_brew
+
+action_cask:
+	@sh ./lib/packages.sh install_cask

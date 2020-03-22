@@ -1,0 +1,196 @@
+#!/bin/sh
+#
+# 添加内容
+
+source $HOME/.dotfiles/lib/foundation
+
+
+
+###############################################################################
+# 执行动作                                                                     #
+###############################################################################
+
+action_brew() {
+  has_brew
+
+  cat $HOME/.dotfiles/packages/brew.txt | while read line
+  do
+    read_line $line
+    brew list $line > /dev/null
+    if [[ ${PIPESTATUS[0]} != 0 ]]; then
+      brew install $line
+      if [[ $? != 0 ]]; then
+        fail "$line 安装失败"
+      fi
+    else
+      ok "已安装 $line"
+    fi
+  done
+}
+
+action_cask() {
+  has_brew
+
+  cat $HOME/.dotfiles/packages/cask.txt | while read line
+  do
+    read_line $line
+    brew cask list $line > /dev/null
+    if [[ ${PIPESTATUS[0]} != 0 ]]; then
+      brew cask install $line
+      if [[ $? != 0 ]]; then
+        fail "$line installing fail"
+      fi
+    else
+      ok "$line was successfully installed"
+    fi
+  done
+}
+
+# code 命令没有状态码返回
+action_code() {
+  has_code
+
+  cat $HOME/.dotfiles/packages/code.txt | xargs -n 1 code --install-extension
+
+  # cat $HOME/.dotfiles/packages/code.txt | code --list-extensions | while read line
+  # do
+  #   read_line $line
+  #   code --install-extension $line
+  #   # code --list-extensions | $line > /dev/null
+  #   # if [[ ${PIPESTATUS[0]} != 0 ]]; then
+  #   #   code --install-extension $line --force
+  #   #   if [[ $? != 0 ]]; then
+  #   #     fail "$line extension installing fail"
+  #   #   fi
+  #   # else
+  #   #   ok "$line extension was successfully installed"
+  #   # fi
+  # done
+}
+
+action_fonts() {
+  has_brew
+
+  cat $HOME/.dotfiles/packages/fonts.txt | while read line
+  do
+    read_line $line
+    brew cask list $line > /dev/null
+    if [[ ${PIPESTATUS[0]} != 0 ]]; then
+      brew cask install $line
+      if [[ $? != 0 ]]; then
+        fail "$line installing fail"
+      fi
+    else
+      ok "$line was successfully installed"
+    fi
+  done
+}
+
+action_gem() {
+  echo ""
+}
+
+action_mas() {
+  has_mas
+
+  cat $HOME/.dotfiles/packages/mas.txt | while read line
+  do
+    read_line $line
+    mas list $line > /dev/null
+    if [[ ${PIPESTATUS[0]} != 0 ]]; then
+      mas install $line
+      if [[ $? != 0 ]]; then
+        fail "$line installing fail"
+      fi
+    else
+      ok "$line was successfully installed"
+    fi
+  done
+}
+
+action_node() {
+  has_node
+
+  cat $HOME/.dotfiles/packages/node.txt | while read line
+  do
+    read_line $line
+    yarn global list $line > /dev/null
+    if [[ ${PIPESTATUS[0]} != 0 ]]; then
+      yarn global add $line
+      if [[ $? != 0 ]]; then
+        fail "$line installing fail"
+      fi
+    else
+      ok "$line was successfully installed"
+    fi
+  done
+}
+
+
+
+###############################################################################
+# 环境检查                                                                     #
+###############################################################################
+
+# 检查 Homebrew 环境
+has_brew() {
+  if test ! $(which brew); then
+    source $HOME/.dotifles/lib/brew_fetch
+  fi
+}
+
+has_mas() {
+  if test ! $(which mas); then
+    brew install mas
+  fi
+}
+
+has_code() {
+  if test ! $(which code); then
+    brew cask install visual-studio-code
+  fi
+}
+
+has_node() {
+  if test ! $(which yarn); then
+    brew install yarn
+  fi
+}
+
+# 读行
+read_line() {
+  str=$1
+
+  if [[ "${str:0:1}" == "#" || ${#str} == 0 ]]; then
+    continue
+  fi
+}
+
+case $1 in
+  "" | "all")
+  action_brew
+  action_cask
+  action_code
+  action_fonts
+  action_gem
+  action_mas
+  action_node
+  ;;
+  "brew") action_brew
+  ;;
+  "cask") action_cask
+  ;;
+  "code") action_code
+  ;;
+  "fonts") action_fonts
+  ;;
+  "gem") action_gem
+  ;;
+  "mas") action_mas
+  ;;
+  "node") action_node
+  ;;
+  *)
+  fail "Cann't find $1 package."
+  ;;
+esac
