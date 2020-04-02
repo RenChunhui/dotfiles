@@ -1,8 +1,0 @@
-wget
-node
-yarn
-tmux
-dockutil
-cloc
-webp
-postgresql

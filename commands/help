@@ -1,47 +1,5 @@
 #!/bin/sh
 #
-# 帮助说明文档
+# Help documents
 
-source $HOME/.dotfiles/lib/foundation
-
-set -e
-
-CLI_NAME=$(basename "$0")
-
-# 帮助文档
-cli_help() {
-  echo "
-Dotfiles manager,Install software and configure development environment for you.
-Usage: dm [command] [modules]
-
-Commands:
-  add           Add you packages folder .txt extension name files list.
-  config        Configure your config folder content.
-  clean         For more detailed help run '${BOLD}dm clean help${RESET}'
-  help          Output usage information.
-  remove        Remove ${BOLD}<modules>${RESET} related content.
-
-Modules:
-  all           All the modules.
-  emacs         Emacs configuration.
-  git           Git configuration.
-  iterm         iTerm2 configuration.
-  osx           macOS configuration.
-  tmux          Tmux configuration.
-  vim           NeoVim configuration
-  vscode        VSCode configuration
-  web           Font-end configuration
-  zsh           Zsh configuration
-  brew          Homebrew packages.
-  cask          Homebrew cask packages.
-  code          VSCode extensions.
-  fonts         NerdFonts.
-  gem           Ruby packages.
-  mas           App Store.
-  node          Node packages.
-  "
-
-  exit 1
-}
-
-[ ! -n "$1" ] && cli_help
+echo "help documents"
