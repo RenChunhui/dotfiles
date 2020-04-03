@@ -2,24 +2,24 @@
 #
 # Version: 1.0.0
 # Author : Chunhui Ren
-# macOS dotfiles manager commmand line interface
+# macOS dotfiles manager commmand line interface
 
-VERSION=1.0.0
-ROUTE=$HOME/.config/dotfiles
+export DOT_PATH=$HOME/.config/dotfiles
+export CLI="dm"
 
-source $ROUTE/lib/color
-source $ROUTE/lib/icons
-source $ROUTE/lib/output
-source $ROUTE/lib/verify
+source $DOT_PATH/lib/color
+source $DOT_PATH/lib/icons
+source $DOT_PATH/lib/output
+source $DOT_PATH/lib/verify
 
 if [[ "$1" == "" ]] || [[ "$1" == "h" ]] || [[ "$1" == 'help' ]]; then
-  sh $ROUTE/commands/help
+  sh $DOT_PATH/commands/help
 elif [[ "$1" == "clean" ]]; then
-  sh $ROUTE/commands/clean
+  sh $DOT_PATH/commands/clean
 else
-  if [ ! -d $ROUTE/plugins/$1 ]; then
+  if [ ! -d $DOT_PATH/plugins/$1 ]; then
     fail "The specified command is invalid. For a list of available options,run ${GREEN}dm help${RESET}."
   else
-    sh $ROUTE/plugins/$1/main.sh "$@"
+    sh $DOT_PATH/plugins/$1/main.sh "$2"
   fi
 fi

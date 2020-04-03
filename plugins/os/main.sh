@@ -1,17 +1,39 @@
 #!/bin/sh
 
-turn_up(){
-  osascript -e 'tell application "System Events"' -e 'key code 144' -e ' end tell'
-}
-
-turn_down(){
-  osascript -e 'tell application "System Events"' -e 'key code 145' -e ' end tell'
-}
+source $DOT_PATH/lib/color
+source $DOT_PATH/lib/output
 
 case $1 in
 '' | 'h' | 'help')
+  cat <<EOF
+  Usage: ${CLI} os <command>
+
+  Commands:
+  defaults          Default configuration for self.
+  lock              System lock.
+  restart           System restart.
+  sleep             System sleep.
+  shutdown          System shutdown.
+EOF
   ;;
-'restore')
+'defaults')
+  if test ! $(which dockutil); then
+    brew install dockutil
+  else
+    source $DOT_PATH/plugins/os/defaults.sh
+  fi
+  ;;
+'lock')
+  /System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
+  ;;
+'restart')
+  osascript -e 'tell app "loginwindow" to «event aevtrrst»'
+  ;;
+'sleep')
+  pmset sleepnow
+  ;;
+'shutdown')
+  osascript -e 'tell app "loginwindow" to «event aevtrsdn»'
   ;;
 *)
   ;;
