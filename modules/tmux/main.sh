@@ -18,9 +18,9 @@ EOF
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   fi
 
-  rm -rf $HOME/.tmux.conf
+  unlink $HOME/.tmux.conf
 
-  ln -s $DOT_PATH/plugins/tmux/tmux.conf.symlink $HOME/.tmux.conf
+  ln -s $DOT_PATH/modules/tmux/tmux.conf.symlink $HOME/.tmux.conf
 
   tmux source ~/.tmux.conf
   ;;

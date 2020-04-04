@@ -5,40 +5,52 @@ source $DOT_PATH/lib/output
 
 zsh_install() {
   if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-    info "安装 Oh My Zsh..."
-    git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh --depth=1
-    ok "Oh My Zsh 安装成功"
+    info "Installing Oh My Zsh..."
+    git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh --depth=1 || exit 1
+    if [[ $? == 1 ]]; then
+      error "GitHub clone faild,program interruption."
+    fi
   else
-    ok "已安装 Oh My Zsh"
+    ok "Oh My Zsh successfully installed."
   fi
 
   if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
-    info "安装 zsh-autosuggestions 插件"
+    info "Installing zsh-autosuggestions."
     git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions --depth=1
-    ok "zsh-autosuggestions 安装成功"
   else
-    ok "已安装 zsh-autosuggestions"
+    ok "zsh-autosuggestions successfully installed."
   fi
 
   if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]]; then
-    info "安装 zsh-syntax-highlighting 插件"
+    info "Installing zsh-syntax-highlighting."
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting --depth=1
-    ok "zsh-syntax-highlighting 安装成功"
   else
-    ok "已安装 zsh-syntax-highlighting"
+    ok "zsh-syntax-highlighting successfully installed."
   fi
 
   if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-completions" ]]; then
-    info "安装 zsh-completions 插件"
+    info "Installing zsh-completions."
     git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions --depth=1
-    ok "zsh-completions 安装成功"
   else
-    ok "已安装 zsh-completions"
+    ok "zsh-completions successfully installed."
   fi
 
   rm -rf $HOME/.zshrc
-  ln -sf $ROUTE/plugins/zsh/zshrc.symlink $HOME/.zshrc
+  ln -s $DOT_PATH/modules/zsh/zshrc.symlink ~/.zshrc
   source $HOME/.zshrc
+
+  # Set a proxy for terminal.
+  ask "Do you want set proxy for terminal." "Arrow for "
+  choice=("YES" "NO")
+  radio "${choice[@]}"
+  choice=$?
+
+  if [[ $choice -eq 0 ]]; then
+    info "Input you terminal proxy."
+    read -r proxy
+    echo "export http_proxy=$proxy" >> ~/.proxyrc
+    echo "export https_proxy=$proxy" >> ~/.proxyrc
+  fi
 }
 
 zsh_uninstall() {
@@ -56,9 +68,11 @@ case $1 in
   Uninstall       Uninstall zsh
 EOF
   ;;
-'install') zsh_install
+'install')
+  zsh_install && exit 0
   ;;
-'uninstall') zsh_uninstall
+'uninstall')
+  zsh_uninstall && exit 0
   ;;
 *)
   fail "Invalid command: ${RED}$1${RESET}"

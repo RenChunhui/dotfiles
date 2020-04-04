@@ -2,4 +2,19 @@
 #
 # Help documents
 
-echo "help documents"
+cat <<EOF
+Usage: ${CLI} <command>
+
+Command:
+help
+clean
+brew
+emacs
+git
+node
+os
+tmux
+vim
+vscode
+zsh
+EOF

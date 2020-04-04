@@ -12,7 +12,7 @@ EOF
   if test ! $(which code); then
     brew cask install visual-studio-code
   fi
-  cat $DOT_PATH/plugins/vscode/Codefile | xargs -n 1 code --install-extension
+  cat $DOT_PATH/modules/vscode/Codefile | xargs -n 1 code --install-extension
   ;;
 *)
   ;;

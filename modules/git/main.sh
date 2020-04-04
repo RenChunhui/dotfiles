@@ -22,14 +22,14 @@ git_proxy() {
 }
 
 git_config() {
-  ln -sf $DOT_PATH/plugins/git/gitignore_global.symlink $HOME/.gitignore_global
-  ln -sf $DOT_PATH/plugins/git/gitmessage.symlink $HOME/.gitmessage
+  ln -sf $DOT_PATH/modules/git/gitignore_global.symlink $HOME/.gitignore_global
+  ln -sf $DOT_PATH/modules/git/gitmessage.symlink $HOME/.gitmessage
 
   git config --global commit.template ~/.gitmessage
   git config --global core.excludesfile ~/.gitignore_global
 }
 
-case $! in
+case $1 in
 '' | 'h' | 'help')
   cat <<EOF
   Usage: ${CLI} git <command>
@@ -45,9 +45,11 @@ EOF
   git_proxy
   git_config
   ;;
-'account') git_accout
+'account')
+  git_account && exit 0
   ;;
-'proxy') git_proxy
+'proxy')
+  git_proxy && exit 0
   ;;
 *)
   fail "Invalid command: ${RED}$1${RESET}"

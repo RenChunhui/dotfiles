@@ -25,3 +25,7 @@ zstyle ':vcs_info:git:*' formats '%b'
 source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/.config/dotfiles/bin:$PATH"
+
+# Homebrew
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_AUTO_UPDATE=true

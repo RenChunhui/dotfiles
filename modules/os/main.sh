@@ -20,7 +20,7 @@ EOF
   if test ! $(which dockutil); then
     brew install dockutil
   else
-    source $DOT_PATH/plugins/os/defaults.sh
+    source $DOT_PATH/modules/os/defaults.sh
   fi
   ;;
 'lock')

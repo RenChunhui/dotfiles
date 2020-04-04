@@ -16,13 +16,15 @@ EOF
   ;;
 'install')
   if test ! $(which brew); then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" || exit 1
+    if [[ $? == 1 ]]; then
+      error "如果在国内,请参照网上使用镜像源教程安装。" && exit 0
+    fi
   fi
-  brew bundle exec -- bundle install
-  brew bundle --file $DOT_PATH/plugins/brew/Brewfile
+  brew bundle --file=$DOT_PATH/modules/brew/Brewfile
   ;;
 'cleanup')
-  brew bundle cleanup --file $DOT_PATH/plugins/brew/Brewfile
+  brew bundle cleanup --file=$DOT_PATH/modules/brew/Brewfile
   ;;
 *)
   fail "Invalid command: ${RED}$1${RESET}"

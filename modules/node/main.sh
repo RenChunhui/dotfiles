@@ -14,10 +14,13 @@ case $1 in
 EOF
   ;;
 'install')
-  cat $DOT_PATH/plugins/node/Nodefile | xargs -n 1 yarn global add
+  if test ! $(which yarn); then
+    brew install yarn
+  fi
+  cat $DOT_PATH/modules/node/Nodefile | xargs -n 1 yarn global add
   ;;
 'uninstall')
-  cat $DOT_PATH/plugins/node/Nodefile | xargs -n 1 yarn global remove
+  cat $DOT_PATH/modules/node/Nodefile | xargs -n 1 yarn global remove
   ;;
 *)
   fail "Invalid command: ${RED}$1${RESET}"
