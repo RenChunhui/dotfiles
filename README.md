@@ -1,14 +1,5 @@
 <div align="center">
-  <?xml version="1.0" encoding="UTF-8"?>
-  <svg width="96px" height="96px" viewBox="0 0 96 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <g id="Pixel-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g id="编组" transform="translate(16.000000, 16.000000)">
-              <path d="M32,0 C49.673112,0 64,14.326888 64,32 C64,49.4963809 49.9582171,63.7131276 32.5291785,63.9957129 L32,64 L4,64 C1.790861,64 2.705415e-16,62.209139 0,60 L0,16 L16,0 L32,0 Z M40,24 C35.581722,24 32,27.581722 32,32 C32,36.418278 35.581722,40 40,40 C44.418278,40 48,36.418278 48,32 C48,27.581722 44.418278,24 40,24 Z" id="形状结合" fill="#5685FF"></path>
-              <polygon fill="#3558BE" points="8 8 16 0 20 20 0 16"></polygon>
-              <polygon fill="#ADC7FF" points="8 8 16 0 16 16 0 16"></polygon>
-          </g>
-      </g>
-  </svg>
+  <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iOTZweCIgaGVpZ2h0PSI5NnB4IiB2aWV3Qm94PSIwIDAgOTYgOTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZyBpZD0iUGl4ZWwtMiIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9Iue8lue7hCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTYuMDAwMDAwLCAxNi4wMDAwMDApIj4KICAgICAgICAgICAgPHBhdGggZD0iTTMyLDAgQzQ5LjY3MzExMiwwIDY0LDE0LjMyNjg4OCA2NCwzMiBDNjQsNDkuNDk2MzgwOSA0OS45NTgyMTcxLDYzLjcxMzEyNzYgMzIuNTI5MTc4NSw2My45OTU3MTI5IEwzMiw2NCBMNCw2NCBDMS43OTA4NjEsNjQgMi43MDU0MTVlLTE2LDYyLjIwOTEzOSAwLDYwIEwwLDE2IEwxNiwwIEwzMiwwIFogTTQwLDI0IEMzNS41ODE3MjIsMjQgMzIsMjcuNTgxNzIyIDMyLDMyIEMzMiwzNi40MTgyNzggMzUuNTgxNzIyLDQwIDQwLDQwIEM0NC40MTgyNzgsNDAgNDgsMzYuNDE4Mjc4IDQ4LDMyIEM0OCwyNy41ODE3MjIgNDQuNDE4Mjc4LDI0IDQwLDI0IFoiIGlkPSLlvaLnirbnu5PlkIgiIGZpbGw9IiM1Njg1RkYiPjwvcGF0aD4KICAgICAgICAgICAgPHBvbHlnb24gZmlsbD0iIzM1NThCRSIgcG9pbnRzPSI4IDggMTYgMCAyMCAyMCAwIDE2Ij48L3BvbHlnb24+CiAgICAgICAgICAgIDxwb2x5Z29uIGZpbGw9IiNBREM3RkYiIHBvaW50cz0iOCA4IDE2IDAgMTYgMTYgMCAxNiI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+">
   <p>使用自定义命令行管理你的 macOS</p>
 </div>
 
