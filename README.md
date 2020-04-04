@@ -39,18 +39,28 @@ $ ./install.sh
 例如:
 
 ``` bash
-dm brew install       # Homebrew 包安装
-dm git proxy          # 设置 Git 走代理
-dm node install       # 全局安装 node 包
-dm os restart         # 重启电脑
+$ dm brew install       # Homebrew 包安装
+$ dm git proxy          # 设置 Git 走代理
+$ dm node install       # 全局安装 node 包
+$ dm os restart         # 重启电脑
 ```
 
 自定义
 ---
 
-* 第一步: 在 `dotfiles/modules/` 目录下添加一个模块
-* 第二步: 添加默认文件 `main.sh`
-* 第三步: 编写初使化代码:
+* **第一步**: 添加一个模块
+
+``` sh
+$ cd ~/.config/dotfiles/modules
+$ mkdir ${moduleName}
+```
+* **第二步**: 添加默认文件 `main.sh`
+
+``` sh
+$ cd ${moduleName}
+$ touch main.sh
+```
+* **第三步**: 自定义模块脚本:
 
 ``` sh
 case $1 in
