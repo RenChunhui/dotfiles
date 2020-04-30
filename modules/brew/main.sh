@@ -10,8 +10,8 @@ case $1 in
 
   Commands:
   install        Install or upgrade all dependencies in a Brewfile.
+  uninstall      Uninstall all packages in a Brewfile.
   cleanup        Uninstall all dependencies not listed in a Brewfile.
-  check          Check if all dependencies are installed in a Brewfile.
 EOF
   ;;
 'install')
@@ -22,6 +22,12 @@ EOF
     fi
   fi
   brew bundle --file=$DOT_PATH/modules/brew/Brewfile
+  ;;
+'uninstall')
+  brew bundle list --file=$DOT_PATH/modules/brew/Brewfile --brews | xargs -n 1 brew uninstall
+  brew bundle list --file=$DOT_PATH/modules/brew/Brewfile --casks | xargs -n 1 brew cask uninstall
+  brew bundle list --file=$DOT_PATH/modules/brew/Brewfile --taps | xargs -n 1 brew untap
+  brew bundle list --file=$DOT_PATH/modules/brew/Brewfile --mas | xargs -n 1 mas uninstall
   ;;
 'cleanup')
   brew bundle cleanup --file=$DOT_PATH/modules/brew/Brewfile

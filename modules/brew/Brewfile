@@ -26,9 +26,11 @@ cask "visual-studio-code"
 cask "the-unarchiver"
 cask "onedrive"
 cask "recordit"
+cask "postico"
 
 # Fonts
 cask "font-meslo-nerd-font"
+cask "font-firacode-nerd-font"
 
 # Quicklook
 cask "qlcolorcode"

@@ -20,6 +20,11 @@ EOF
   defaults write org.gnu.Emacs Emacs.MenuBar -string no
   git clone https://github.com/RenChunhui/.emacs.d.git ~/.emacs.d --depth=1
   ;;
+'uninstall')
+  brew uninstall emacs-mac
+  brew untap railwaycat/emacsmacport
+  rm -rf .emacs.d
+  ;;
 *)
   fail "Invalid command: ${RED}$1${RESET}"
   echo "See ${CYAN}dm emacs help${RESET} for a list of available commands."

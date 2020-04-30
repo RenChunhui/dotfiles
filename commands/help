@@ -6,15 +6,15 @@ cat <<EOF
 Usage: ${CLI} <command>
 
 Command:
-help
-clean
-brew
-emacs
-git
-node
-os
-tmux
-vim
-vscode
-zsh
+help            Help documents.
+clean           Clean macOS.
+brew            Homebrew module.
+emacs           Emacs module.
+git             Git module.
+node            Node module.
+os              macOS module.
+tmux            Tmux module.
+vim             NeoVim module.
+vscode          VSCode module.
+zsh             Zsh module.
 EOF
