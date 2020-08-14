@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# 默认系统配置
 
 source $DOT_PATH/lib/color
 source $DOT_PATH/lib/output

@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# 配置 VSCode 环境
 
 case $1 in
 '' | 'h' | 'help')

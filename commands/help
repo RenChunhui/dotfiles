@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Help documents
+# 帮助文档
 
 cat <<EOF
 Usage: ${CLI} <command>

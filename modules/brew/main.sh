@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# 安装 Homebrew 及相关软件工具等
 
 source $DOT_PATH/lib/color
 source $DOT_PATH/lib/output

@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# 配置 zsh 环境
 
 source $DOT_PATH/lib/color
 source $DOT_PATH/lib/output

@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# 配置 git 环境
 
 source $DOT_PATH/lib/color
 source $DOT_PATH/lib/output
