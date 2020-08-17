@@ -4,6 +4,7 @@ cask_args appdir: "/Applications"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/bundle"
+tap "homebrew/services"
 
 #
 brew "wget"
