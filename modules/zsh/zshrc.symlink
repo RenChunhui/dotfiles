@@ -19,6 +19,7 @@ export PATH="$HOME/.config/dotfiles/bin:$PATH"
 # Homebrew
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=true
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 
-# Vim 8
-export LC_ALL=en_US.UTF-8
+# Zsh plugins
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5B6268"
