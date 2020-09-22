@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# 控制台日志
+
+# 正确
+ok() {
+  echo ${GREEN}${ICON_OK}${RESET} $1
+}
+
+# 警告
+warn() {
+  echo ${YELLOW}${ICON_WARN}${RESET} $1
+}
+
+# 错误
+fail() {
+  echo ${RED}${ICON_FAIL}${RESET} $1
+}
+
+
