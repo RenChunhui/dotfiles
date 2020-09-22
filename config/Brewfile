@@ -4,6 +4,7 @@ cask_args appdir: "/Applications"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/bundle"
+tap "homebrew/services"
 
 #
 brew "wget"
@@ -26,9 +27,11 @@ cask "visual-studio-code"
 cask "the-unarchiver"
 cask "onedrive"
 cask "recordit"
+cask "postico"
 
 # Fonts
 cask "font-meslo-nerd-font"
+cask "font-firacode-nerd-font"
 
 # Quicklook
 cask "qlcolorcode"

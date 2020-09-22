@@ -1,0 +1,25 @@
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+
+# Theme
+ZSH_THEME="robbyrussell"
+
+# Enable plugins
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  zsh-completions
+)
+
+source $ZSH/oh-my-zsh.sh
+
+export PATH="$HOME/.config/dotfiles/bin:$PATH"
+
+# Homebrew
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_AUTO_UPDATE=true
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+
+# Zsh plugins
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5B6268"
