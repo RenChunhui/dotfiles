@@ -2,6 +2,11 @@
 #
 # 控制台日志
 
+# 信息
+info() {
+  echo ${CYAN}${ICON_INFO}${RESET} $1
+}
+
 # 正确
 ok() {
   echo ${GREEN}${ICON_OK}${RESET} $1

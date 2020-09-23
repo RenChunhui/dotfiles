@@ -22,7 +22,7 @@ export PURPLE=$'\e[35'
 export CYAN=$'\e[36m'
 export LIGHT_GRAY=$'\e[37m'
 
-export ICON_ASK='？'
+export ICON_ASK='?'
 export ICON_INFO='➜'
 export ICON_OK='✔'
 export ICON_WARN='⚠'
@@ -30,11 +30,11 @@ export ICON_FAIL='✖'
 export ICON_ARROR_RIGHT="❯"
 
 if [[ "$1" == "" ]] || [[ "$1" == "h" ]] || [[ "$1" == "help" ]]; then
-  sh $BIN_PATH/commands/help
-elif [[ "$1" == "c" ]] || [[ "$1" == "checkhealth" ]]; then
-  sh $BIN_PATH/commands/checkhealth
+  sh $BIN_PATH/commands/help.sh
 elif [[ "$1" == "v" || "$1" == "version" ]]; then
   sh $BIN_PATH/commands/version
+elif [[ "$1" == "brew" ]]; then
+  sh $BIN_PATH/commands/brew.sh
 else
   if [ ! -d $BIN_PATH/modules/$1 ]; then
     echo "The specified command is invalid. For a list of available options,run dm help."
