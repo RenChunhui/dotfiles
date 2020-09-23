@@ -1,25 +1,9 @@
 #!/bin/sh
 #
-# Output
+# 询问
 
 ask() {
   echo ${GREEN}${ICON_ASK}${RESET} $1 ${DIM}$2${RESET_DIM}
-}
-
-info() {
-  echo ${CYAN}${ICON_INFO}${RESET} $1
-}
-
-ok() {
-  echo ${GREEN}${ICON_OK}${RESET} $1
-}
-
-warn() {
-  echo ${YELLOW}${ICON_WARN}${RESET} $1
-}
-
-fail() {
-  echo ${RED}${ICON_FAIL}${RESET} $1
 }
 
 choice() {

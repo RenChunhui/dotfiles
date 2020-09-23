@@ -1,25 +1,45 @@
 #!/bin/sh
 #
-# Version: 1.0.0
-# Author : Chunhui Ren
 # macOS dotfiles manager commmand line interface
 
-export DOT_PATH=$HOME/.config/dotfiles
-export CLI="dm"
+export BIN_NAME='dm'
+export BIN_PATH=$HOME/.config/dotfiles
+export VERSION='v1.0.0'
 
-source $DOT_PATH/lib/color
-source $DOT_PATH/lib/icons
-source $DOT_PATH/lib/output
-source $DOT_PATH/lib/verify
+export RESET=$'\e[0m'
+export RESET_BOLD=$'\e[21m'
+export RESET_DIM=$'\e[22m'
 
-if [[ "$1" == "" ]] || [[ "$1" == "h" ]] || [[ "$1" == 'help' ]]; then
-  sh $DOT_PATH/commands/help
-elif [[ "$1" == "clean" ]]; then
-  sh $DOT_PATH/commands/clean
+export BOLD=$'\e[1m'
+export IM=$'\e[2m'
+export UNDERLINED=$'\e[4m'
+
+export RED=$'\e[31m'
+export GREEN=$'\e[32m'
+export YELLOW=$'\e[33m'
+export BLUE=$'\e[34'
+export PURPLE=$'\e[35'
+export CYAN=$'\e[36m'
+export LIGHT_GRAY=$'\e[37m'
+
+export ICON_ASK='?'
+export ICON_INFO='➜'
+export ICON_OK='✔'
+export ICON_WARN='⚠'
+export ICON_FAIL='✖'
+export ICON_ARROR_RIGHT="❯"
+
+if [[ "$1" == "" ]] || [[ "$1" == "h" ]] || [[ "$1" == "help" ]]; then
+  sh $BIN_PATH/commands/help.sh
+elif [[ "$1" == "v" || "$1" == "version" ]]; then
+  sh $BIN_PATH/commands/version
+elif [[ "$1" == "brew" ]]; then
+  sh $BIN_PATH/commands/brew.sh
 else
-  if [ ! -d $DOT_PATH/modules/$1 ]; then
-    fail "The specified command is invalid. For a list of available options,run ${GREEN}dm help${RESET}."
+  if [ ! -d $BIN_PATH/modules/$1 ]; then
+    echo "The specified command is invalid. For a list of available options,run dm help."
   else
-    sh $DOT_PATH/modules/$1/main.sh "$2"
+    sh $BIN_PATH/modules/$1/main.sh "$2"
   fi
 fi
+
