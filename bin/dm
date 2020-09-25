@@ -29,17 +29,18 @@ export ICON_WARN='⚠'
 export ICON_FAIL='✖'
 export ICON_ARROR_RIGHT="❯"
 
-if [[ "$1" == "" ]] || [[ "$1" == "h" ]] || [[ "$1" == "help" ]]; then
-  sh $BIN_PATH/commands/help.sh
-elif [[ "$1" == "v" || "$1" == "version" ]]; then
+case $1 in
+'' | 'h' | 'help')
+  sh $BIN_PATH/commands/help
+  ;;
+'version')
   sh $BIN_PATH/commands/version
-elif [[ "$1" == "brew" ]]; then
-  sh $BIN_PATH/commands/brew.sh
-else
-  if [ ! -d $BIN_PATH/modules/$1 ]; then
-    echo "The specified command is invalid. For a list of available options,run dm help."
-  else
-    sh $BIN_PATH/modules/$1/main.sh "$2"
-  fi
-fi
+  ;;
+'install')
+  sh $BIN_PATH/commands/install
+  ;;
+*)
+  echo 'The specified command is invalid. For a list of available options,run dm help.'
+  ;;
+esac
 

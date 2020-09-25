@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# 清理
+
+source $BIN_PATH/lib/console
+
+homebrew() {
+  info 'Cleanup Homebrew Cache...'
+  brew bundle cleanup --file=$BIN_PATH/config/Brewfile
+  brew cleanup -s &>/dev/null
+  brew cask cleanup &>/dev/null
+  rm -rfv $(brew --cache) &>/dev/null
+  brew tap --repair &>/dev/null
+  /bin/bash $BIN_PATH/lib/brew_uninstall
+}
+
+case $1 in
+'brew')
+  homebrew
+  ;;
+'node')
+  npm cache clean --force
+  yarn cache clean --force
+  ;;
+*)
+  ;;
+esac
