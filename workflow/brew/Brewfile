@@ -18,7 +18,6 @@ brew "webp"
 brew "postgresql"
 
 # Apps
-cask "1password"
 cask "alfred"
 cask "iterm2"
 cask "iina"
@@ -26,8 +25,8 @@ cask "qingg"
 cask "visual-studio-code"
 cask "the-unarchiver"
 cask "onedrive"
-cask "recordit"
 cask "postico"
+cask "emacs"
 
 # Fonts
 cask "font-meslo-nerd-font"
@@ -46,3 +45,4 @@ mas "WeChat",    id: 836500024
 mas "QQ",        id: 451108668
 mas 'Numbers',   id: 409203825
 mas "Keynote",   id: 409183694
+mas "MindNode",  id: 1289197285

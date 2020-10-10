@@ -1,3 +1,3 @@
 #!/bin/sh
 
-srouce $HOME/.config/dotfiles/commands/zsh.sh
+sh $HOME/.config/dotfiles/commands/install
