@@ -2,100 +2,24 @@
 #
 # 安装
 
-source $BIN_PATH/lib/console
-source $BIN_PATH/lib/inquirer
-source $BIN_PATH/lib/detect
+case $1 in
+'' | 'h' | 'help')
+  cat <<EOF
+Available commands:
 
-# 安装 homebrew 包
-reset_brew() {
-  homebrew
-  brew bundle --file=$BIN_PATH/workflow/brew/Brewfile
-}
-
-# 重新配置 zsh
-reset_zsh() {
-  rm -rf $HOME/.oh-my-zsh
-  rm -rf $HOME/.zshrc
-
-  if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-    info "Installing Oh My Zsh..."
-    git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh --depth=1 || exit 1
-    if [[ $? == 1 ]]; then
-      error "GitHub clone faild,program interruption."
-    fi
+  brew    使用 Hombrew 安装软件工具包
+  code    安装 VSCode 及相关插件
+  emacs   安装配置 Emacs 环境
+  lsp
+  vim     安装配置 NeoVim 环境
+  zsh     安装配置 Zsh 环境
+EOF
+  ;;
+*)
+  if [[ ! -d "$BIN_PATH/workflow/$1" ]]; then
+    echo 'The specified command is invalid. For a list of available options,run dm help.'
   else
-    ok "Oh My Zsh successfully installed."
+    sh $BIN_PATH/workflow/$1/main.sh
   fi
-
-  if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
-    info "Installing zsh-autosuggestions."
-    git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions --depth=1
-  else
-    ok "zsh-autosuggestions successfully installed."
-  fi
-
-  if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]]; then
-    info "Installing zsh-syntax-highlighting."
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting --depth=1
-  else
-    ok "zsh-syntax-highlighting successfully installed."
-  fi
-
-  if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-completions" ]]; then
-    info "Installing zsh-completions."
-    git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions --depth=1
-  else
-    ok "zsh-completions successfully installed."
-  fi
-
-  cp $BIN_PATH/workflow/zsh/zshrc $HOME/.zshrc
-  source $HOME/.zshrc
-}
-
-# 重新安装 VSCode 插件
-reset_code() {
-  code
-  cat $BIN_PATH/workflow/code/code.txt | xargs -n 1 code --install-extension
-}
-
-# 重新安装 emacs 配置
-reset_emacs() {
-  rm -rf $HOME/.emacs.d
-  git clone https://github.com/RenChunhui/.emacs.d.git ~/.emacs.d --depth=1
-}
-
-# 重新安装 vim 配置
-reset_vim() {
-  yarn
-  rm -rf $HOME/.config/nvim
-  yarn global add neovim
-  python3 -m pip install --user --upgrade pynvim
-  git clone https://github.com/renchunhui/vim-config.git $HOME/.config/nvim
-}
-
-# 安装开发语言服务
-reset_lsp() {
-  yarn
-  cat $BIN_PATH/workflow/lsp/lsp.txt | xargs -n 1 yarn global add
-}
-
-init_iterm() {
-  cp $BIN_PATH/workflow/iterm/hushlogin $HOME/.hushlogin
-  cp $BIN_PATH/workflow/iterm/tmux.conf $HOME/.tmux.conf
-}
-
-init_os() {
-  sh $BIN_PATH/workflow/os/default.sh
-}
-
-main() {
-  reset_zsh
-  reset_brew
-  reset_code
-  reset_emacs
-  reset_vim
-  reset_lsp
-  init_iterm
-}
-
-main
+  ;;
+esac

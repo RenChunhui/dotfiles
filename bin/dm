@@ -37,7 +37,7 @@ case $1 in
   sh $BIN_PATH/commands/version
   ;;
 'install')
-  sh $BIN_PATH/commands/install
+  sh $BIN_PATH/commands/install "$2"
   ;;
 *)
   echo 'The specified command is invalid. For a list of available options,run dm help.'
