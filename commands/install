@@ -15,6 +15,16 @@ Available commands:
   zsh     安装配置 Zsh 环境
 EOF
   ;;
+'all')
+  dm install zsh
+  dm install brew
+  dm install code
+  dm install emacs
+  dm install vim
+  dm install lsp
+  dm install os
+  dm install iterm
+  ;;
 *)
   if [[ ! -d "$BIN_PATH/workflow/$1" ]]; then
     echo 'The specified command is invalid. For a list of available options,run dm help.'
