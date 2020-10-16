@@ -15,6 +15,7 @@ brew "tmux"
 brew "dockutil"
 brew "cloc"
 brew "webp"
+brew "go"
 brew "postgresql"
 
 # Apps
@@ -31,6 +32,7 @@ cask "emacs"
 # Fonts
 cask "font-meslo-nerd-font"
 cask "font-firacode-nerd-font"
+cask "font-go-mono-nerd-font"
 
 # Quicklook
 cask "qlcolorcode"
@@ -40,7 +42,6 @@ cask "qlimagesize"
 cask "webpquicklook"
 
 # macOS App Store
-mas "1Password", id: 443987910
 mas "WeChat",    id: 836500024
 mas "QQ",        id: 451108668
 mas 'Numbers',   id: 409203825
