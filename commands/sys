@@ -28,6 +28,8 @@ case $1 in
 EOF
   ;;
 'proxy')
+  info '设置代理'
+  proxy
   ;;
 *)
   fail "Invalid command"

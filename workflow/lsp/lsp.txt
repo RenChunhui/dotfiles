@@ -1,0 +1,9 @@
+bash-language-server
+yaml-language-server
+@angular/language-server
+vscode-css-languageserver-bin
+vscode-html-languageserver-bin
+javascript-typescript-langserver
+typescript-language-server
+vscode-json-languageserver
+vim-language-server

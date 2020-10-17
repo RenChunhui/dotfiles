@@ -29,57 +29,79 @@ $ chmod +x ./install.sh
 $ ./install.sh
 ```
 
+目录结构
+---
+
+``` bash
+├── bin
+├── commands
+├── lib
+├── workflow
+│   ├── brew      
+│   ├── code      
+│   ├── emacs
+│   ├── git
+│   ├── iterm
+│   ├── lsp
+│   ├── os
+│   ├── vim
+│   └── zsh
+├── .editorconfig
+├── install.sh
+├── LICENSE
+└── README.md
+```
+
 如何使用
 ---
 
-* `dm` 为自定义命令行工具
-* `dm <command>` 显示`modules/{command}`模块的命令
-* `dm <command> <option>` 执行此模块的选项功能
+``` sh
+$ dm help
 
-例如:
+Available commands:
 
-``` bash
-$ dm brew install       # Homebrew 包安装
-$ dm git proxy          # 设置 Git 走代理
-$ dm node install       # 全局安装 node 包
-$ dm os restart         # 重启电脑
+  install       初使化安装
+  uninstall     卸载
+  clean         系统清理
+  version       当前版本号
+  help          帮助文档
 ```
 
-自定义
----
-
-* **第一步**: 添加一个模块
-
 ``` sh
-$ cd ~/.config/dotfiles/modules
-$ mkdir ${moduleName}
-```
-* **第二步**: 添加默认文件 `main.sh`
+$ dm install help
 
-``` sh
-$ cd ${moduleName}
-$ touch main.sh
-```
-* **第三步**: 自定义模块脚本:
+Available commands:
 
-``` sh
-case $1 in
-'' | 'h' | 'help')
-  # 自定义帮助文档
-  ;;
-# 自定义选项如 install
-'install')
-  # 自定义选项功能
-  ;;
-*)
-  # 输入不存在的命令错误提示
-  ;;
-esac
+  brew    使用 Hombrew 安装软件工具包
+  code    安装 VSCode 及相关插件
+  emacs   安装配置 Emacs 环境
+  lsp
+  vim     安装配置 NeoVim 环境
+  zsh     安装配置 Zsh 环境
 ```
 
-* 查看效果
 ``` sh
-$ dm ${moduleName}
+$ dm uninstall help
+
+Available commands:
+
+  all     卸载所有
+  brew    卸载 Homebrew 安装软件及工具
+  zsh     清除 zsh 配置
+  code    卸载 Visual Studio Code 软件及配置
+  emacs   卸载 Emacs 及相关配置
+  vim     卸载 NeoVim 及相关配置
+  lsp     移除 lsp 相关包
+```
+
+``` sh
+$ dm clean help
+
+Available commands:
+
+  all     清理所有缓存
+  brew    清理 Homebrew 缓存
+  node    清理 Node 缓存
 ```
 
 FAQ

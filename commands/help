@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# 帮助文档
+
+cat <<EOF
+Usage: ${BIN_NAME} [command]
+
+Commands:
+  install       初使化安装
+  uninstall     卸载
+  clean         系统清理
+  version       当前版本号
+  help          帮助文档
+EOF

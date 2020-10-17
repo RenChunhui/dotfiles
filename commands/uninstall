@@ -1,0 +1,42 @@
+#!/bin/sh
+#
+# 卸载
+
+case $1 in
+'' | 'help')
+  cat <<EOF
+Available commands:
+
+  all     卸载所有
+EOF
+  ;;
+'all')
+  ;;
+'brew')
+  brew cleanup
+  brew bundle cleanup --file=$BIN_PATH/workflow/brew/Brewfile
+  /bin/bash $BIN_PATH/workflow/brew/uninstall.sh
+  ;;
+'zsh')
+  rm -rf $HOME/.oh-my-zsh
+  rm -rf $HOME/.zshrc
+  ;;
+'code')
+  brew cask uninstall visual-studio-code
+  rm -rf $HOME/.vscode
+  ;;
+'emacs')
+  brew cask uninstall emacs
+  rm -rf $HOME/.config/emacs
+  ;;
+'vim')
+  brew uninstall neovim
+  yarn global remove neovim
+  rm -rf $HOME/.config/nvim
+  ;;
+'lsp')
+  cat $BIN_PATH/workflow/lsp/lsp.txt | xargs -n 1 yarn global remove
+  ;;
+*)
+  ;;
+esac

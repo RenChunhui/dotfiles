@@ -1,14 +1,11 @@
 #!/bin/sh
 #
-# zsh 环境
+# zsh 安装
 
 source $BIN_PATH/lib/console
-source $BIN_PATH/lib/inquirer
 
-rm -rf $HOME/.oh-my-zsh
-rm -rf $HOME/.zshrc
+echo "🕐 ${BOLD}zsh installing${RESET}"
 
-# 下载 oh-my-zsh
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   info "Installing Oh My Zsh..."
   git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh --depth=1 || exit 1
@@ -19,7 +16,6 @@ else
   ok "Oh My Zsh successfully installed."
 fi
 
-# 安装插件
 if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
   info "Installing zsh-autosuggestions."
   git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions --depth=1
@@ -41,6 +37,7 @@ else
   ok "zsh-completions successfully installed."
 fi
 
-cp $BIN_PATH/config/zshrc $HOME/.zshrc
-source $HOME/.zshrc
+rm -rf $HOME/.zshrc
 
+cp $BIN_PATH/workflow/zsh/zshrc $HOME/.zshrc
+source $HOME/.zshrc

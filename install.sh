@@ -1,3 +1,5 @@
 #!/bin/sh
 
-srouce $HOME/.config/dotfiles/commands/zsh.sh
+export PATH="$HOME/.config/dotfiles/bin:$PATH"
+
+dm install all
