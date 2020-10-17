@@ -1,3 +1,5 @@
 #!/bin/sh
 
-sh $HOME/.config/dotfiles/commands/install
+export PATH="$HOME/.config/dotfiles/bin:$PATH"
+
+dm install all

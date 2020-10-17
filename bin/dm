@@ -21,6 +21,8 @@ export BLUE=$'\e[34'
 export PURPLE=$'\e[35'
 export CYAN=$'\e[36m'
 export LIGHT_GRAY=$'\e[37m'
+export GRAY=$'\e[90m'
+export MAGENTA=$'\e[95m'
 
 export ICON_ASK='?'
 export ICON_INFO='➜'
@@ -36,6 +38,9 @@ case $1 in
 'version')
   sh $BIN_PATH/commands/version
   ;;
+'clean')
+  sh $BIN_PATH/commands/clean "$2"
+  ;;
 'install')
   sh $BIN_PATH/commands/install "$2"
   ;;
@@ -46,4 +51,3 @@ case $1 in
   echo 'The specified command is invalid. For a list of available options,run dm help.'
   ;;
 esac
-

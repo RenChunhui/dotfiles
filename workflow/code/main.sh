@@ -2,6 +2,8 @@
 #
 # VSCode 环境安装
 
+echo "🕒 ${BOLD}VSCode installing${RESET}"
+
 if test ! $(which code); then
   brew cask install visual-studio-code
 fi

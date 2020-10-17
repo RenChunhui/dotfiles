@@ -1,7 +1,10 @@
+#!/bin/sh
+#
+# zsh 安装
+
 source $BIN_PATH/lib/console
 
-rm -rf $HOME/.oh-my-zsh
-rm -rf $HOME/.zshrc
+echo "🕐 ${BOLD}zsh installing${RESET}"
 
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   info "Installing Oh My Zsh..."
@@ -11,7 +14,7 @@ if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   fi
 else
   ok "Oh My Zsh successfully installed."
-if
+fi
 
 if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
   info "Installing zsh-autosuggestions."
@@ -33,6 +36,8 @@ if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-completions" ]]; then
 else
   ok "zsh-completions successfully installed."
 fi
+
+rm -rf $HOME/.zshrc
 
 cp $BIN_PATH/workflow/zsh/zshrc $HOME/.zshrc
 source $HOME/.zshrc

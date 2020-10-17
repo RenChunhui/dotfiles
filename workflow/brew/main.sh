@@ -2,6 +2,8 @@
 
 source $BIN_PATH/lib/console
 
+echo "🕑 ${BOLD}Homebrew installing${RESET}"
+
 if test ! $(which brew); then
   HOMEBREW_CORE_GIT_REMOTE=https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git /bin/bash $BIN_PATH/workflow/brew/install.sh
   git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git

@@ -21,5 +21,3 @@ warn() {
 fail() {
   echo ${RED}${ICON_FAIL}${RESET} $1
 }
-
-

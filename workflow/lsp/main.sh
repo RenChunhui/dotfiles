@@ -2,6 +2,8 @@
 #
 # lsp 相关安装
 
+echo "🕕 ${BOLD}LSP installing${RESET}"
+
 if test ! $(which yarn); then
   brew install yarn
 fi

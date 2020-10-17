@@ -19,11 +19,11 @@ EOF
   dm install zsh
   dm install brew
   dm install code
-  dm install emacs
   dm install vim
+  dm install emacs
   dm install lsp
-  dm install os
-  dm install iterm
+  # dm install os
+  # dm install iterm
   ;;
 *)
   if [[ ! -d "$BIN_PATH/workflow/$1" ]]; then
