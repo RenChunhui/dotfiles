@@ -9,5 +9,5 @@ if test ! $(which nvim); then
 fi
 
 if [[ ! -d "$HOME/.config/nvim" ]]; then
-  git clone https://github.com/renchunhui/vim-config.git $HOME/.config/nvim
+  git clone https://github.com/RenChunhui/nvim.git $HOME/.config/nvim
 fi

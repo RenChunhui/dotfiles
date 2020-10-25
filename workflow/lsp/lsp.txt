@@ -7,3 +7,4 @@ javascript-typescript-langserver
 typescript-language-server
 vscode-json-languageserver
 vim-language-server
+vls

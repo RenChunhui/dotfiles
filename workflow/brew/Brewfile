@@ -16,6 +16,8 @@ brew "dockutil"
 brew "cloc"
 brew "webp"
 brew "go"
+brew "fzf"
+brew "ripgrep"
 brew "postgresql"
 
 # Apps
