@@ -22,8 +22,10 @@ EOF
   dm install vim
   dm install emacs
   dm install lsp
-  # dm install os
-  # dm install iterm
+  dm install iterm
+  dm install python
+  dm install rust
+  dm install os
   ;;
 *)
   if [[ ! -d "$BIN_PATH/workflow/$1" ]]; then

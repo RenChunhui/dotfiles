@@ -24,3 +24,7 @@ export HOMEBREW_MIRROR_REPO=https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/br
 
 # Zsh plugins
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5B6268"
+
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+fi
