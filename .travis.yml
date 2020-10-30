@@ -6,7 +6,6 @@ os: osx
 
 osx_image: xcode12.2
 
-install: xcode-select --install
 script:
   - chmod +x ./install.sh
   - ./install.sh
