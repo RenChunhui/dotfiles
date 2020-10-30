@@ -7,6 +7,8 @@ os: osx
 osx_image: xcode12.2
 
 script:
+  - git clone https://github.com/renchunhui/dotfiles $HOME/.config/dotfiles
+  - cd $HOME/.config/dotfiles
   - chmod +x ./install.sh
   - ./install.sh
 
