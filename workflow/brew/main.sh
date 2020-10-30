@@ -15,4 +15,4 @@ fi
 brew_version=$(eval brew --version 2>&1 | grep -Eo "([[:digit:]]+\.?){2,3}" | head -1)
 ok "Homebrew ${brew_version}"
 
-brew bundle --file=$BIN_PATH/workflow/brew/Brewfile
+brew bundle --file=$BIN_PATH/workflow/brew/Brewfile --verbose
