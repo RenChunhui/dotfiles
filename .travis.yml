@@ -18,7 +18,6 @@ script:
   - dm install lsp
   - dm install iterm
   - dm install python
-  - dm install os
 
 notifications:
   email: false
