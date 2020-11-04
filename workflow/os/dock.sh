@@ -15,7 +15,13 @@ defaults write com.apple.dock launchanim -bool false
 defaults write com.apple.dock show-recents -bool false
 
 # 重新整理 Dock
+if test ! $(which dockutil);then
+  brew install dockutil
+fi
+
 dockutil --no-restart --remove all
+dockutil --no-restart --add "/Applications/Google Chrome.app"
+dockutil --no-restart --add "/Applications/Visual Studio Code.app"
 dockutil --no-restart --add "/Applications/WeChat.app"
 dockutil --no-restart --add "/Applications/QQ.app"
 dockutil --no-restart --add "/Applications/iTerm.app"

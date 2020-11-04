@@ -5,6 +5,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/bundle"
 tap "homebrew/services"
+tap "epk/epk"
 
 #
 brew "wget"
@@ -30,11 +31,11 @@ cask "the-unarchiver"
 cask "onedrive"
 cask "postico"
 cask "emacs"
+cask "google-chrome"
 
 # Fonts
-cask "font-meslo-nerd-font"
-cask "font-firacode-nerd-font"
-cask "font-go-mono-nerd-font"
+cask "font-fira-code-nerd-font"
+cask "font-sf-mono-nerd-font"
 
 # Quicklook
 cask "qlcolorcode"

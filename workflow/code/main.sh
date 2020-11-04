@@ -9,3 +9,6 @@ if test ! $(which code); then
 fi
 
 cat $BIN_PATH/workflow/code/code.txt | xargs -n 1 code --install-extension
+
+rm -rf $HOME/Library/Application\ Support/Code/User/settings.json
+sudo ln -s $HOME/.config/dotfiles/workflow/code/settings.json $HOME/Library/Application\ Support/Code/User/settings.json

@@ -8,8 +8,8 @@ source $BIN_PATH/lib/console
 proxy() {
   info "Input you terminal proxy."
   read -r proxy
-  echo "export http_proxy=$proxy" >> ~/.proxyrc
-  echo "export https_proxy=$proxy" >> ~/.proxyrc
+  echo "export http_proxy=socks5://$proxy" >> ~/.proxyrc
+  echo "export https_proxy=socks5://$proxy" >> ~/.proxyrc
 }
 
 # 取消代理
