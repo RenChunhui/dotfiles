@@ -2,6 +2,10 @@
 
 echo "🕓 ${BOLD}NeoVim installing${RESET}"
 
+if test ! $(which pip); then
+  sudo easy_install pip
+fi
+
 if test ! $(which nvim); then
   brew install neovim
   yarn global add neovim

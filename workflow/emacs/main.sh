@@ -9,4 +9,3 @@ fi
 if [[ ! -d "$HOME/.config/emacs" ]]; then
   git clone https://github.com/RenChunhui/.emacs.d.git $HOME/.config/emacs
 fi
-

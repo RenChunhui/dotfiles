@@ -12,6 +12,7 @@ fi
 export GO111MODULE=on
 export GOPROXY=https://goproxy.cn
 
-go get -u -v github.com/gin-gonic/gin
-go get -u -v gorm.io/gorm
 go get golang.org/x/tools/gopls@latest
+
+# go get -u -v github.com/gin-gonic/gin
+# go get -u -v gorm.io/gorm
