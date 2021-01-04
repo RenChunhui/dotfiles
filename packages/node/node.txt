@@ -1,3 +1,5 @@
+typescript
+@angular/cli
 bash-language-server
 yaml-language-server
 @angular/language-server
@@ -7,4 +9,3 @@ javascript-typescript-langserver
 typescript-language-server
 vscode-json-languageserver
 vim-language-server
-vls

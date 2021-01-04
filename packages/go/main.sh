@@ -1,8 +1,10 @@
 #!/bin/sh
 #
-# Golang
+# Golang 环境
 
-echo "🕕 ${BOLD}installing golang${RESET}"
+source $BIN_PATH/lib/console
+
+step "安装 Go 环境"
 
 if test ! $(which go); then
   brew install go
@@ -13,6 +15,3 @@ export GO111MODULE=on
 export GOPROXY=https://goproxy.cn
 
 go get golang.org/x/tools/gopls@latest
-
-# go get -u -v github.com/gin-gonic/gin
-# go get -u -v gorm.io/gorm

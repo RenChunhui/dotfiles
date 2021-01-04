@@ -6,10 +6,10 @@ sudo -v
 # 保持活跃状态，直到完成
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-sh $BIN_PATH/workflow/os/screen.sh
-sh $BIN_PATH/workflow/os/finder.sh
-sh $BIN_PATH/workflow/os/dock.sh
-sh $BIN_PATH/workflow/os/photo.sh
+sh $BIN_PATH/packages/os/screen.sh
+sh $BIN_PATH/packages/os/finder.sh
+sh $BIN_PATH/packages/os/dock.sh
+sh $BIN_PATH/packages/os/photo.sh
 
 sudo spctl --master-disable
 

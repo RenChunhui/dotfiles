@@ -2,10 +2,8 @@ cask_args appdir: "/Applications"
 
 # Taps
 tap "homebrew/cask"
-tap "homebrew/cask-fonts"
 tap "homebrew/bundle"
 tap "homebrew/services"
-tap "epk/epk"
 
 #
 brew "wget"
@@ -22,6 +20,7 @@ brew "ripgrep"
 brew "postgresql"
 
 # Apps
+cask "sf-symbols"
 cask "alfred"
 cask "iterm2"
 cask "iina"
@@ -32,10 +31,6 @@ cask "onedrive"
 cask "postico"
 cask "emacs"
 cask "google-chrome"
-
-# Fonts
-cask "font-fira-code-nerd-font"
-cask "font-sf-mono-nerd-font"
 
 # Quicklook
 cask "qlcolorcode"

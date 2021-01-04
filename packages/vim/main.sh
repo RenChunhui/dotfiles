@@ -1,6 +1,8 @@
 #!/bin/sh
 
-echo "🕓 ${BOLD}NeoVim installing${RESET}"
+source $BIN_PATH/lib/console
+
+step "安装 NeoVim 环境"
 
 if test ! $(which pip); then
   sudo easy_install pip

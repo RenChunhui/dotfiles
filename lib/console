@@ -21,3 +21,8 @@ warn() {
 fail() {
   echo ${RED}${ICON_FAIL}${RESET} $1
 }
+
+# 步骤
+step() {
+  echo ${GREEN}${ICON_STEP}${RESET}${BOLD} $1 ${RESET_BOLD}
+}

@@ -1,6 +1,8 @@
 #!/bin/sh
 
-echo "🕔 ${BOLD}Emacs installing${RESET}"
+source $BIN_PATH/lib/console
+
+step "安装 Emacs 环境"
 
 if test ! $(which emacs); then
   brew cask install emacs

@@ -1,28 +1,26 @@
 #!/bin/sh
 #
-# macOS dotfiles manager commmand line interface
+# macOS 管理工具
 
 export BIN_NAME='dm'
 export BIN_PATH=$HOME/.config/dotfiles
-export VERSION='v1.0.0'
-
-export RESET=$'\e[0m'
-export RESET_BOLD=$'\e[21m'
-export RESET_DIM=$'\e[22m'
 
 export BOLD=$'\e[1m'
-export IM=$'\e[2m'
+export DIM=$'\e[2m'
 export UNDERLINED=$'\e[4m'
 
+export BLACK=$'\e[30m'
 export RED=$'\e[31m'
 export GREEN=$'\e[32m'
 export YELLOW=$'\e[33m'
 export BLUE=$'\e[34'
-export PURPLE=$'\e[35'
-export CYAN=$'\e[36m'
-export LIGHT_GRAY=$'\e[37m'
-export GRAY=$'\e[90m'
 export MAGENTA=$'\e[95m'
+export CYAN=$'\e[36m'
+export WHITE=$'\e[97m'
+
+export RESET=$'\e[0m'
+export RESET_BOLD=$'\e[21m'
+export RESET_DIM=$'\e[22m'
 
 export ICON_ASK='?'
 export ICON_INFO='➜'
@@ -30,24 +28,48 @@ export ICON_OK='✔'
 export ICON_WARN='⚠'
 export ICON_FAIL='✖'
 export ICON_ARROR_RIGHT="❯"
+export ICON_STEP='⧗'
 
-case $1 in
-'' | 'h' | 'help')
-  sh $BIN_PATH/commands/help
-  ;;
-'version')
-  sh $BIN_PATH/commands/version
-  ;;
-'clean')
-  sh $BIN_PATH/commands/clean "$2"
-  ;;
-'install')
-  sh $BIN_PATH/commands/install "$2"
-  ;;
-'uninstall')
-  sh $BIN_PATH/commands/uninstall "$2"
-  ;;
-*)
-  echo 'The specified command is invalid. For a list of available options,run dm help.'
-  ;;
-esac
+#######################################
+# 帮助
+#######################################
+usage() {
+cat <<EOF
+Usage: ${BIN_NAME} [command]
+
+Commands:
+  install       初使化安装
+  uninstall     卸载
+  clean         系统清理
+  version       当前版本号
+  help          帮助文档
+EOF
+}
+
+#######################################
+# 入口
+#######################################
+  case $1 in
+    install)
+      sh $BIN_PATH/commands/install "$2"
+      ;;
+    uninstall)
+      sh $BIN_PATH/commands/uninstall "$2"
+      ;;
+    clean)
+      sh $BIN_PATH/commands/clean "$2"
+      ;;
+    checkhealth)
+      sh $BIN_PATH/commands/checkhealth
+      ;;
+    '' | h | help)
+      usage
+      ;;
+    *)
+      echo "The specified command is invalid. For a list of available
+      options,run dm help."
+      ;;
+  esac
+}
+
+main "$@"

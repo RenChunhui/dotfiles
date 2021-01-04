@@ -1,37 +1,92 @@
 #!/bin/sh
 #
-# 安装
+# 安装所有需要的环境
 
-case $1 in
-'' | 'h' | 'help')
-  cat <<EOF
+#######################################
+# 帮助
+#######################################
+usage() {
+cat <<EOF
 Available commands:
 
-  brew    使用 Hombrew 安装软件工具包
-  code    安装 VSCode 及相关插件
-  emacs   安装配置 Emacs 环境
-  lsp
-  vim     安装配置 NeoVim 环境
-  zsh     安装配置 Zsh 环境
+  brew
+  code
+  emacs
+  git
+  golang
+  iterm
+  node
+  os
+  postgresql
+  python
+  vim
+  zsh
 EOF
-  ;;
-'all')
-  dm install zsh
-  dm install brew
-  dm install code
-  dm install vim
-  dm install emacs
-  dm install lsp
-  dm install iterm
-  dm install python
-  dm install rust
-  dm install os
-  ;;
-*)
-  if [[ ! -d "$BIN_PATH/workflow/$1" ]]; then
-    echo 'The specified command is invalid. For a list of available options,run dm help.'
-  else
-    sh $BIN_PATH/workflow/$1/main.sh
-  fi
-  ;;
-esac
+}
+
+#######################################
+# 入口
+#######################################
+main() {
+  case $1 in
+    '' | all)
+      dm install zsh
+      dm install brew
+      dm install code
+      dm install emacs
+      dm install git
+      dm install go
+      dm install iterm
+      dm install node
+      dm install postgresql
+      dm install python
+      dm install vim
+      dm install os
+      ;;
+    brew)
+      sh $BIN_PATH/packages/brew/main.sh
+      ;;
+    code)
+      sh $BIN_PATH/packages/code/main.sh
+      ;;
+    emacs)
+      sh $BIN_PATH/packages/emacs/main.sh
+      ;;
+    git)
+      sh $BIN_PATH/packages/git/main.sh
+      ;;
+    go)
+      sh $BIN_PATH/packages/go/main.sh
+      ;;
+    iterm)
+      sh $BIN_PATH/packages/iterm/main.sh
+      ;;
+    node)
+      sh $BIN_PATH/packages/node/main.sh
+      ;;
+    os)
+      sh $BIN_PATH/packages/os/main.sh
+      ;;
+    postgresql)
+      sh $BIN_PATH/packages/postgresql/main.sh
+      ;;
+    python)
+      sh $BIN_PATH/packages/python/main.sh
+      ;;
+    vim)
+      sh $BIN_PATH/packages/vim/main.sh
+      ;;
+    zsh)
+      sh $BIN_PATH/packages/zsh/main.sh
+      ;;
+    help)
+      usage
+      ;;
+    *)
+      echo "The specified command is invalid. For a list of available
+      options,run dm install help."
+      ;;
+  esac
+}
+
+main "$@"
