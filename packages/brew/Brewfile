@@ -4,6 +4,7 @@ cask_args appdir: "/Applications"
 tap "homebrew/cask"
 tap "homebrew/bundle"
 tap "homebrew/services"
+tap "epk/epk"
 
 #
 brew "wget"
@@ -18,6 +19,8 @@ brew "go"
 brew "fzf"
 brew "ripgrep"
 brew "postgresql"
+brew "aria2"
+brew "youtube-dl"
 
 # Apps
 cask "sf-symbols"
@@ -32,6 +35,9 @@ cask "postico"
 cask "emacs"
 cask "google-chrome"
 
+# Fonts
+cask "font-sf-mono-nerd-font"
+
 # Quicklook
 cask "qlcolorcode"
 cask "qlmarkdown"
@@ -44,4 +50,3 @@ mas "WeChat",    id: 836500024
 mas "QQ",        id: 451108668
 mas 'Numbers',   id: 409203825
 mas "Keynote",   id: 409183694
-mas "MindNode",  id: 1289197285
