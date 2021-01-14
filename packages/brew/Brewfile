@@ -1,7 +1,7 @@
 cask_args appdir: "/Applications"
 
 # Taps
-tap "homebrew/cask"
+tap "homebrew/cask", "https://mirrors.ustc.edu.cn/homebrew-cask.git"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "epk/epk"
@@ -21,9 +21,9 @@ brew "ripgrep"
 brew "postgresql"
 brew "aria2"
 brew "youtube-dl"
+brew "sphinx-doc"
 
 # Apps
-cask "sf-symbols"
 cask "alfred"
 cask "iterm2"
 cask "iina"
@@ -33,7 +33,6 @@ cask "the-unarchiver"
 cask "onedrive"
 cask "postico"
 cask "emacs"
-cask "google-chrome"
 
 # Fonts
 cask "font-sf-mono-nerd-font"
