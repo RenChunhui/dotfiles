@@ -17,8 +17,7 @@ script:
   - dm install emacs
   - dm install lsp
   - dm install iterm
-  - dm install golang
-  - dm install rust
+  - dm install go
 
 notifications:
   email: false
