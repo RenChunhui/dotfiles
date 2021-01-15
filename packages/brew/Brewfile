@@ -24,6 +24,7 @@ brew "youtube-dl"
 brew "sphinx-doc"
 
 # Apps
+cask "google-chrome"
 cask "alfred"
 cask "iterm2"
 cask "iina"
@@ -35,7 +36,7 @@ cask "postico"
 cask "emacs"
 
 # Fonts
-cask "font-sf-mono-nerd-font"
+cask "font-sf-mono-nerd-font", "https://ghproxy.com/https://github.com/epk/SF-Mono-Nerd-Font.git"
 
 # Quicklook
 cask "qlcolorcode"

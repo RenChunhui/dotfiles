@@ -1,5 +1,11 @@
 #!/bin/sh
 
-export PATH="$HOME/.config/dotfiles/bin:$PATH"
+main() {
+  if test ! $(which dm); then
+    export PATH="$HOME/.config/dotfiles/bin:$PATH"
+  fi
 
-dm install all
+  dm install all
+}
+
+main "$@"

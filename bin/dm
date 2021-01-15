@@ -30,6 +30,25 @@ export ICON_FAIL='✖'
 export ICON_ARROR_RIGHT="❯"
 export ICON_STEP='⧗'
 
+
+
+#######################################
+# 提示输入 sudo 密码
+#######################################
+prompt_sudo() {
+  sudo -v
+  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+}
+
+#######################################
+# 安装命令行工具
+#######################################
+xcode_install() {
+  if ! xcode-select --print-path &> /dev/null; then
+    xcode-select --install &> /dev/null;
+  fi
+}
+
 #######################################
 # 帮助
 #######################################
@@ -52,6 +71,8 @@ EOF
 main() {
   case $1 in
     install)
+      prompt_sudo
+      xcode_install
       sh $BIN_PATH/commands/install "$2"
       ;;
     uninstall)
