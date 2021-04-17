@@ -33,7 +33,7 @@ main() {
       dm install zsh
       dm install brew
       dm install code
-      dm install emacs
+      # dm install emacs
       dm install git
       dm install go
       dm install iterm

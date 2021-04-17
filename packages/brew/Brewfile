@@ -33,10 +33,10 @@ cask "visual-studio-code"
 cask "the-unarchiver"
 cask "onedrive"
 cask "postico"
-cask "emacs"
+# cask "emacs"
 
 # Fonts
-cask "font-sf-mono-nerd-font", "https://ghproxy.com/https://github.com/epk/SF-Mono-Nerd-Font.git"
+cask "font-sf-mono-nerd-font"
 
 # Quicklook
 cask "qlcolorcode"
