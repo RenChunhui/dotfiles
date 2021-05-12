@@ -1,8 +1,0 @@
-#!/bin/sh
-
-ICON_ASK='？'
-ICON_INFO='➜'
-ICON_OK='✔'
-ICON_WARN='⚠'
-ICON_FAIL='✖'
-ICON_ARROR_RIGHT="❯"
