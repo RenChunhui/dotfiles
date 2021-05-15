@@ -2,12 +2,24 @@
 
 
 
+
 #######################################
 # 帮助
 #######################################
 usage() {
 cat <<EOF
+Usage: ${BIN_NAME} remove [module]
 
+Available Modules:
+  brew     移除Homebrew 安装
+  git      移除 Git 配置
+  go       移除 Golang 环境
+  iterm    移除终端配置
+  node     卸载 Node 及安装环境
+  vim      卸载 NeoVim 及其配置
+  vscode   卸载 VSCode 开发环境
+  zsh      卸载 oh-my-zsh 环境
+  help     帮助文档
 EOF
 }
 
@@ -15,7 +27,48 @@ EOF
 # 入口
 #######################################
 main() {
-
+  case $1 in
+    all)
+      dm remove zsh
+      dm remove brew
+      dm remove git
+      dm remove go
+      dm remove iterm
+      dm remove node
+      dm remove vim
+      dm remove vscode
+      ;;
+    brew)
+      sh $BIN_PATH/modules/brew/uninstall.sh
+      ;;
+    git)
+      sh $BIN_PATH/modules/git/uninstall.sh
+      ;;
+    go)
+      sh $BIN_PATH/modules/go/uninstall.sh
+      ;;
+    iterm)
+      sh $BIN_PATH/modules/iterm/uninstall.sh
+      ;;
+    node)
+      sh $BIN_PATH/modules/node/uninstall.sh
+      ;;
+    vim)
+      sh $BIN_PATH/modules/vim/uninstall.sh
+      ;;
+    vscode)
+      sh $BIN_PATH/modules/vscode/uninstall.sh
+      ;;
+    zsh)
+      sh $BIN_PATH/modules/zsh/uninstall.sh
+      ;;
+    help)
+      usage
+      ;;
+    *)
+      echo "指定的命令无效. 请运行 dm remove help."
+      ;;
+  esac
 }
 
 main "$@"

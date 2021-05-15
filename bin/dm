@@ -1,44 +1,38 @@
 #!/bin/sh
-#===================================================================================
-#
-#        FILE:
-#
-#       USAGE:
-#
-# DESCRIPTION:
-#
-#      AUTHOR: Chunhui Ren <renchunhui2008@gmail.com>
-#     VERSION: 1.0.0
-#===================================================================================
 
-#
-export BIN_NAME         = 'dm'
-export BIN_PATH         = $HOME/.config/dotfiles
+# 自定义 cli 名称
+export BIN_NAME='dm'
 
-export BOLD             = $'\e[1m'
-export DIM              = $'\e[2m'
-export UNDERLINED       = $'\e[4m'
+# dotfiles 路径
+export BIN_PATH=$HOME/.config/dotfiles
 
-export BLACK            = $'\e[30m'
-export RED              = $'\e[31m'
-export GREEN            = $'\e[32m'
-export YELLOW           = $'\e[33m'
-export BLUE             = $'\e[34'
-export MAGENTA          = $'\e[95m'
-export CYAN             = $'\e[36m'
-export WHITE            = $'\e[97m'
+# GitHub 代理
+export GITHUB_PROXY='https://ghproxy.com'
 
-export RESET            = $'\e[0m'
-export RESET_BOLD       = $'\e[21m'
-export RESET_DIM        = $'\e[22m'
+export BOLD=$'\e[1m'
+export DIM=$'\e[2m'
+export UNDERLINED=$'\e[4m'
 
-export ICON_ASK         = '?'
-export ICON_INFO        = '➜'
-export ICON_OK          = '✔'
-export ICON_WARN        = '⚠'
-export ICON_FAIL        = '✖'
-export ICON_ARROR_RIGHT = "❯"
-export ICON_STEP        = '⧗'
+export BLACK=$'\e[30m'
+export RED=$'\e[31m'
+export GREEN=$'\e[32m'
+export YELLOW=$'\e[33m'
+export BLUE=$'\e[34'
+export MAGENTA=$'\e[95m'
+export CYAN=$'\e[36m'
+export WHITE=$'\e[97m'
+
+export RESET=$'\e[0m'
+export RESET_BOLD=$'\e[21m'
+export RESET_DIM=$'\e[22m'
+
+export ICON_ASK='?'
+export ICON_INFO='➜'
+export ICON_OK='✔'
+export ICON_WARN='⚠'
+export ICON_FAIL='✖'
+export ICON_ARROR_RIGHT="❯"
+export ICON_STEP='⧗'
 
 
 
@@ -64,9 +58,11 @@ EOF
 #######################################
 main() {
   case $1 in
-    install)
+    add)
+      sh $BIN_PATH/Commands/add "$2"
       ;;
-    uninstall)
+    remove)
+      sh $BIN_PATH/Commands/remove "$2"
       ;;
     clean)
       ;;

@@ -2,7 +2,6 @@
 #
 # 信息打印
 
-
 # 信息
 info() {
   echo ${CYAN}${ICON_INFO}${RESET} $1

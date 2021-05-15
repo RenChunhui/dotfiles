@@ -2,10 +2,12 @@ cask_args appdir: "/Applications"
 
 # Taps
 tap "homebrew/cask"
-tap "homebrew/cask-fonts"
 tap "homebrew/bundle"
+tap "homebrew/services"
+tap "homebrew/cask-fonts"
+tap "epk/epk"
 
-#
+# Tools
 brew "wget"
 brew "node"
 brew "yarn"
@@ -14,31 +16,34 @@ brew "tmux"
 brew "dockutil"
 brew "cloc"
 brew "webp"
+brew "go"
+brew "fzf"
+brew "ripgrep"
 brew "postgresql"
+brew "aria2"
+brew "youtube-dl"
 
 # Apps
-cask "1password"
 cask "alfred"
 cask "iterm2"
 cask "iina"
 cask "qingg"
 cask "visual-studio-code"
 cask "the-unarchiver"
-cask "onedrive"
-cask "recordit"
+cask "microsoft-teams"
 
 # Fonts
-cask "font-meslo-nerd-font"
+cask "font-sf-mono-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
 
 # Quicklook
 cask "qlcolorcode"
 cask "qlmarkdown"
+cask "betterzip"
 cask "quicklook-json"
 cask "qlimagesize"
-cask "webpquicklook"
 
 # macOS App Store
-mas "1Password", id: 443987910
 mas "WeChat",    id: 836500024
 mas "QQ",        id: 451108668
 mas 'Numbers',   id: 409203825
