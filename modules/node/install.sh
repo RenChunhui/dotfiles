@@ -10,4 +10,4 @@ if test ! $(which yarn); then
   brew install yarn
 fi
 
-cat $BIN_PATH/packages/node/packages.txt | xargs -n 1 yarn global add
+cat $BIN_PATH/modules/node/packages.txt | xargs -n 1 yarn global add

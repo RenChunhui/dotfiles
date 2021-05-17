@@ -31,6 +31,7 @@ cask "qingg"
 cask "clashx"
 cask "visual-studio-code"
 cask "the-unarchiver"
+cask "google-chrome"
 cask "microsoft-teams"
 
 # Fonts

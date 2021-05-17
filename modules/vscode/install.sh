@@ -12,7 +12,7 @@ if test ! $(which code); then
   brew install visual-studio-code --cask
 fi
 
-cat $BIN_PATH/packages/code/extensions.txt | xargs -n 1 code --install-extension --verbose
+cat $BIN_PATH/modules/vscode/extensions.txt | xargs -n 1 code --install-extension
 
 sudo rm -rf $HOME/Library/Application\ Support/Code/User/settings.json
 sudo cp $BIN_PATH/modules/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
