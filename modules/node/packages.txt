@@ -9,3 +9,4 @@ vscode-json-languageserver
 javascript-typescript-langserver
 typescript-language-server
 vim-language-server
+neovim

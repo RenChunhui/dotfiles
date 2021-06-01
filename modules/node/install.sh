@@ -6,8 +6,8 @@ source $BIN_PATH/lib/log
 
 step "安装 Node 环境"
 
-if test ! $(which yarn); then
-  brew install yarn
+if test ! $(which node); then
+  brew install node
 fi
 
-cat $BIN_PATH/modules/node/packages.txt | xargs -n 1 yarn global add
+cat $BIN_PATH/modules/node/packages.txt | xargs -n 1 npm install -g

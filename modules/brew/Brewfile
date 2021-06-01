@@ -10,7 +10,6 @@ tap "epk/epk"
 # Tools
 brew "wget"
 brew "node"
-brew "yarn"
 brew "mas"
 brew "tmux"
 brew "dockutil"
