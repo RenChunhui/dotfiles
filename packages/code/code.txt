@@ -1,6 +1,0 @@
-editorconfig.editorconfig
-vscode-icons-team.vscode-icons
-angular.ng-template
-formulahendry.auto-close-tag
-formulahendry.auto-rename-tag
-zignd.html-css-class-completion
