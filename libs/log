@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# 信息打印
+
+# 信息
+info() {
+  echo ${CYAN}${ICON_INFO}${RESET} $1
+}
+
+# 正确
+ok() {
+  echo ${GREEN}${ICON_OK}${RESET} $1
+}
+
+# 警告
+warn() {
+  echo ${YELLOW}${ICON_WARN}${RESET} $1
+}
+
+# 错误
+fail() {
+  echo ${RED}${ICON_FAIL}${RESET} $1
+}
+
+# 步骤
+step() {
+  echo ${GREEN}${ICON_STEP}${RESET}${BOLD} $1 ${RESET_BOLD}
+}

@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# 方法
+
+# 读行
+read_line() {
+  str=$1
+
+  if [[ "${str:0:1}" == "#" || ${#str} == 0 ]]; then
+    continue
+  fi
+}
