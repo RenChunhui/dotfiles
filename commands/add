@@ -32,7 +32,6 @@ main() {
     all)
       dm add zsh
       dm add brew
-      dm add git
       dm add go
       dm add iterm
       dm add node
@@ -47,10 +46,10 @@ main() {
       sh $BIN_PATH/pkgs/git/install.sh
       ;;
     go)
-      sh $BIN_PATH/pkgs/go/install.sh
+      sh $BIN_PATH/pkgs/golang/install.sh
       ;;
     iterm)
-      sh $BIN_PATH/pkgs/iterm/install.sh
+      sh $BIN_PATH/pkgs/iterm2/install.sh
       ;;
     node)
       sh $BIN_PATH/pkgs/node/install.sh
@@ -59,7 +58,7 @@ main() {
       sh $BIN_PATH/pkgs/os/main.sh
       ;;
     vim)
-      sh $BIN_PATH/pkgs/vim/install.sh
+      sh $BIN_PATH/pkgs/neovim/install.sh
       ;;
     vscode)
       sh $BIN_PATH/pkgs/vscode/install.sh

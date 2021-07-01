@@ -1,0 +1,6 @@
+@angular/language-server
+bash-language-server
+vscode-langservers-extracted
+typescript-language-server
+vim-language-server
+yaml-language-server
