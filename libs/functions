@@ -14,124 +14,20 @@ read_line() {
 }
 
 #######################################
-# brew tap 安装
+# 检查包是否有安装过
 #######################################
-install_tap() {
-  brew tap $1 > /dev/null
+check_pkg() {
+  eval "$1 $2" > /dev/null
+
   if [[ ${PIPESTATUS[0]} != 0 ]]; then
-    info "brew tap $1"
-    brew tap $1 $2
+    info "$1 $2"
+    eval "$1 $2"
+
     if [[ $? != 0 ]]; then
-      error "failed to install $1! aborting..."
+      error "failed to install $2! aborting..."
     fi
-    ok "${BOLD} $1 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
+    ok "${BOLD} $2 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
   else
-    ok "${BOLD} $1 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
-  fi
-}
-
-#######################################
-# brew 安装
-#######################################
-install_brew() {
-  brew list $1 > /dev/null
-  if [[ ${PIPESTATUS[0]} != 0 ]]; then
-    info "brew install $1"
-    brew install $1 $2
-    if [[ $? != 0 ]]; then
-      error "failed to install $1! aborting..."
-    fi
-    ok "${BOLD} $1 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
-  else
-    ok "${BOLD} $1 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
-  fi
-}
-
-#######################################
-# Apps 安装
-#######################################
-install_cask() {
-  brew list --cask $1 > /dev/null
-  if [[ ${PIPESTATUS[0]} != 0 ]]; then
-    info "brew install --cask $1"
-    brew install --cask $1 $2
-    if [[ $? != 0 ]]; then
-      error "failed to install $1! aborting..."
-    fi
-    ok "${BOLD} $1 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
-  else
-    ok "${BOLD} $1 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
-  fi
-}
-
-#######################################
-# App Store 软件安装
-#######################################
-install_mas() {
-  mas install $1 > /dev/null
-  if [[ ${PIPESTATUS[0]} != 0 ]]; then
-    info "mas install $1"
-    mas install $1 $2
-    if [[ $? != 0 ]]; then
-      error "failed to install $1! aborting..."
-    fi
-    ok "${BOLD} $1 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
-  else
-    ok "${BOLD} $1 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
-  fi
-}
-
-#######################################
-# Visual Studio Code 插件安装
-#######################################
-install_code() {
-  code --install-extension $1 > /dev/null
-  if [[ ${PIPESTATUS[0]} != 0 ]]; then
-    info "code --install-extension $1"
-    code --install-extension $1 $2
-    if [[ $? != 0 ]]; then
-      error "failed to install $1! aborting..."
-    fi
-    ok "${BOLD} $1 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
-  else
-    ok "${BOLD} $1 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
-  fi
-}
-
-
-
-#######################################
-# 全局 node package
-#######################################
-install_node() {
-  npm install -g $1 > /dev/null
-  if [[ ${PIPESTATUS[0]} != 0 ]]; then
-    info "npm install -g $1"
-    npm install -g $1 $2
-    if [[ $? != 0 ]]; then
-      error "failed to install $1! aborting..."
-    fi
-    ok "${BOLD} $1 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
-  else
-    ok "${BOLD} $1 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
-  fi
-}
-
-
-
-#######################################
-# Language Server Protocol
-#######################################
-install_lsp() {
-  npm install -g $1 > /dev/null
-  if [[ ${PIPESTATUS[0]} != 0 ]]; then
-    info "npm install -g $1"
-    npm install -g $1 $2
-    if [[ $? != 0 ]]; then
-      error "failed to install $1! aborting..."
-    fi
-    ok "${BOLD} $1 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
-  else
-    ok "${BOLD} $1 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
+    ok "${BOLD} $2 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
   fi
 }

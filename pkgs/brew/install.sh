@@ -13,7 +13,7 @@ if test ! $(which brew); then
   # /bin/bash $HOME/brew-install/install.sh
 
   # rm -rf $HOME/brew-install
-  /bin/bash -c "$(curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || exit 1
 
   brew update
   brew doctor
@@ -26,26 +26,26 @@ ok "Homebrew ${BOLD}${brew_version}${RESET_BOLD}"
 cat $BIN_PATH/configs/brew-tap.txt | while read pkg
 do
   read_line $pkg
-  install_tap $pkg
+  check_pkg "brew tap" $pkg
 done
 
 # 安装 brew.txt 文件列表
 cat $BIN_PATH/configs/brew.txt | while read pkg
 do
   read_line $pkg
-  install_brew $pkg
+  check_pkg "brew install" $pkg
 done
 
 # 安装 brew-cask.txt 文件列表
 cat $BIN_PATH/configs/brew-cask.txt | while read pkg
 do
   read_line $pkg
-  install_cask $pkg
+  check_pkg "brew install --cask" $pkg
 done
 
 # 安装 mas.txt 文件列表
 cat $BIN_PATH/configs/mas.txt | while read pkg
 do
   read_line $pkg
-  install_mas $pkg
+  check_pkg "mas install" $pkg
 done

@@ -15,5 +15,5 @@ fi
 cat $BIN_PATH/configs/code-extensions.txt | while read pkg
 do
   read_line $pkg
-  install_code $pkg
+  check_pkg "code --install-extension" $pkg
 done

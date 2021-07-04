@@ -13,7 +13,7 @@ if test ! $(which ninja); then
 fi
 
 if test ! $(which nvim); then
-  brew install neovim --HEAD
+  brew install neovim
 fi
 
 if [[ ! -d "$HOME/.config/nvim" ]]; then
@@ -23,7 +23,7 @@ fi
 cat $BIN_PATH/configs/lsp.txt | while read pkg
 do
   read_line $pkg
-  install_lsp $pkg
+  check_pkg "npm install -g" $pkg
 done
 
 if [[ ! -d "$HOME/.config/nvim/lua-language-server" ]]; then

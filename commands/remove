@@ -1,0 +1,73 @@
+#!/bin/sh
+#
+# 删除环境模块
+
+
+
+#######################################
+# 帮助
+#######################################
+usage() {
+cat <<EOF
+Usage: ${BIN_NAME} remove [package]
+Available Packages:
+  brew     Homebrew 安装
+  git      Git 环境
+  go       Golang 环境
+  iterm    终端配置
+  node     Node 环境
+  vim      NeoVim 配置
+  vscode   VSCode 开发环境
+  zsh      zsh 环境
+  help     帮助文档
+EOF
+}
+
+#######################################
+# 入口
+#######################################
+main() {
+  case $1 in
+    all)
+      dm remove zsh
+      dm remove brew
+      dm remove go
+      dm remove iterm
+      dm remove node
+      dm remove vim
+      dm remove vscode
+      ;;
+    brew)
+      sh $BIN_PATH/pkgs/brew/uninstall.sh
+      ;;
+    git)
+      sh $BIN_PATH/pkgs/git/uninstall.sh
+      ;;
+    go)
+      sh $BIN_PATH/pkgs/golang/uninstall.sh
+      ;;
+    iterm)
+      sh $BIN_PATH/pkgs/iterm2/uninstall.sh
+      ;;
+    node)
+      sh $BIN_PATH/pkgs/node/uninstall.sh
+      ;;
+    vim)
+      sh $BIN_PATH/pkgs/neovim/uninstall.sh
+      ;;
+    vscode)
+      sh $BIN_PATH/pkgs/vscode/uninstall.sh
+      ;;
+    zsh)
+      sh $BIN_PATH/pkgs/zsh/uninstall.sh
+      ;;
+    help)
+      usage
+      ;;
+    *)
+      echo "指定的命令无效. 请运行 dm remove help."
+      ;;
+  esac
+}
+
+main "$@"

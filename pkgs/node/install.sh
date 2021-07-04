@@ -8,5 +8,5 @@ source $BIN_PATH/libs/functions
 cat $BIN_PATH/configs/node.txt | while read pkg
 do
   read_line $pkg
-  install_node $pkg
+  check_pkg "npm install -g" $pkg
 done
