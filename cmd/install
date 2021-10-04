@@ -1,0 +1,34 @@
+#!/bin/sh
+
+#######################################
+# 帮助
+#######################################
+usage() {
+cat <<EOF
+
+EOF
+}
+
+
+#######################################
+# 入口
+#######################################
+main() {
+  if [[ $1 == "all" ]]; then
+    dot install zsh
+    dot install brew
+    dot install golang
+    dot install kitty
+    dot install neovim
+    dot install node
+    dot install os
+    dot install postgresql
+    dot install vscode
+  elif [[ $1 == "help" ]]; then
+    usage
+  else
+    sh $DOTPATH/internal/$1/install.sh
+  fi
+}
+
+main "$@"

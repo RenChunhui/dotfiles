@@ -1,5 +1,0 @@
-editorconfig.editorconfig
-vscode-icons-team.vscode-icons
-pkief.material-icon-theme
-angular.ng-template
-zhuangtongfa.material-theme

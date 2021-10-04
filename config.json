@@ -1,0 +1,58 @@
+{
+  "tap": [
+    "homebrew/bundle",
+    "homebrew/cask",
+    "homebrew/cask-fonts",
+    "homebrew/services"
+  ],
+  "brew": [
+    "wget",
+    "node",
+    "mas",
+    "tmux",
+    "dockutil",
+    "cloc",
+    "webp",
+    "go",
+    "ripgrep",
+    "postgresql",
+    "aria2"
+  ],
+  "cask": [
+    "alfred",
+    "kitty",
+    "iina",
+    "qingg",
+    "clashx",
+    "visual-studio-code",
+    "the-unarchiver",
+    "google-chrome",
+    "qlcolorcode",
+    "quicklook-json",
+    "qlmarkdown"
+  ],
+  "mas": [
+    "836500024",
+    "451108668"
+  ],
+  "code": [
+    "editorconfig.editorconfig",
+    "vscode-icons-team.vscode-icons",
+    "pkief.material-icon-theme"
+  ],
+  "lsp": [
+    "@angular/language-server",
+    "bash-language-server",
+    "vscode-langservers-extracted",
+    "typescript-language-server",
+    "vim-language-server",
+    "yaml-language-server",
+    "@volar/server"
+  ],
+  "npm": [
+    "typescript",
+    "@angular/cli",
+    "@vue/cli",
+    "yarn"
+  ]
+}

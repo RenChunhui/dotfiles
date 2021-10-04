@@ -2,6 +2,8 @@
 #
 # 方法
 
+source $DOTPATH/libs/log
+
 #######################################
 # 读取行内容
 #######################################
@@ -24,10 +26,23 @@ check_pkg() {
     eval "$1 $2"
 
     if [[ $? != 0 ]]; then
-      error "failed to install $2! aborting..."
+      fail "failed to install $2! aborting..."
     fi
     ok "${BOLD} $2 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
   else
     ok "${BOLD} $2 ${RESET_BOLD}${DIM}is already installed.${RESET_DIM}"
   fi
+}
+
+
+
+#######################################
+# 一直到拉取成功
+#######################################
+
+git_clone() {
+  while ! git clone $1 $2; do
+    rm
+    git clone $1 $2
+  done
 }

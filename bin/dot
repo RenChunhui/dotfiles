@@ -1,0 +1,45 @@
+#!/bin/sh
+
+export DOTPATH=$HOME/.config/dotfiles
+
+#######################################
+# 帮助
+#######################################
+usage() {
+cat <<EOF
+Usage:
+  ${DOTPATH} [command]
+Available Commands:
+  install         添加环境
+  uninstall       移除环境
+  clean           清理环境
+  checkhealth     检测环境
+  help            帮助文档
+EOF
+}
+
+#######################################
+# 入口
+#######################################
+main() {
+  case $1 in
+    install)
+      sh $DOTPATH/cmd/install $2
+      ;;
+    uninstall)
+      sh $DOTPATH/cmd/uninstall $2
+      ;;
+    clean)
+      ;;
+    checkhealth)
+      sh $DOTPATH/cmd/checkhealth
+      ;;
+    help)
+      usage
+      ;;
+    *)
+      ;;
+  esac
+}
+
+main "$@"
