@@ -4,3 +4,6 @@
 
 rm -rf $HOME/.config/kitty/kitty.conf
 cp $DOTPATH/internal/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
+
+# tmux
+cp cp $DOTPATH/internal/kitty/tmux.conf $HOME/.tmux.conf

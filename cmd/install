@@ -5,7 +5,20 @@
 #######################################
 usage() {
 cat <<EOF
+Usage:
+  dot install [command]
 
+Available Commands:
+  brew     Homebrew 安装
+  git      Git 环境
+  golang   Golang 环境
+  kitty    终端配置
+  node     Node 环境
+  os       系统偏好设置
+  neovim   NeoVim 配置
+  vscode   VSCode 开发环境
+  zsh      zsh 环境
+  help     帮助文档
 EOF
 }
 

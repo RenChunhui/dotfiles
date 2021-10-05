@@ -8,7 +8,8 @@ export DOTPATH=$HOME/.config/dotfiles
 usage() {
 cat <<EOF
 Usage:
-  ${DOTPATH} [command]
+  dot [command]
+
 Available Commands:
   install         添加环境
   uninstall       移除环境
