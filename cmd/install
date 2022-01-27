@@ -1,25 +1,143 @@
 #!/bin/sh
+#==============================================================================
+#
+# FILE: install
+#
+# USAGE: dot install [module]
+#
+# DESCRIPTION: --
+#
+# OPTIONS: see function ’usage’ below
+# AUTHOR: Chunhui Ren <renchunhui2008@gmail.com>
+#==============================================================================
+
+source $DOTPATH/libs/console
 
 #######################################
-# 帮助
+# 安装包
 #######################################
-usage() {
-cat <<EOF
-Usage:
-  dot install [command]
+execute_pkg() {
+  eval "$1 $2" > /dev/null
 
-Available Commands:
-  brew     Homebrew 安装
-  git      Git 环境
-  golang   Golang 环境
-  kitty    终端配置
-  node     Node 环境
-  os       系统偏好设置
-  neovim   NeoVim 配置
-  vscode   VSCode 开发环境
-  zsh      zsh 环境
-  help     帮助文档
-EOF
+  if [[ ${PIPESTATUS[0]} != 0 ]]; then
+    info "$1 $2"
+    eval "$1 $2"
+
+    if [[ $? != 0 ]]; then
+      fail "failed to install $2! aborting..."
+    fi
+  else
+    ok "$2 is already installed."
+  fi
+
+  # echo $1 $2 $3
+}
+
+#######################################
+# 安装 zsh 插件、配置 zsh 环境
+#######################################
+install_zsh() {
+  rm -rf $HOME/.zshrc
+
+  if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+    git_clone "ohmyzsh/ohmyzsh.git" "$HOME/.oh-my-zsh"
+  else
+    ok "ohmyzsh/ohmyzsh"
+  fi
+
+  if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
+    git_clone "zsh-users/zsh-autosuggestions.git" "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+  else
+    ok "zsh-users/zsh-autosuggestions"
+  fi
+
+  if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]]; then
+    git_clone "zsh-users/zsh-syntax-highlighting.git" "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+  else
+    ok "zsh-users/zsh-syntax-highlighting"
+  fi
+
+  if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-completions" ]]; then
+    git_clone "zsh-users/zsh-completions" "$HOME/.oh-my-zsh/custom/plugins/zsh-completions"
+  else
+    ok "zsh-users/zsh-completions"
+  fi
+
+  cp $DOTPATH/configs/.zshenv $HOME/.zshenv
+  cp $DOTPATH/configs/.zshrc $HOME/.zshrc
+
+  source $HOME/.zshrc
+}
+
+#######################################
+# 使用 Homebrew 安装
+#######################################
+install_brew() {
+  if test ! $(which brew); then
+    while /bin/bash -c "$(curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; do
+      /bin/bash -c "$(curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    done
+
+    brew update
+  fi
+
+  if test ! $(which dasel); then
+    brew install dasel
+  fi
+
+  local json_config=$(dasel "select" -f $DOTPATH/config.json)
+  local pkgs=$(echo $json_config | dasel -p json 'pkgs')
+  local pkgs_len=$(echo $pkgs | dasel -p json '.[#]')
+
+  for ((i = 0;i < $pkgs_len; i++)); do
+    local summary=$(echo $pkgs | dasel -p json --plain ".[$i].summary")
+    local install_cmd=$(echo $pkgs | dasel -p json --plain ".[$i].install")
+    local list=$(echo $pkgs | dasel -p json ".[$i].list")
+    local list_len=$(echo $list | dasel -p json ".[#]")
+
+    info "$summary"
+
+    for ((j = 0;j < $list_len; j++)); do
+      local pkg=$(echo $list | dasel -p json --plain ".[$j].name")
+      local pkg_summary=$(echo $list | dasel -p json --plain ".[$j].summary")
+
+      execute_pkg "$install_cmd" "$pkg" "$pkg_summary"
+    done
+  done
+}
+
+
+
+#######################################
+# 配置环境
+#######################################
+install_porter() {
+  local json_config=$(dasel "select" -f $DOTPATH/config.json)
+  local porter=$(echo $json_config | dasel -p json 'porter')
+  local porter_len=$(echo $porter | dasel -p json '.[#]')
+
+  for ((i=0; i < $porter_len; i++)); do
+    local summary=$(echo $porter | dasel -p json --plain ".[$i].summary")
+    local list=$(echo $porter | dasel -p json ".[$i].list")
+    local list_len=$(echo $list | dasel -p json ".[#]")
+
+    info "$summary"
+
+    for ((j = 0;j < $list_len; j++)); do
+      local type=$(echo $list | dasel -p json --plain ".[$j].type")
+      local from=$(echo $list | dasel -p json --plain ".[$j].from")
+      local to=$(echo $list | dasel -p json --plain ".[$j].to")
+
+      eval "rm -rf $to"
+
+      if [[ $type == "git" ]]; then
+        local branch=$(echo $list | dasel -p json --plain ".[$j].branch")
+        eval "git clone $from $to -b $branch"
+      else
+        eval "$type $from $to"
+      fi
+    done
+  done
 }
 
 
@@ -27,21 +145,9 @@ EOF
 # 入口
 #######################################
 main() {
-  if [[ $1 == "all" ]]; then
-    dot install zsh
-    dot install brew
-    dot install golang
-    dot install kitty
-    dot install neovim
-    dot install node
-    dot install os
-    dot install postgresql
-    dot install vscode
-  elif [[ $1 == "help" ]]; then
-    usage
-  else
-    sh $DOTPATH/internal/$1/install.sh
-  fi
+  install_zsh
+  install_brew
+  install_porter
 }
 
 main "$@"

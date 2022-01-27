@@ -1,12 +1,17 @@
 #!/bin/sh
 #
-# 信息打印
+# 日志输出
+
+BOLD=$'\e[1m'
+DIM=$'\e[2m'
+UNDERLINED=$'\e[4m'
 
 BLACK=$'\e[30m'
 RED=$'\e[31m'
 GREEN=$'\e[32m'
 YELLOW=$'\e[33m'
 BLUE=$'\e[34'
+GRAY=$'\e[90m'
 MAGENTA=$'\e[95m'
 CYAN=$'\e[36m'
 WHITE=$'\e[97m'
@@ -23,22 +28,22 @@ ICON_FAIL='✖'
 ICON_ARROR_RIGHT="❯"
 ICON_STEP='⧗'
 
-# 信息
-info() {
-  echo ${CYAN}${ICON_INFO}${RESET} $1
-}
-
 # 正确
 ok() {
-  echo ${GREEN}${ICON_OK}${RESET} $1
-}
-
-# 警告
-warn() {
-  echo ${YELLOW}${ICON_WARN}${RESET} $1
+  echo ${GREEN}${ICON_OK}${RESET} ${GRAY}$1${RESET}
 }
 
 # 错误
 fail() {
-  echo ${RED}${ICON_FAIL}${RESET} $1
+  echo ${RED}${ICON_FAIL}${RESET} ${GRAY}$1${RESET}
+}
+
+# 警告
+warn() {
+  echo ${YELLOW}${ICON_WARN}${RESET} ${GRAY}$1${RESET}
+}
+
+# 信息
+info() {
+  echo ${CYAN}${ICON_INFO}${RESET} ${GRAY}$1${RESET}
 }

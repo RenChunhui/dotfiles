@@ -4,8 +4,7 @@ if [[ -z "${DOTPATH}" ]]; then
   export DOTPATH=$HOME/.config/dotfiles
 fi
 
-if test ! $(which dot); then
-  chmod 755 $DOTPATH/bin/dot
-fi
+# 防止无权限
+chmod -R u+x $HOME/.config/dotfiles/bin
 
-dot install all
+# dot install

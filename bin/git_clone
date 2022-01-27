@@ -1,0 +1,50 @@
+#!/bin/sh
+#
+# 使用多个镜像或代理尝试拉取代码
+
+source $DOTPATH/lib/console
+
+set -e
+
+# # 使用 https://gitclone.com
+use_gitclone() {
+  if ! git clone https://hub.fastgit.org/$1 $2; then
+    fail $1
+    exit 1
+  else
+    ok $1
+  fi
+}
+
+# # 使用 https://hub.fastgit.org
+use_fastgit() {
+  if ! git clone https://hub.fastgit.org/$1 $2; then
+    use_gitclone
+  else
+    ok $1
+  fi
+}
+
+# # 使用 https://github.com.cnpmjs.org
+use_cnpmjs() {
+  if ! git clone https://github.com.cnpmjs.org/$1 $2; then
+    use_fastgit
+  else
+    ok $1
+  fi
+}
+
+# 使用 https://ghproxy.com
+use_ghproxy() {
+  if ! git clone git clone https://ghproxy.com/https://github.com/$1 $2; then
+    use_cnpmjs
+  else
+    ok $1
+  fi
+}
+
+if ! git clone git://github.com/$1 $2; then
+  use_ghproxy
+else
+  ok $1
+fi

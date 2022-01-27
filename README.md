@@ -3,6 +3,11 @@
   <p>使用自定义命令行管理你的 macOS</p>
 </div>
 
+<p align="center">
+  <a href=""><img src="https://img.shields.io/badge/-macOS Monterey-000000?style=flat-square&logo=apple&logoColor=white" alt="macOS"></a>
+  <a href=""><img src="https://img.shields.io/badge/-Arch Linux-1793D1?style=flat-square&logo=ArchLinux&logoColor=white" alt="ArchLinux"></a>
+  <a href=""><img src="https://img.shields.io/badge/-Windows-0078D6?style=flat-square&logo=Windows&logoColor=white" alt="Windows"></a>
+</p>
 
 <p align="center">
   <a href="https://github.com/RenChunhui/"><img alt="GitHub top language" src="https://img.shields.io/github/languages/top/renchunhui/dotfiles.svg"></a>

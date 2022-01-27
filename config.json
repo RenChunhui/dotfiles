@@ -1,59 +1,117 @@
 {
-  "tap": [
-    "homebrew/bundle",
-    "homebrew/cask",
-    "homebrew/cask-fonts",
-    "homebrew/services"
+  "global": {
+    "git": {
+      "proxys": [
+        "https://ghproxy.com/https://github.com/",
+        "https://github.com.cnpmjs.org/",
+        "https://hub.fastgit.org/",
+        "https://hub.fastgit.org/"
+      ]
+    }
+  },
+  "pkgs":[
+    {
+      "summary": "Homebrew Taps",
+      "install": "brew tap --quiet",
+      "uninstall": "brew untap",
+      "list": [
+        { "name":"homebrew/cask", "summary":""},
+        { "name":"homebrew/services", "summary":""}
+      ]
+    },
+    {
+      "summary": "Homebrew",
+      "install": "brew install --quiet",
+      "uninstall": "brew uninstall",
+      "list": [
+        { "name": "wget", "summary": "下载文件工具" },
+        { "name": "node", "summary": "前端必备" },
+        { "name": "tmux", "summary": "终端复用工具" },
+        { "name": "cloc", "summary": "统计代码" },
+        { "name": "webp", "summary": "WebP" },
+        { "name": "postgresql", "summary": "PostgreSQL 数据库" },
+        { "name": "pnpm", "summary": "前端依赖管理工具" },
+        { "name": "dasel", "summary":"" }
+      ]
+    },
+    {
+      "summary": "Homebrew Cask",
+      "install": "brew install --cask --quiet",
+      "uninstall": "brew uninstall --cask",
+      "list": [
+        { "name": "aria2", "summary": "轻量级命令行下载工具" },
+        { "name": "alfred", "summary": "替代 Spotlight 效率工具" },
+        { "name": "clashx", "summary": "科学上网" },
+        { "name": "visual-studio-code", "summary": "微软推出的开源开发工具" },
+        { "name": "the-unarchiver", "summary": "" },
+        { "name": "qingg", "summary": "清歌五笔输入法" },
+        { "name": "qq", "summary": "QQ" },
+        { "name": "wechat", "summary": "微信" }
+      ]
+    },
+    {
+      "summary": "Quick Look",
+      "install":"brew install --cask --quiet",
+      "uninstall":"brew uninstall --cask",
+      "list":[
+        { "name":"qlcolorcode", "summary":"支持语法高亮" },
+        { "name":"quicklook-json", "summary":"预览 JSON" },
+        { "name":"qlmarkdown", "summary":"预览 Markdown" }
+      ]
+    },
+    {
+      "summary": "安装 VSCode 常用插件",
+      "dependencies": [ "visual-studio-code" ],
+      "install": "code --install-extension",
+      "uninstall": "code --uninstall-extension",
+      "list":[
+        { "name": "editorconfig.editorconfig", "summary": "EditorConfig" },
+        { "name": "vscode-icons-team.vscode-icons", "summary": "文件图标" },
+        { "name": "esbenp.prettier-vscode", "summary": "Prettier" }
+      ]
+    },
+    {
+      "summary": "安装 Language Server Protocol",
+      "dependencies": [ "node" ],
+      "install": "npm install -g",
+      "uninstall": "npm uninstall -g",
+      "list":[
+        { "name": "@angular/language-server","summary": "Angular" },
+        { "name": "bash-language-server","summary": "Bash" },
+        { "name": "vscode-langservers-extracted","summary": "HTML/CSS/json" },
+        { "name": "typescript-language-server","summary": "TypeScript" },
+        { "name": "yaml-language-server","summary": "Yaml" },
+        { "name": "@volar/server","summary": "Vue" }
+      ]
+    }
   ],
-  "brew": [
-    "wget",
-    "node",
-    "mas",
-    "tmux",
-    "dockutil",
-    "cloc",
-    "webp",
-    "go",
-    "ripgrep",
-    "postgresql",
-    "aria2"
+  "porter": [
+    {
+      "summary": "配置 Git 环境",
+      "list":[
+        { "type": "cp", "from": "$HOME/.config/dotfiles/configs/git/.gitmessage", "to": "$HOME/.gitmessage" },
+        { "type": "cp", "from": "$HOME/.config/dotfiles/configs/git/.gitignore_global","to":"$HOME/.gitignore_global" }
+      ]
+    },
+    {
+      "summary": "配置 Tmux 环境",
+      "list":[
+        { "type": "cp", "from": "$HOME/.config/dotfiles/configs/.tmux.conf", "to": "$HOME/.tmux.conf" }
+      ]
+    },
+    {
+      "summary": "配置 NeoVim 环境",
+      "list": [
+        { "type": "git", "branch":"develop", "from": "git://github.com/renchunhui/dotfiles", "to": "$HOME/.config/nvim" }
+      ]
+    }
   ],
-  "cask": [
-    "alfred",
-    "kitty",
-    "iina",
-    "qingg",
-    "clashx",
-    "visual-studio-code",
-    "the-unarchiver",
-    "notion",
-    "google-chrome",
-    "qlcolorcode",
-    "quicklook-json",
-    "qlmarkdown"
-  ],
-  "mas": [
-    "836500024",
-    "451108668"
-  ],
-  "code": [
-    "editorconfig.editorconfig",
-    "vscode-icons-team.vscode-icons",
-    "pkief.material-icon-theme"
-  ],
-  "lsp": [
-    "@angular/language-server",
-    "bash-language-server",
-    "vscode-langservers-extracted",
-    "typescript-language-server",
-    "vim-language-server",
-    "yaml-language-server",
-    "@volar/server"
-  ],
-  "npm": [
-    "typescript",
-    "@angular/cli",
-    "@vue/cli",
-    "yarn"
+  "actions":[
+    {
+      "summary": "",
+      "list": [
+        { "cmd": "", "summary": ""}
+      ]
+    }
   ]
 }
