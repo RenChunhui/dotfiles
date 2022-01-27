@@ -4,9 +4,8 @@
 </div>
 
 <p align="center">
-  <a href=""><img src="https://img.shields.io/badge/-macOS Monterey-000000?style=flat-square&logo=apple&logoColor=white" alt="macOS"></a>
-  <a href=""><img src="https://img.shields.io/badge/-Arch Linux-1793D1?style=flat-square&logo=ArchLinux&logoColor=white" alt="ArchLinux"></a>
-  <a href=""><img src="https://img.shields.io/badge/-Windows-0078D6?style=flat-square&logo=Windows&logoColor=white" alt="Windows"></a>
+  <a href=""><img src="https://img.shields.io/badge/-macOS-000000?style=flat-square&logo=Apple&logoColor=white" alt="macOS"></a>
+  <a href=""><img src="https://img.shields.io/badge/-Homebrew-FBB040?style=flat-square&logo=Homebrew&logoColor=black" alt="Homebrew"></a>
 </p>
 
 <p align="center">
@@ -15,10 +14,19 @@
   <a href="./LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/renchunhui/dotfiles"></a>
 </p>
 
-安装
+
+特性
 ---
 
-> 目前几乎所有 `dotfiles` 配置都是放在 `$HOME` 目录下，当开发环境一多，`$HOME` 目录下有太多的隐藏文件，个人推荐放在 `$HOME/.config` 目录下。
+网上有许多 `dotfiles`，但都极度私有化，基本只能参考一下人家配置和学习代码写法。但整体理解下来功能与实现情况如下：
+
+- [x] 实现软件和命令行工具的安装(如 macOS 的 brew，Linux 的 pacman apt dnf 等)
+- [x] 配置文件的备份(软链接、复制、Git 克隆之类的方式)
+- [-] 封装定义一些效率脚本
+
+
+安装
+---
 
 ``` sh
 $ git clone https://github.com/renchunhui/dotfiles ~/.config/dotfiles
@@ -27,18 +35,26 @@ $ chmod +x ./install.sh
 $ ./install.sh
 ```
 
-功能
+如何配置
 ---
 
-+ *install* 安装
-  - *brew*    使用 Homebrew 安装软件及工具
-  - *vscode*  安装 VSCode、VSCode 插件、习惯配置
-  - *go*      安装 Go 环境
-  - *iterm*   配置 iTerm2 环境(tmux、主题)
-  - *node*    安装全局 node 工具包、语言补全引擎
-  - *os*      macOS 系统设置
-  - *vim*     安装 neovim 环境及配置
-  - *zsh*     zsh 环境及插件安装
+- **pkgs:** 安装包
+
+  - **summary:** 描述
+  - **install:** 执行的命令
+  - **list:** 列表
+
+    - **name:** 包名
+    - **summary:** 描述
+- **porter:** 搬运
+
+  - **summary:** 描述
+  - **list:** 列表
+
+    - **type:** 命令类型
+    - **from:** 从什么位置
+    - **to:** 到什么位置
+
 
 版权协议
 ---
