@@ -7,4 +7,5 @@ fi
 # 防止无权限
 chmod -R u+x $HOME/.config/dotfiles/bin
 
+# 执行安装
 dot install

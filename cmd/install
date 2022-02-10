@@ -29,8 +29,6 @@ execute_pkg() {
   else
     ok "$2 is already installed."
   fi
-
-  # echo $1 $2 $3
 }
 
 #######################################
@@ -38,6 +36,7 @@ execute_pkg() {
 #######################################
 install_zsh() {
   rm -rf $HOME/.zshrc
+  rm -rf $HOME/.zshenv
 
   if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     git_clone "ohmyzsh/ohmyzsh.git" "$HOME/.oh-my-zsh"

@@ -24,14 +24,15 @@
       "install": "brew install --quiet",
       "uninstall": "brew uninstall",
       "list": [
-        { "name": "wget", "summary": "下载文件工具" },
-        { "name": "node", "summary": "前端必备" },
-        { "name": "tmux", "summary": "终端复用工具" },
+        { "name": "wget", "summary": "Internet file retriever." },
+        { "name": "node", "summary": "Platform built on V8 to build network applications" },
+        { "name": "tmux", "summary": "Terminal multiplexer" },
         { "name": "cloc", "summary": "统计代码" },
         { "name": "webp", "summary": "WebP" },
         { "name": "postgresql", "summary": "PostgreSQL 数据库" },
-        { "name": "pnpm", "summary": "前端依赖管理工具" },
-        { "name": "dasel", "summary":"" }
+        { "name": "pnpm", "summary": "Fast, disk space efficient package manager" },
+        { "name": "dasel", "summary":"JSON, YAML, TOML, XML, and CSV query and modification tool." },
+        { "name": "exa", "summary": "A modern replacement for ls."}
       ]
     },
     {
@@ -72,9 +73,9 @@
     },
     {
       "summary": "安装 Language Server Protocol",
-      "dependencies": [ "node" ],
-      "install": "npm install -g",
-      "uninstall": "npm uninstall -g",
+      "dependencies": [ "pnpm" ],
+      "install": "pnpm global add",
+      "uninstall": "pnpm global remove",
       "list":[
         { "name": "@angular/language-server","summary": "Angular" },
         { "name": "bash-language-server","summary": "Bash" },
