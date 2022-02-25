@@ -150,6 +150,10 @@
             "desc": "Application launcher and productivity software."
           },
           {
+            "name": "iterm2",
+            "desc": "Terminal emulator as alternative to Apple's Terminal app."
+          },
+          {
             "name": "clashx",
             "desc": "Rule-based custom proxy with GUI based on clash."
           },

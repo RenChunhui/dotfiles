@@ -65,10 +65,9 @@ dockutil --no-restart --add "/Applications/Google Chrome.app"
 dockutil --no-restart --add "/Applications/Visual Studio Code.app"
 dockutil --no-restart --add "/Applications/WeChat.app"
 dockutil --no-restart --add "/Applications/QQ.app"
-dockutil --no-restart --add "/Applications/Microsoft Teams.app"
 dockutil --no-restart --add "/System/Applications/Mail.app"
 dockutil --no-restart --add "/System/Applications/Calendar.app"
-dockutil --no-restart --add "/Applications/Kitty.app"
+dockutil --no-restart --add "/Applications/iTerm2.app"
 dockutil --no-restart --add "/System/Applications/System Preferences.app"
 
 killall Dock
