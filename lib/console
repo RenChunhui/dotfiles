@@ -11,9 +11,11 @@ RED=$'\e[31m'
 GREEN=$'\e[32m'
 YELLOW=$'\e[33m'
 BLUE=$'\e[34'
-GRAY=$'\e[90m'
-MAGENTA=$'\e[95m'
+PURPLE=$'\e[35'
 CYAN=$'\e[36m'
+LIGHT_GRAY=$'\e[37m'
+MAGENTA=$'\e[95m'
+
 WHITE=$'\e[97m'
 
 RESET=$'\e[0m'
@@ -30,20 +32,20 @@ ICON_STEP='⧗'
 
 # 正确
 ok() {
-  echo ${GREEN}${ICON_OK}${RESET} ${GRAY}$1${RESET}
+  echo ${GREEN}${ICON_OK}${RESET} $1
 }
 
 # 错误
 fail() {
-  echo ${RED}${ICON_FAIL}${RESET} ${GRAY}$1${RESET}
+  echo ${RED}${ICON_FAIL}${RESET} $1
 }
 
 # 警告
 warn() {
-  echo ${YELLOW}${ICON_WARN}${RESET} ${GRAY}$1${RESET}
+  echo ${YELLOW}${ICON_WARN}${RESET} $1
 }
 
 # 信息
 info() {
-  echo ${CYAN}${ICON_INFO}${RESET} ${GRAY}$1${RESET}
+  echo ${CYAN}${ICON_INFO}${RESET} $1
 }
