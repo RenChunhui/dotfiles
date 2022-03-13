@@ -1,10 +1,13 @@
-SHELL = /bin/sh
+SHELL := /bin/sh
 
-DOTPATH=$$HOME/.config/dotfiles
+all:
+	@if [[ ! -f "${HOME}/.zshenv" ]]; 									\
+	then																\
+		cp ${HOME}/.config/dotfiles/configs/zsh/zshenv ${HOME}/.zshenv;	\
+	fi
 
-install:
-	@sudo chown -R $$(whoami) $(DOTPATH)
-	@export PATH=$(DOTPATH)/bin:$(PATH)
-	@dot install all
-
-.PHONY: install
+	@chmod -R u+x ${HOME}/.config/dotfiles/bin
+	@dot install
+	@sudo -v
+	@while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+.PHONY: all
