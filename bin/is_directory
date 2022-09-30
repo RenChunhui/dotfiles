@@ -1,9 +1,0 @@
-#!/bin/sh
-#
-# 是否是目录
-
-if [[ ! -d "$1" ]]; then
-  exit 0
-else
-  exit 1
-fi
