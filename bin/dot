@@ -1,0 +1,29 @@
+#!/bin/sh
+
+usage() {
+cat <<EOF
+USAGE
+  dot [command]
+
+Available Commands:
+  install     安装
+  uninstall   卸载
+  help        帮助
+EOF
+}
+
+main() {
+  case $1 in
+    install)
+      sh $DOTPATH/cmd/install.sh "$2"
+      ;;
+    uninstall)
+      sh $DOTPATH/cmd/uninstall.sh "$2"
+      ;;
+    help)
+      usage
+      ;;
+  esac
+}
+
+main "$@"

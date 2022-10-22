@@ -1,0 +1,51 @@
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+
+
+
+###############################################################################
+# Homebrew                                                                    #
+###############################################################################
+
+# 不发送分析
+export HOMEBREW_NO_ANALYTICS=1
+
+# 不自动更新
+export HOMEBREW_NO_AUTO_UPDATE=true
+
+# TUNA
+export HOMEBREW_BREW_GIT_REMOTE=https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+export HOMEBREW_CORE_GIT_REMOTE=https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+# TUNA end
+
+# USTC
+# export HOMEBREW_BREW_GIT_REMOTE=https://mirrors.ustc.edu.cn/brew.git
+# export HOMEBREW_CORE_GIT_REMOTE=https://mirrors.ustc.edu.cn/homebrew-core.git
+# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+# USTC end
+
+# GitHub
+# export HOMEBREW_BREW_GIT_REMOTE=https://github.com/Homebrew/brew
+# export HOMEBREW_CORE_GIT_REMOTE=https://github.com/Homebrew/homebrew-core
+# export HOMEBREW_BOTTLE_DOMAIN=https://ghcr.io/v2/homebrew/core
+# GitHub end
+
+
+
+###############################################################################
+# dotfiles                                                                    #
+###############################################################################
+
+export DOTPATH=$HOME/.config/dotfiles
+export PATH="$DOTPATH/bin:$PATH"
+
+
+
+###############################################################################
+# pnpm                                                                        #
+###############################################################################
+
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
