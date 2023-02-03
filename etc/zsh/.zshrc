@@ -14,3 +14,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+fpath=( $XDG_CONFIG_HOME/zsh/site-functions "${fpath[@]}" )
+autoload -Uz $fpath[1]/*(.:t)

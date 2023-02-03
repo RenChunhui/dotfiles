@@ -1,7 +1,0 @@
-# NPM Configuration
-
-# china mirror
-registry=https://registry.npmmirror.com/
-
-# pnpm store-dir
-store-dir=${XDG_DATA_HOME}/pnpm/store

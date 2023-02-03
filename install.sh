@@ -6,10 +6,10 @@ set -e
 chsh -s /bin/zsh
 
 if [[ ! -f "$HOME/.zshenv" ]]; then
-  cp $HOME/.config/dotfiles/etc/zshenv $HOME/.zshenv
+  cp $HOME/.config/dotfiles/etc/zsh/.zshenv $HOME/.config/zsh/.zshenv
 fi
 
-source $HOME/.zshenv
+source $HOME/.config/zsh/.zshenv
 
 chmod -R u+x $XDG_CONFIG_HOME/dotfiles/bin
 
