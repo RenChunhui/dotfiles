@@ -2,6 +2,9 @@
 
 set -e
 
+# 确保使用 zsh
+chsh -s /bin/zsh
+
 if [[ ! -f "$HOME/.zshenv" ]]; then
   cp $HOME/.config/dotfiles/etc/zshenv $HOME/.zshenv
 fi
