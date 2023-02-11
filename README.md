@@ -27,6 +27,11 @@ Installation
 $ git clone github.com/renchunhui/dotfiles $HOME/.config/dotfiles
 ```
 
+Features
+---
+
+- Move all configuration to `~/.config` folder
+
 Screenshots
 --- 
 

@@ -9,6 +9,10 @@ export XDG_STATE_HOME=$HOME/.local/state
 
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 
+# npmrc global config
+export NPM_CONFIG_GLOBALCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+
+export PNPM_HOME=$XDG_DATA_HOME/pnpm
 
 
 ###############################################################################

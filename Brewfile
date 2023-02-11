@@ -6,7 +6,7 @@ tap "homebrew/cask"
 tap "homebrew/services"
 tap "homebrew/cask-drivers"
 
-# Brew
+# Formulae
 brew "cloc"
 brew "gh"
 brew "mysql"
