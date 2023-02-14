@@ -25,6 +25,8 @@ Installation
 
 ``` sh
 $ git clone github.com/renchunhui/dotfiles $HOME/.config/dotfiles
+$ chomd +x $HOME/.config/dotfiles/install.sh
+$ ./install.sh
 ```
 
 Features

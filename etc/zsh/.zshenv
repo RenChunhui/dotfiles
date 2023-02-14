@@ -2,12 +2,17 @@
 # 环境变量                                                                     #
 ###############################################################################
 
+# XDG Base Directory Specification
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 
-export ZDOTDIR=$XDG_CONFIG_HOME/zsh
+# Zsh
+
+# Dotfiles
+export DOTDIR=$XDG_CONFIG_HOME/dotfiles
+export PATH="$DOTDIR/bin:$PATH"
 
 # npmrc global config
 export NPM_CONFIG_GLOBALCONFIG=$XDG_CONFIG_HOME/npm/npmrc

@@ -2,14 +2,11 @@
 
 set -e
 
-# 确保使用 zsh
-chsh -s /bin/zsh
-
 if [[ ! -f "$HOME/.zshenv" ]]; then
-  cp $HOME/.config/dotfiles/etc/zsh/.zshenv $HOME/.config/zsh/.zshenv
+  cp $HOME/.config/dotfiles/etc/zsh/.zshenv $HOME/.zshenv
 fi
 
-source $HOME/.config/zsh/.zshenv
+source $HOME/.zshenv
 
 chmod -R u+x $XDG_CONFIG_HOME/dotfiles/bin
 
