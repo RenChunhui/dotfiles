@@ -30,6 +30,10 @@ main() {
       dot install zsh
       dot install brew
       dot install iterm2
+      dot install git
+      dot install node
+      dot install neovim
+      dot install os
       ;;
     zsh)
       zsh $DOTDIR/user/zsh/install.sh

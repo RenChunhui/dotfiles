@@ -7,3 +7,8 @@ if [[ ! -d $HOME/brew-install ]]; then
   /bin/bash $HOME/brew-install/uninstall.sh
 fi
 
+# read -r -p "Are you sure you want to remove Oh My Zsh? [y/N] " confirmation
+# if [ "$confirmation" != y ] && [ "$confirmation" != Y ]; then
+#   echo "Uninstall cancelled"
+#   exit
+# fi
