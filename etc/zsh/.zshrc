@@ -14,6 +14,3 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
-# fpath=( $DOTDIR/etc/zsh/site-functions "${fpath[@]}" )
-# autoload -Uz $fpath[1]/*(.:t)
