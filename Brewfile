@@ -5,6 +5,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/services"
 tap "homebrew/cask-drivers"
+tap "homebrew/cask-fonts"
 
 # Formulae
 brew "cloc"
@@ -15,6 +16,7 @@ brew "node"
 brew "pnpm"
 brew "tmux"
 brew "wget"
+brew "httpie"
 brew "ripgrep"
 
 # Apps
@@ -26,3 +28,7 @@ cask "visual-studio-code"
 cask "qq"
 cask "wechat"
 cask "iina"
+
+# Fonts
+cask "font-sf-mono"
+cask "font-symbols-only-nerd-font"
