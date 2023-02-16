@@ -50,6 +50,9 @@ main() {
     node)
       sh $DOTDIR/user/node/install.sh
       ;;
+    vscode)
+      sh $DOTDIR/user/vscode/install.sh
+      ;;
     neovim)
       sh $DOTDIR/user/neovim/install.sh
       ;;
