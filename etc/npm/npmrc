@@ -3,5 +3,8 @@
 # china mirror
 registry=https://registry.npmmirror.com/
 
+# npm cache
+cache=$XDG_CACHE_HOME/npm
+
 # pnpm store-dir
 store-dir=$XDG_DATA_HOME/pnpm/store
