@@ -32,6 +32,7 @@ main() {
       dot install iterm2
       dot install git
       dot install node
+      dot install vscode
       dot install neovim
       dot install os
       ;;

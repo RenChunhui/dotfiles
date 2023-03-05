@@ -2,8 +2,6 @@
 #
 # Visual Studio Code
 
-code --extensions-dir $XDG_DATA_HOME/vscode/extensions
-
 code --install-extension formulahendry.auto-close-tag
 code --install-extension formulahendry.auto-rename-tag
 code --install-extension EditorConfig.EditorConfig

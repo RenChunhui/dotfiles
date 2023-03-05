@@ -16,11 +16,9 @@ brew "node"
 brew "pnpm"
 brew "tmux"
 brew "wget"
-brew "httpie"
 brew "ripgrep"
 
 # Apps
-cask "alfred"
 cask "clashx"
 cask "iterm2"
 cask "qingg"
@@ -28,6 +26,7 @@ cask "visual-studio-code"
 cask "qq"
 cask "wechat"
 cask "iina"
+cask "notion"
 
 # Fonts
 cask "font-sf-mono"
