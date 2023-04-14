@@ -10,13 +10,14 @@ tap "homebrew/cask-fonts"
 # Formulae
 brew "cloc"
 brew "gh"
-brew "mysql"
 brew "neovim"
 brew "node"
 brew "pnpm"
+brew "rust"
 brew "tmux"
 brew "wget"
 brew "ripgrep"
+brew "lua-language-server"
 
 # Apps
 cask "clashx"
@@ -26,7 +27,6 @@ cask "visual-studio-code"
 cask "qq"
 cask "wechat"
 cask "iina"
-cask "notion"
 
 # Fonts
 cask "font-sf-mono"
