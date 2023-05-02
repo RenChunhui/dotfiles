@@ -2,6 +2,8 @@
 #
 # Visual Studio Code
 
+echo "📦 Installing Visual Studio Code for you."
+
 code --install-extension formulahendry.auto-close-tag
 code --install-extension formulahendry.auto-rename-tag
 code --install-extension EditorConfig.EditorConfig

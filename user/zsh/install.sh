@@ -7,6 +7,8 @@ GREEN=$'\e[32m'
 CYAN=$'\e[36m'
 RESET=$'\e[0m'
 
+echo "📦 Installing Oh-My-Zsh for you."
+
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   git clone https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh || exit 1
 

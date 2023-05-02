@@ -21,7 +21,7 @@ brew "lua-language-server"
 
 # Apps
 cask "clashx"
-cask "iterm2"
+cask "alacritty"
 cask "qingg"
 cask "visual-studio-code"
 cask "qq"

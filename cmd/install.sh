@@ -9,15 +9,15 @@ usage() {
 cat <<EOF
 Usage: dot install [command]
 Available Commands:
-  brew     Homebrew 安装
-  git      Git 环境
-  iterm    终端配置
-  macos    系统偏好设置
-  neovim   NeoVim 配置
-  node     Node 环境
-  vscode   VSCode 开发环境
-  zsh      zsh 环境
-  help     帮助文档
+  brew      Homebrew 安装
+  git       Git 环境
+  alacritty 终端配置
+  macos     系统偏好设置
+  neovim    NeoVim 配置
+  node      Node 环境
+  vscode    VSCode 开发环境
+  zsh       zsh 环境
+  help      帮助文档
 EOF
 }
 
@@ -29,7 +29,7 @@ main() {
     '')
       dot install zsh
       dot install brew
-      dot install iterm2
+      dot install alacritty
       dot install git
       dot install node
       dot install vscode
@@ -42,8 +42,8 @@ main() {
     brew)
       sh $DOTDIR/user/brew/install.sh
       ;;
-    iterm2)
-      sh $DOTDIR/user/iterm2/install.sh
+    alacritty)
+      sh $DOTDIR/user/alacritty/install.sh
       ;;
     git)
       sh $DOTDIR/user/git/install.sh
