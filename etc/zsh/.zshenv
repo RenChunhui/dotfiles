@@ -36,5 +36,5 @@ export NODE_REPL_HISTORY=$XDG_DATA_HOME/node_repl_history
 export NPM_CONFIG_GLOBALCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 # pnpm
-export PNPM_HOME=$XDG_DATA_HOME/pnpm
+export PNPM_HOME=$XDG_DATA_HOME/pnpm/store
 export PATH="$PNPM_HOME:$PATH"

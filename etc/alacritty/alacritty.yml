@@ -6,13 +6,13 @@ window:
 
 font:
   normal:
-    family: "BlexMono Nerd Font"
+    family: "SF Mono"
     style: Regular
   bold:
-    family: 'BlexMono Nerd Font'
+    family: 'SF Mono'
     style: Bold
   italic:
-    family: 'BlexMono Nerd Font'
+    family: 'SF Mono'
     style: Italic
   size: 14
 
