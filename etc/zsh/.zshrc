@@ -13,7 +13,7 @@ plugins=(
   zsh-completions
 )
 
-fpath=($ZDOTDIR/site-functions $fpath)
-autoload -U $fpath[1]/*(.:t)
+# fpath=($ZDOTDIR/site-functions $fpath)
+# autoload -U $fpath[1]/*(.:t)
 
 source $ZSH/oh-my-zsh.sh

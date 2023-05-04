@@ -1,2 +1,5 @@
 [core]
 	editor = nvim
+	excludesfile = ~/.config/git/ignore_global
+[commit]
+	template = ~/.config/git/message
