@@ -26,7 +26,7 @@ export MYSQL_HISTFILE=$XDG_DATA_HOME/mysql_history
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 
 # ZSH
-export HISTFILE=$XDG_DATA_HOME/zsh_history
+export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 # NodeJS

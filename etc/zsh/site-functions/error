@@ -1,0 +1,3 @@
+#!/bin/sh
+
+printf "\e[0;31m✖ $1\e[0m\n"

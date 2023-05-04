@@ -63,7 +63,7 @@ fi
 rm -rf $HOME/.zshrc
 
 if [[ $(uname -m) == "arm64" ]]; then
-  cp $DOTDIR/etc/zsh/.zprofile $HOME/.zprofile
+  cp $DOTDIR/etc/zsh/.zprofile $ZDOTDIR/.zprofile
 fi
 
 if [[ ! -f $HOME/.zshenv ]]; then
@@ -71,6 +71,10 @@ if [[ ! -f $HOME/.zshenv ]]; then
   source $HOME/.zshenv
 fi
 
-cp $DOTDIR/etc/zsh/.zshrc $HOME/.zshrc
+if [[ ! -d $ZDOTDIR/site-functions ]]; then
+  cp -R $DOTDIR/etc/zsh/site-functions $ZDOTDIR/site-functions
+fi
 
-source $HOME/.zshrc
+cp $DOTDIR/etc/zsh/.zshrc $ZDOTDIR/.zshrc
+
+source $ZDOTDIR/.zshrc

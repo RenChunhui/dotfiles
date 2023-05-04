@@ -2,9 +2,11 @@
 
 set -e
 
-sudo --validate || true
+export ZDOTDIR=$HOME/.config/zsh
 
-while true; do sleep 60; sudo --non-interactive true; kill -0 "$$" || exit; done 2> /dev/null &
+if [[ ! -d $ZDOTDIR ]]; then
+  mkdir $ZDOTDIR
+fi
 
 if [[ ! -f "$HOME/.zshenv" ]]; then
   cp $HOME/.config/dotfiles/etc/zsh/.zshenv $HOME/.zshenv
