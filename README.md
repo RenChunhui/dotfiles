@@ -21,8 +21,10 @@
 </p>
 
 
-Installation
+Install
 ---
+
+Install all using the install.sh script
 
 ``` sh
 $ git clone github.com/renchunhui/dotfiles $HOME/.config/dotfiles
@@ -30,19 +32,55 @@ $ chomd +x $HOME/.config/dotfiles/install.sh
 $ ./install.sh
 ```
 
+Install part using dot cli
+
+``` sh
+Usage: dot install [command]
+Available Commands:
+  brew      Homebrew 安装
+  git       Git 环境
+  alacritty 终端配置
+  os        系统偏好设置
+  neovim    NeoVim 配置
+  node      Node 环境
+  vscode    VSCode 开发环境
+  zsh       zsh 环境
+  help      帮助文档
+```
+
 Features
 ---
 
-- Move all configuration to `~/.config` folder
-
-Screenshots
---- 
+- Handy binary script
+- Automatic software installation
+- Sensible OS X defaults
 
 
 Folder Structure
 ---
 
-```
+``` sh
+├── bin
+├── cmd
+│   ├── install
+│   └── uninstall
+├── etc
+│   ├── alacritty
+│   ├── git
+│   ├── npm
+│   ├── tmux
+│   └── zsh
+├── user
+│   ├── alacritty
+│   ├── brew
+│   ├── git
+│   ├── neovim
+│   ├── node
+│   ├── os
+│   ├── vscode
+│   └── zsh
+├── Brewfile
+└── install.sh
 ```
 
 License

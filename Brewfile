@@ -31,3 +31,4 @@ cask "iina"
 # Fonts
 cask "font-sf-mono"
 cask "font-symbols-only-nerd-font"
+cask "font-jetbrains-mono-nerd-font"

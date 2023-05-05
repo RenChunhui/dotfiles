@@ -12,7 +12,7 @@ Available Commands:
   brew      Homebrew 安装
   git       Git 环境
   alacritty 终端配置
-  macos     系统偏好设置
+  os        系统偏好设置
   neovim    NeoVim 配置
   node      Node 环境
   vscode    VSCode 开发环境
