@@ -27,6 +27,7 @@ cask "visual-studio-code"
 cask "qq"
 cask "wechat"
 cask "iina"
+cask "httpie"
 
 # Fonts
 cask "font-sf-mono"
