@@ -13,13 +13,13 @@ brew "gh"
 brew "neovim"
 brew "node"
 brew "pnpm"
-brew "rust"
 brew "tmux"
 brew "wget"
 brew "ripgrep"
 brew "lua-language-server"
 
 # Apps
+cask "alfred"
 cask "clashx"
 cask "alacritty"
 cask "qingg"
@@ -27,7 +27,7 @@ cask "visual-studio-code"
 cask "qq"
 cask "wechat"
 cask "iina"
-cask "httpie"
+cask "synology-drive"
 
 # Fonts
 cask "font-sf-mono"
