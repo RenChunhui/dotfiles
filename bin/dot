@@ -1,31 +1,25 @@
 #!/bin/sh
 
-usage() {
-cat <<EOF
-+------------------------------------------+
-|          __      __  _____ __            |
-|     ____/ /___  / /_/ __(_) /__  _____   |
-|    / __  / __ \/ __/ /_/ / / _ \/ ___/   |
-|   / /_/ / /_/ / /_/ __/ / /  __(__  )    |
-|   \__,_/\____/\__/_/ /_/_/\___/____/     |
-|                                          |
-+------------------------------------------+
-
-USAGE
-  dot [command]
-
-Available Commands:
-  install     安装
-  uninstall   卸载
-  help        帮助
-EOF
-}
-
 usage_darwin() {
 cat <<EOF
 Usage: dot install [command]
 Available Commands:
   brew      Homebrew 安装
+  git       Git 环境
+  alacritty 终端配置
+  os        系统偏好设置
+  neovim    NeoVim 配置
+  node      Node 环境
+  zsh       zsh 环境
+  help      帮助文档
+EOF
+}
+
+usage_linux() {
+cat <<EOF
+Usage: dot install [command]
+Available Commands:
+  pkg      Homebrew 安装
   git       Git 环境
   alacritty 终端配置
   os        系统偏好设置
@@ -47,7 +41,7 @@ install_darwin() {
       dot install os
       ;;
     zsh)
-      zsh "$(pwd)/user/zsh/install_darwin.sh"
+      zsh "$(pwd)/user/zsh/install.sh"
       ;;
     brew)
       sh "$(pwd)/user/homebrew/install.sh"
@@ -71,7 +65,17 @@ install_darwin() {
 }
 
 install_linux() {
-  echo "linux"
+  case $2 in
+    '')
+      dot install zsh
+      ;;
+    zsh)
+      zsh "$(pwd)/user/zsh/install.sh"
+      ;;
+    help)
+      usage_linux
+      ;;
+  esac
 }
 
 uninstall() {

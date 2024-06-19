@@ -2,12 +2,6 @@
 export DOTDIR=$XDG_CONFIG_HOME/dotfiles
 export PATH="$DOTDIR/bin:$PATH"
 
-# MySQL
-export MYSQL_HISTFILE=$XDG_DATA_HOME/mysql_history
-
-# SQLite
-export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
-
 # ZSH
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST

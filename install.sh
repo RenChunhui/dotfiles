@@ -22,6 +22,10 @@ bootstrap_linux() {
     chsh -s $(which zsh)
     exit 1
   fi
+
+  if [[ ! -f "$HOME/.zshenv" ]]; then
+    cp $HOME/.config/dotfiles/etc/zsh/zshenv.linux $HOME/.zshenv
+  fi
 }
 
 if [[ "$(uname)" == "Darwin" ]]; then

@@ -65,6 +65,6 @@ if [[ ! -f $HOME/.zshenv ]]; then
   source $HOME/.zshenv
 fi
 
-cp $DOTDIR/etc/zsh/zshrc.darwin $ZDOTDIR/.zshrc
+cp $DOTDIR/etc/zsh/zshrc $ZDOTDIR/.zshrc
 
 source $ZDOTDIR/.zshrc
