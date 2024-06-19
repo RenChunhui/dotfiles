@@ -1,0 +1,14 @@
+import = [
+  "~/.config/alacritty/themes/catppuccin-frappe.toml"
+]
+
+[window]
+opacity = 1
+
+[font]
+size = 16
+
+[keyboard]
+bindings = [
+  { key = 36, mods = "Command", action = "ToggleFullscreen" }
+]

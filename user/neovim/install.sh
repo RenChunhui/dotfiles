@@ -1,21 +1,19 @@
 #!/bin/sh
-#
-# NeoVim
 
-RED=$'\e[31m'
-GREEN=$'\e[32m'
-CYAN=$'\e[36m'
-RESET=$'\e[0m'
+set -e
 
-echo "📦 Installing NeoVim for you."
+source "$(pwd)/lib/chalk.sh"
+
+group "NeoVim"
 
 if ! command -v nvim >/dev/null 2>&1; then
   brew install neovim
-  echo ${GREEN}✔${RESET} "neovim"
+  ok "neovim"
 fi
 
 if [[ ! -d "$HOME/.config/nvim" ]]; then
   git clone https://github.com/RenChunhui/nvim.git $HOME/.config/nvim
+  ok "neovim repo"
 fi
 
 pnpm add -g bash-language-server

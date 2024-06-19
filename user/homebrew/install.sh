@@ -1,8 +1,10 @@
 #!/bin/sh
-#
-# Homebrew
 
-echo "📦 Installing Homebrew for you."
+set -e
+
+source "$(pwd)/lib/chalk.sh"
+
+group "Homebrew"
 
 if ! command -v brew >/dev/null 2>&1; then
   if [[ ! -d "$HOME/brew-install" ]]; then
@@ -13,4 +15,6 @@ if ! command -v brew >/dev/null 2>&1; then
   rm -rf brew-install
 fi
 
-brew bundle --file=$XDG_CONFIG_HOME/dotfiles/Brewfile --no-lock
+ok "brew"
+
+brew bundle --file=$XDG_CONFIG_HOME/dotfiles/var/Brewfile --no-lock

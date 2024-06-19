@@ -2,10 +2,7 @@
 #
 # macOS
 
-RED=$'\e[31m'
-GREEN=$'\e[32m'
-CYAN=$'\e[36m'
-RESET=$'\e[0m'
+set -e
 
 echo "📦 macOS configuration for you."
 

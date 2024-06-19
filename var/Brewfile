@@ -2,10 +2,7 @@ cask_args appdir: "/Applications"
 
 # Taps
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/services"
-tap "homebrew/cask-drivers"
-tap "homebrew/cask-fonts"
 
 # Formulae
 brew "cloc"
@@ -20,10 +17,10 @@ brew "lua-language-server"
 
 # Apps
 cask "alfred"
-cask "clashx"
 cask "alacritty"
 cask "qingg"
 cask "visual-studio-code"
+cask "google-chrome"
 cask "qq"
 cask "wechat"
 cask "iina"
@@ -33,3 +30,8 @@ cask "synology-drive"
 cask "font-sf-mono"
 cask "font-symbols-only-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
+
+# VSCode
+vscode "EditorConfig.EditorConfig"
+vscode "GitHub.github-vscode-theme"
+vscode "PKief.material-icon-theme"

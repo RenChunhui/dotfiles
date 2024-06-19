@@ -1,9 +1,14 @@
 #!/bin/sh
-#
-# Git
 
-echo "📦 Git configuration for you."
+set -e
+
+source "$(pwd)/lib/chalk.sh"
+
+group "Git global configuratioin"
 
 cp -R $DOTDIR/etc/git/ $XDG_CONFIG_HOME/git
 
-echo "✔ Git"
+ok "gitattributes"
+ok "gitconfig"
+ok "gitignore"
+ok "gitmessage"
