@@ -1,0 +1,17 @@
+[Version]
+major = 1
+minor = 1
+
+[Common]
+max_length = 0
+max_path = 0
+
+[File]
+black_suffix = ".lnk", ".pst", ".swp", ".temp", ".tmp", "*.log", ".DS_Store"
+
+max_size = 0
+
+[Directory]
+black_name = "dist", "node_modules", ".git"
+
+[EA]
