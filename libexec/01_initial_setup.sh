@@ -133,6 +133,30 @@ check_dependencies() {
   done
 }
 
+uninstall_apps() {
+  log title "I don't need these apps"
+
+  apps=(
+    gnome-boxes
+    gnome-contacts
+    gnome-maps
+    gnome-tour
+    libcamera
+    firefox
+    libreoffice-calc
+    libreoffice-writer
+    libreoffice-impress
+    rhythmbox
+  )
+
+  for pkg in "${apps[@]}"
+  do
+    if dnf list --installed | grep $pkg; then
+      sudo dnf remove $pkg -y
+    fi
+  done
+}
+
 initial_setup() {
   check_network
   system_update
@@ -141,5 +165,6 @@ initial_setup() {
     flathub_repositories
     check_privileges
     check_dependencies
+    uninstall_apps
   fi
 }

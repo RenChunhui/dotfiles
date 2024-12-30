@@ -41,6 +41,11 @@ install_pkgs() {
           install_with_flatpak "$pkg_name"
         fi
         ;;
+      gnome-extensions)
+        if is_fedora; then
+          install_with_gnome "$pkg_name"
+        fi
+        ;;
       vscode)
         if command -v code >/dev/null 2>&1; then
           install_with_code "$pkg_name"

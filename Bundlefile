@@ -21,6 +21,7 @@ cask iina
 cask synology-drive
 
 # Fedora DNF packages (Fedora Linux)
+dnf gnome-extensions-app
 dnf cloc
 dnf code
 dnf google-chrome-stable
@@ -37,6 +38,12 @@ flatpak com.tencent.WeChat
 flatpak com.qq.QQ
 flatpak com.synology.SynologyDrive
 flatpak org.onlyoffice.desktopeditors
+
+# Gnome Extensions
+gnome-extensions user-theme@gnome-shell-extensions.gcampax.github.com
+gnome-extensions appindicatorsupport@rgcjonas.gmail.com
+gnome-extensions dash-to-dock@micxgx.gmail.com
+gnome-extensions arcmenu@arcmenu.com
 
 # VSCode
 vscode EditorConfig.EditorConfig
