@@ -109,14 +109,39 @@ setup_zsh() {
   log ok "zshrc"
 }
 
+setup_alacritty() {
+  if [[ ! -d $XDG_CONFIG_HOME/alacritty ]]; then
+    cp -R $XDG_CONFIG_HOME/dotfiles/etc/alacritty $XDG_CONFIG_HOME/alacritty
+  fi
+  log ok "Alacritty configuration"
+}
+
+setup_tmux() {
+  log title "Setup Tmux"
+
+  if [[ ! -d $XDG_CONFIG_HOME/tmux ]]; then
+    cp -R $XDG_CONFIG_HOME/dotfiles/etc/tmux $XDG_CONFIG_HOME/tmux
+  fi
+
+  log ok "Tmux"
+}
+
+hushlogin() {
+  if [[ ! -f $HOME/.hushlogin ]]; then
+    touch $HOME/.hushlogin
+  fi
+  log ok "create empty hushlogin file"
+}
+
 # 配置 neovim
 setup_neovim() {
   log title "Setup NeoVim"
 
   if [[ ! -d "$HOME/.config/nvim" ]]; then
     git clone https://github.com/RenChunhui/nvim.git $HOME/.config/nvim
-    log ok "neovim repo"
   fi
+
+  log ok "neovim repo"
 }
 
 configure_terminal() {
@@ -124,5 +149,10 @@ configure_terminal() {
     default_shell
   fi
   setup_zsh
+  if is_mac; then
+    setup_alacritty
+  fi
+  setup_tmux
+  hushlogin
   setup_neovim
 }
