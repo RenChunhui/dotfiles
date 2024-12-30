@@ -1,47 +1,26 @@
 #!/bin/sh
+#
+# 安装脚本
 
 set -e
 
-source "$(pwd)/lib/chalk.sh"
+# 引入辅助脚本
+for script in $(pwd)/lib/*.sh; do
+  . "$script"
+done
 
-bootstrap_darwin() {
-  export ZDOTDIR=$HOME/.config/zsh
+for script in $(pwd)/libexec/*.sh; do
+  . "$script"
+done
 
-  if [[ ! -d $ZDOTDIR ]]; then
-    mkdir $ZDOTDIR
-  fi
+display_banner
+setup_sudo
 
-  if [[ ! -f "$HOME/.zshenv" ]]; then
-    cp $HOME/.config/dotfiles/etc/zsh/zshenv.darwin $HOME/.zshenv
-  fi
-}
+log group "Step 1: Initial Setup"
+initial_setup
 
-bootstrap_linux() {
-  if ! command -v zsh >/dev/null 2>&1; then
-    sudo pacman -S zsh
-    chsh -s $(which zsh)
-    exit 1
-  fi
+log group "Step 2: Installing packages from Bundlefile"
+install_pkgs
 
-  if [[ ! -f "$HOME/.zshenv" ]]; then
-    cp $HOME/.config/dotfiles/etc/zsh/zshenv.linux $HOME/.zshenv
-  fi
-}
-
-if [[ "$(uname)" == "Darwin" ]]; then
-  echo "Automated Configuration, Preferences and Software Installation for macOS."
-  bootstrap_darwin
-else
-  bootstrap_linux
-fi
-
-source $HOME/.zshenv
-
-chmod -R u+x $XDG_CONFIG_HOME/dotfiles/bin
-
-if ! command -v dot >/dev/null 2>&1; then
-  echo "请重启终端"
-  exit 1
-fi
-
-dot install
+log group "Step 3: Configure Terminal"
+configure_terminal

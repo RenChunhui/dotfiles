@@ -1,6 +1,11 @@
-# Dotfiles
-export DOTDIR=$XDG_CONFIG_HOME/dotfiles
-export PATH="$DOTDIR/bin:$PATH"
+# XDG Base Directory Specification
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+
+# SQLite
+export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 
 # ZSH
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
