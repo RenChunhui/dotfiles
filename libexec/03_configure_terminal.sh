@@ -1,6 +1,7 @@
 #!/bin/sh
 
-switch_zsh() {
+# 默认 Shell
+default_shell() {
   current_shell=$(basename "$SHELL")
 
   if [[ $current_shell != "zsh" ]]; then
@@ -29,13 +30,10 @@ switch_zsh() {
   fi
 }
 
-symlink_zshenv() {
-  if [[ ! -f "$HOME/.zshenv" ]]; then
-    cp $HOME/.config/dotfiles/etc/zsh/zshenv $HOME/.zshenv
-  fi
-}
+# 配置 zsh
+setup_zsh() {
+  log title "Setup zsh"
 
-clone_plugins() {
   if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     git clone https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh || exit 1
 
@@ -83,22 +81,48 @@ clone_plugins() {
   else
     log ok "zsh-completions"
   fi
-}
 
-config_zsh() {
   rm -rf $HOME/.zshrc
 
   if [[ $(uname -m) == "arm64" ]]; then
     cp $HOME/.config/dotfiles/etc/zsh/zprofile $XDG_CONFIG_HOME/zsh/.zprofile
+    log ok "zprofile"
   fi
 
-  cp $HOME/.config/dotfiles/etc/zsh/zshrc $HOME/.zshrc
-  zsh $HOME/.zshrc
+  if [[ ! -f "$HOME/.zshenv" ]]; then
+    cp $HOME/.config/dotfiles/etc/zsh/zshenv $HOME/.zshenv
+  fi
+  source $HOME/.zshenv
+
+  log ok "Symlink zshenv"
+
+  # cp $HOME/.config/dotfiles/etc/zsh/zshrc $HOME/.zshrc
+  # zsh $HOME/.zshrc
+  if is_mac; then
+    cp $XDG_CONFIG_HOME/dotfiles/etc/zsh/zshrc $ZDOTDIR/.zshrc
+    zsh $ZDOTDIR/.zshrc
+  else
+    cp $XDG_CONFIG_HOME/dotfiles/etc/zsh/zshrc $HOME/.zshrc
+    zsh $HOME/.zshrc
+  fi
+
+  log ok "zshrc"
 }
 
-check_shell() {
-  switch_zsh
-  symlink_zshenv
-  clone_plugins
-  config_zsh
+# 配置 neovim
+setup_neovim() {
+  log title "Setup NeoVim"
+
+  if [[ ! -d "$HOME/.config/nvim" ]]; then
+    git clone https://github.com/RenChunhui/nvim.git $HOME/.config/nvim
+    log ok "neovim repo"
+  fi
+}
+
+configure_terminal() {
+  if is_fedora; then
+    default_shell
+  fi
+  setup_zsh
+  setup_neovim
 }

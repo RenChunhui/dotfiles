@@ -21,3 +21,6 @@ initial_setup
 
 log group "Step 2: Installing packages from Bundlefile"
 install_pkgs
+
+log group "Step 3: Configure Terminal"
+configure_terminal
