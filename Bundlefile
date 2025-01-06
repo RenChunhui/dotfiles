@@ -32,6 +32,10 @@ dnf ripgrep
 dnf neovim
 dnf postgresql
 dnf ibus-table-chinese-wubi-jidian
+dnf waybar
+dnf dunst
+dnf sddm
+dnf rofi
 
 # Flatpak applications (cross-platform)
 flatpak com.tencent.WeChat
