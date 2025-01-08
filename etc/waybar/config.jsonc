@@ -2,11 +2,12 @@
 {
   // "layer": "top", // Waybar at top layer
   // "position": "bottom", // Waybar position (top|bottom|left|right)
-  "height": 32, // Waybar height (to be removed for auto height)
+  "height": 24, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
+    "custom/app",
     "sway/workspaces",
     "sway/mode",
     "sway/scratchpad",
@@ -226,6 +227,10 @@
     "escape": true,
     "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
     // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+  },
+  "custom/app": {
+    "format": "",
+    "tooltip": false
   },
   "custom/power": {
     "format": "⏻ ",
