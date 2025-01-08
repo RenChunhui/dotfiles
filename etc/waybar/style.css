@@ -1,0 +1,29 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-size: 14px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: #1f2328;
+  color: #f0f6fc;
+  border-bottom: 1px solid #d1d9e0;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#window,
+#workspaces {
+  margin: 0 4px;
+}
+
+#cpu,
+#memory {
+  padding: 0 10px;
+  color: #f0f6fc;
+}
