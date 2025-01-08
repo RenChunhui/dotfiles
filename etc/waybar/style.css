@@ -1,4 +1,7 @@
+@import "themes/macchiato.css";
+
 * {
+  color: @text;
   border: none;
   border-radius: 0;
   font-size: 14px;
@@ -6,9 +9,10 @@
 }
 
 window#waybar {
-  background-color: rgba(0,0,0,18);
+  font-weight: bold;
+  background-color: shade(@base, 0.9);
   color: white;
-  border: none;
+  border: 2px solid alpha(@crust, 0.3);
   transition-property: background-color;
   transition-duration: .5s;
 }
