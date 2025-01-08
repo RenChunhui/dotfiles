@@ -1,3 +1,10 @@
+:root {
+  --fg-default: #f0f6fc;
+  --bg-default: #0d1117;
+  --border-default: #3d444d;
+}
+
+
 * {
   border: none;
   border-radius: 0;
@@ -6,9 +13,9 @@
 }
 
 window#waybar {
-  background-color: #1f2328;
-  color: #f0f6fc;
-  border-bottom: 1px solid #d1d9e0;
+  background-color: var(--bg-default);
+  color: var(--fg-default);
+  border-bottom: 1px solid var(--border-default);
   transition-property: background-color;
   transition-duration: .5s;
 }
@@ -26,4 +33,13 @@ window#waybar.hidden {
 #memory {
   padding: 0 10px;
   color: #f0f6fc;
+}
+
+#cpu {
+  background-color: #2ecc71;
+  color: #000000;
+}
+
+#memory {
+  background-color: #9b59b6;
 }
