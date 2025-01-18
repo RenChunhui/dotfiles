@@ -8,7 +8,7 @@ export XDG_STATE_HOME=$HOME/.local/state
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 
 # ZSH
-export ZDOTDIR=$XDG_CONFIG_HOME/zsh
+export ZDOTDIR=${ZDOTDIR:-$HOME/.config/zsh}
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 # NodeJS

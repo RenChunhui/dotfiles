@@ -51,6 +51,10 @@ setup_zsh() {
 
   rm -rf $HOME/.zshrc
 
+  if [[ ! -d $ZDOTDIR ]]; then
+    mkdir $ZDOTDIR
+  fi
+
   if [[ $(uname -m) == "arm64" ]]; then
     cp etc/zsh/zprofile $ZDOTDIR/.zprofile
   fi

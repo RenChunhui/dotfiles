@@ -10,7 +10,5 @@ brew_install() {
     rm -rf brew-install
   fi
 
-  log_ok "homebrew"
-
   brew bundle --no-lock
 }
