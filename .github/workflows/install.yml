@@ -16,8 +16,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Clone Repository
+        run: git clone https://github.com/renchunhui/dotfiles ~/.config/dotfiles -b develop
+
       - name: Make install.sh executable
-        run: chmod +x install.sh
+        run: cd ~/.config/dotfiles && chmod +x install.sh
 
       - name: Run install.sh
         run: ./install.sh
