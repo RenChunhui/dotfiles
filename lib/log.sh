@@ -1,52 +1,27 @@
 #!/bin/sh
 
-# Text styles
-BOLD=$'\e[1m'
-DIM=$'\e[2m'
-UNDERLINED=$'\e[4m'
+log_group() {
+  echo ""
+  echo "${MAGENTA}${BOLD}$1${RESET}"
+  echo "${GRAY}──────────────────────────────────────────────────────────────────────────────${RESET}"
+}
 
-# Text colors
-TEXT_BLACK=$'\e[30m'
-TEXT_RED=$'\e[31m'
-TEXT_GREEN=$'\e[32m'
-TEXT_YELLOW=$'\e[33m'
-TEXT_BLUE=$'\e[34m'
-TEXT_CYAN=$'\e[36m'
-TEXT_GRAY=$'\e[90m'
-TEXT_MAGENTA=$'\e[95m'
-TEXT_WHITE=$'\e[97m'
+log_title() {
+   echo "${BOLD}$1${RESET}"
+}
 
-# Reset styles
-RESET=$'\e[0m'
+log_ok() {
+  echo "${GREEN}  ●${RESET} $1"
+}
 
-# Log function with different levels and styles
-log() {
-  local level="$1"
-  local message="$2"
+log_warn() {
+  echo "${YELLOW}  ● WARNING:${RESET} $1"
+}
 
-  case $level in
-    group)
-      echo ""
-      echo "${TEXT_MAGENTA}${BOLD}$message${RESET}"
-      echo "${TEXT_GRAY}──────────────────────────────────────────────────────────────────────────────${RESET}"
-      ;;
-    title)
-      echo "${BOLD}$message${RESET}"
-      ;;
-    ok)
-      echo "${TEXT_GREEN}  ●${RESET} $message"
-      ;;
-    warn)
-      echo "${TEXT_YELLOW}${BOLD}  ● WARNING:${RESET} $message"
-      ;;
-    fail)
-      echo "${TEXT_RED}${BOLD}  ● ERROR:${RESET} $message"
-      ;;
-    info)
-      echo "${TEXT_CYAN}  ● INFO:${RESET} $message"
-      ;;
-    *)
-      echo "${TEXT_WHITE}  $message${RESET}"
-      ;;
-  esac
+log_fail() {
+  echo "${RED}${BOLD}  ● ERROR:${RESET} $1"
+}
+
+log_info() {
+  echo "${CYAN}  ● INFO:${RESET} $1"
 }

@@ -13,14 +13,12 @@ for script in $(pwd)/libexec/*.sh; do
   . "$script"
 done
 
-display_banner
-setup_sudo
+echo "Automated Configuration, Preferences and Software Installation for macOS."
 
-log group "Step 1: Initial Setup"
-initial_setup
+log_group "Install using homebrew"
+brew_install
 
-log group "Step 2: Installing packages from Bundlefile"
-install_pkgs
+log_group "Environment Configuration"
+after_install
 
-log group "Step 3: Configure Terminal"
-configure_terminal
+os_defaults
