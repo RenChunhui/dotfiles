@@ -52,15 +52,15 @@ setup_zsh() {
   rm -rf $HOME/.zshrc
 
   if [[ $(uname -m) == "arm64" ]]; then
-    cp $DOTDIR/etc/zsh/zprofile $ZDOTDIR/.zprofile
+    cp etc/zsh/zprofile $ZDOTDIR/.zprofile
   fi
 
   if [[ ! -f $HOME/.zshenv ]]; then
-    cp $HOME/.config/dotfiles/etc/zsh/zshenv $HOME/.zshenv
+    cp etc/zsh/zshenv $HOME/.zshenv
     source $HOME/.zshenv
   fi
 
-  cp $DOTDIR/etc/zsh/zshrc $ZDOTDIR/.zshrc
+  cp etc/zsh/zshrc $ZDOTDIR/.zshrc
 
   zsh $ZDOTDIR/.zshrc
 }
