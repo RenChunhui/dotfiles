@@ -12,5 +12,5 @@ brew_install() {
 
   log_ok "homebrew"
 
-  brew bundle --file=$XDG_CONFIG_HOME/dotfiles/Brewfile --no-lock
+  brew bundle --no-lock
 }
