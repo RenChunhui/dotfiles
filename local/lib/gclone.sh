@@ -10,7 +10,7 @@ gclone() {
 
   # 后台运行 git clone，并提取进度 + 捕获状态
   (
-    git clone --progress "$repo_url" "$dest_dir" 2>&1 |
+    git clone --progress "$repo_url" "$dest_dir" --depth=1 2>&1 |
     while IFS= read -r line; do
       if [[ "$line" =~ ([0-9]+)% ]]; then
         progress="${BASH_REMATCH[1]}"

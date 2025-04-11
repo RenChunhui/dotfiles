@@ -11,6 +11,8 @@
 
 A minimal, extensible dotfiles setup for macOS developers.Follows the XDG Base Directory specification and includes configurations for terminal, editors, package managers, and more.
 
+[![asciicast](https://asciinema.org/a/714797.svg)](https://asciinema.org/a/714797)
+
 ## ✨ Features
 
 - 🛠️ Automated Setup: One-click installation of the full dev environment

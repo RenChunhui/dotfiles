@@ -11,6 +11,8 @@
 
 一套用于快速配置 macOS 开发环境的 dotfiles 集合，遵循 XDG Base Directory 规范，包含终端、编辑器、包管理等常用工具的配置。
 
+[![asciicast](https://asciinema.org/a/714797.svg)](https://asciinema.org/a/714797)
+
 ## ✨ 功能特性
 
 - 🛠️ **一键配置**：自动化安装完整的开发环境

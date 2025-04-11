@@ -5,14 +5,26 @@ log group "Terminal Configuration"
 # 安装 Oh My Zsh
 if [ ! -d "$ZDOTDIR/ohmyzsh" ]; then
   gclone https://github.com/ohmyzsh/ohmyzsh.git $ZDOTDIR/ohmyzsh
+else
+  log ok "$(printf '%-30s' ohmyzsh) ${GRAY}installed${RESET}"
+fi
 
+if [ ! -d $ZDOTDIR/ohmyzsh/custom/plugins/zsh-autosuggestions ]; then
   gclone https://github.com/zsh-users/zsh-autosuggestions.git $ZDOTDIR/ohmyzsh/custom/plugins/zsh-autosuggestions
+else
+  log ok "$(printf '%-30s' zsh-autosuggestions) ${GRAY}installed${RESET}"
+fi
 
+if [ ! -d $ZDOTDIR/ohmyzsh/custom/plugins/zsh-syntax-highlighting ]; then
   gclone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZDOTDIR/ohmyzsh/custom/plugins/zsh-syntax-highlighting
+else
+  log ok "$(printf '%-30s' zsh-syntax-highlighting) ${GRAY}installed${RESET}"
+fi
 
+if [ ! -d $ZDOTDIR/ohmyzsh/custom/plugins/zsh-completions ]; then
   gclone https://github.com/zsh-users/zsh-completions $ZDOTDIR/ohmyzsh/custom/plugins/zsh-completions
 else
-  log ok "$(printf '%-30s' ohmyzsh) ${GRAY}linked${RESET}"
+  log ok "$(printf '%-30s' zsh-completions) ${GRAY}installed${RESET}"
 fi
 
 # zshrc
@@ -38,7 +50,7 @@ log ok "$(printf '%-30s' npm) ${GRAY}linked${RESET}"
 
 # Neovim
 if [ ! -d "$XDG_CONFIG_HOME/nvim" ]; then
-  gclone https://github.com/renchunhui/nvim $XDG_CONFIG_HOME/nvim
+  gclone https://github.com/RenChunhui/nvim.git $XDG_CONFIG_HOME/nvim
 else
   log ok "$(printf '%-30s' neovim) ${GRAY}installed${RESET}"
 fi
