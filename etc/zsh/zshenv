@@ -4,19 +4,51 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 
-# SQLite
-export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
+# Homebrew
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
+export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+
+# Dotfiles
+export DOTFILES_HOME=$XDG_CONFIG_HOME/dotfiles
+export PATH="$DOTFILES_HOME/local/bin:$PATH"
 
 # ZSH
 export ZDOTDIR=${ZDOTDIR:-$HOME/.config/zsh}
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+export HISTFILE="$XDG_STATE_HOME"/zsh/history
 
 # NodeJS
-export NODE_REPL_HISTORY=$XDG_DATA_HOME/node_repl_history
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+
+# Rust
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+
+# Go
+export GOPATH="$XDG_DATA_HOME"/go
+export GOMODCACHE="$XDG_CACHE_HOME"/go/mod
+
+# Python
+export PYTHON_HISTORY=$XDG_STATE_HOME/python_history
+export PYTHONPYCACHEPREFIX=$XDG_CACHE_HOME/python
+export PYTHONUSERBASE=$XDG_DATA_HOME/python
 
 # npmrc global config
 export NPM_CONFIG_GLOBALCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
+# Bun
+export BUN_INSTALL=$XDG_CONFIG_HOME/bun
+
 # pnpm
 export PNPM_HOME=$XDG_DATA_HOME/pnpm/store
 export PATH="$PNPM_HOME:$PATH"
+
+# PostgreSQL
+export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
+export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
+export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass",
+export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
+
+# SQLite
+export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history

@@ -1,84 +1,79 @@
 <type>(<scope>): <summary>
 
-<Describe the motivation behind this change - explain WHY you are making this change. Wrap all lines
-at 100 characters.>
+<描述此变更的动机 - 解释为什么要做这个更改，换句话说，为什么你需要这个更改。每行不超过 100 个字符。>
 
 Fixes #<issue number>
 
-# ────────────────────────────────────────── 100 chars ────────────────────────────────────────────┤
+# ────────────────────────────────────────── 100 字符 ────────────────────────────────────────────┤
 
 
-# Example Commit Messages
+# 示例提交信息
 # =======================
 
 
-# ─── Example: Simple refactor ────────────────────────────────────────────────────────────────────┤
-# refactor(core): rename refreshDynamicEmbeddedViews to refreshEmbeddedViews
+# ─── 示例：简单的重构 ─────────────────────────────────────────────────────────────────────────────┤
+# refactor(core): 将 refreshDynamicEmbeddedViews 重命名为 refreshEmbeddedViews
 #
-# Improve code readability. The original name no longer matches how the function is used.
+# 改进代码可读性。原名称不再匹配该函数的实际用途。
 # ────────────────────────────────────────────────────────────────────────────────────────────────┤
 
 
-# ─── Example: Simple docs change ─────────────────────────────────────────────────────────────────┤
-# docs: clarify the service limitation in providers.md guide
+# ─── 示例：简单的文档更改 ───────────────────────────────────────────────────────────────────────────┤
+# docs: 在 providers.md 指南中澄清服务限制
 #
 # Fixes #36332
 # ─────────────────────────────────────────────────────────────────────────────────────────────────┤
 
 
-# ─── Example: A bug fix ──────────────────────────────────────────────────────────────────────────┤
-# fix(ngcc): ensure lockfile is removed when `analyzeFn` fails
+# ─── 示例：修复 bug ────────────────────────────────────────────────────────────────────────────────┤
+# fix(ngcc): 确保在 `analyzeFn` 失败时移除锁文件
 #
-# Previously an error thrown in the `analyzeFn` would cause the ngcc process to exit immediately
-# without removing the lockfile, and potentially before the unlocker process had been successfully
-# spawned resulting in the lockfile being orphaned and left behind.
+# 之前，在 `analyzeFn` 中抛出的错误会导致 ngcc 进程立即退出，且未移除锁文件，可能会
+# 在解锁进程成功启动之前就留下孤立的锁文件。
 #
-# Now we catch these errors and remove the lockfile as needed.
+# 现在我们捕获这些错误，并根据需要移除锁文件。
+#
+# Fixes #1234
 # ─────────────────────────────────────────────────────────────────────────────────────────────────┤
 
 
-# ─── Example: Breaking change ────────────────────────────────────────────────────────────────────┤
-# feat(bazel): simplify ng_package by dropping esm5 and fesm5
+# ─── 示例：重大更改 ────────────────────────────────────────────────────────────────────────────────┤
+# feat(bazel): 通过去除 esm5 和 fesm5 简化 ng_package
 #
-# esm5 and fesm5 distributions are no longer needed and have been deprecated in the past.
+# esm5 和 fesm5 格式不再需要，且在过去已被弃用。
 #
 # https://v9.angular.io/guide/deprecations#esm5-and-fesm5-code-formats-in-angular-npm-packages
 #
-# This commit modifies ng_package to no longer distribute these two formats in npm packages built by
-# ng_package (e.g. @angular/core).
+# 此提交修改了 ng_package，使其不再在构建的 npm 包（例如 @angular/core）中分发这两种格式。
 #
-# This commit intentionally doesn't fully clean up the ng_package rule to remove all traces of esm5
-# and fems5 build artifacts as that is a bigger cleanup and currently we are narrowing down the
-# scope of this change to the MVP needed for v10, which in this case is 'do not put esm5 and fesm5'
-# into the npm packages.
+# 此提交有意不完全清理 ng_package 规则中与 esm5 和 fesm5 构建产物相关的所有内容，
+# 因为那是一个更大的清理工作，目前我们将此变更的范围限制为 v10 MVP 所需的
+# 变更：即“不要将 esm5 和 fesm5 放入 npm 包中”。
 #
-# More cleanup to follow: https://angular-team.atlassian.net/browse/FW-2143
+# 更多清理工作请参阅：https://angular-team.atlassian.net/browse/FW-2143
 #
-# BREAKING CHANGE: esm5 and fesm5 format is no longer distributed in Angular's npm packages e.g.
-# @angular/core
+# BREAKING CHANGE: esm5 和 fesm5 格式不再在 Angular 的 npm 包（如 @angular/core）中分发。
 #
-# Angular CLI will automatically downlevel the code to es5 if differential loading is enabled in the
-# Angular project, so no action is required from Angular CLI users.
+# Angular CLI 将自动在启用差异加载的情况下将代码下级加载为 es5，因此用户无需采取任何
+# 行动。
 #
-# If you are not using Angular CLI to build your application or library, and you need to be able to
-# build es5 artifacts, then you will need to downlevel the distributed Angular code to es5 on your
-# own.
-#
+# 如果你没有使用 Angular CLI 构建应用或库，并且需要能够构建 es5 产物，则需要自行将
+# 分发的 Angular 代码降级为 es5。
 #
 # Fixes #1234
 # ─────────────────────────────────────────────────────────────────────────────────────────────────┤
 
 
 
-# Angular Commit Message Format
+# Angular 提交信息格式
 # =============================
 #
-# The full specification of the Angular Commit Message Format can be found at
+# Angular 提交信息格式的完整规范可以在以下位置找到：
 # https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit
 #
-# The following is an excerpt of the specification with the most commonly needed info.
+# 以下是该规范的一个摘录，包含了常用的部分。
 #
-# Each commit message consists of a *header*, a *body*, and a *footer*.
+# 每个提交信息由 *头部*、*正文* 和 *脚部* 组成。
 #
 # <header>
 # <BLANK LINE>
@@ -86,60 +81,55 @@ Fixes #<issue number>
 # <BLANK LINE>
 # <footer>
 #
-# The header is mandatory.
+# 头部是必需的。
 #
-# The body is mandatory for all commits except for those of scope "docs". When the body is required
-# it must be at least 20 characters long.
+# 除了文档（docs）类型的提交外，正文是必需的。当正文必需时，正文长度至少应为 20 个字符。
 #
-# The footer is optional.
+# 脚部是可选的。
 #
-# Any line of the commit message cannot be longer than 100 characters.
+# 提交信息中的任何一行都不能超过 100 个字符。
 #
 #
-# Commit Message Header
+# 提交信息头部
 # ---------------------
 #
-# <type>(<scope>): <short summary>
+# <type>(<scope>): <简短的摘要>
 #   │       │             │
-#   │       │             └─⫸ Summary in present tense. Not capitalized. No period at the end.
+#   │       │             └─⫸ 摘要，使用现在时，首字母小写，不以句号结尾。
 #   │       │
-#   │       └─⫸ Commit Scope: animations|bazel|benchpress|common|compiler|compiler-cli|core|
+#   │       └─⫸ 提交范围：animations|bazel|benchpress|common|compiler|compiler-cli|core|
 #   │                          elements|forms|http|language-service|localize|platform-browser|
 #   │                          platform-browser-dynamic|platform-server|router|service-worker|
 #   │                          upgrade|zone.js|packaging|changelog|dev-infra|docs-infra|migrations|
 #   │                          ngcc|ve
 #   │                          https://github.com/angular/angular/blob/master/CONTRIBUTING.md#scope
 #   │
-#   └─⫸ Commit Type: build|ci|docs|feat|fix|perf|refactor|style|test
+#   └─⫸ 提交类型：build|ci|docs|feat|fix|perf|refactor|style|test
 #                     https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type
 #
 #
-# Commit Message Body
+# 提交信息正文
 # ---------------------
 #
-# Just as in the summary, use the imperative, present tense: "fix" not "fixed" nor "fixes".
+# 与摘要一样，正文应使用祈使句式的现在时：“修复”而不是“修复了”或“修复”。
 #
-# Explain the motivation for the change in the commit message body. This commit message should
-# explain WHY you are making the change. You can include a comparison of the previous behavior with
-# the new behavior in order to illustrate the impact of the change.
+# 解释做出此更改的动机。这个提交信息应该解释为什么做这个更改。你可以包括
+# 比较之前和当前行为的内容来说明更改的影响。
 #
 #
-# Commit Message Footer
+# 提交信息脚部
 # ---------------------
 #
-# The footer can contain information about breaking changes and is also the place to reference
-# GitHub issues, Jira tickets, and other PRs that this commit closes or is related to.
+# 脚部可以包含有关重大更改的信息，也是引用 GitHub 问题、Jira 票据和其他 PR 的地方。
 #
 # ```
-# BREAKING CHANGE: <breaking change summary>
+# BREAKING CHANGE: <重大更改摘要>
 # <BLANK LINE>
-# <breaking change description + migration instructions>
+# <重大更改描述 + 迁移说明>
 # <BLANK LINE>
 # <BLANK LINE>
-# Fixes #<issue number>
+# Fixes #<问题编号>
 # ```
 #
-# Breaking Change section should start with the phrase "BREAKING CHANGE: " followed by a summary of
-# the breaking change, a blank line, and a detailed description of the breaking change that also
-# includes migration instructions.
-#
+# 重大更改部分应以“BREAKING CHANGE: ”开头，接着是重大更改的摘要，再加一个空行，
+# 并详细描述该更改，包括迁移说明。

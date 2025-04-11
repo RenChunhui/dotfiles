@@ -1,3 +1,4 @@
 font-family = "SF Mono"
 font-size = 16
-theme = GitHub Dark
+theme = catppuccin-macchiato
+shell-integration = zsh
