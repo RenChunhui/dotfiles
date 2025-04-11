@@ -1,0 +1,22 @@
+# XDG Base Directory Specification
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+
+# SQLite
+export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
+
+# ZSH
+export ZDOTDIR=${ZDOTDIR:-$HOME/.config/zsh}
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+
+# NodeJS
+export NODE_REPL_HISTORY=$XDG_DATA_HOME/node_repl_history
+
+# npmrc global config
+export NPM_CONFIG_GLOBALCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+
+# pnpm
+export PNPM_HOME=$XDG_DATA_HOME/pnpm/store
+export PATH="$PNPM_HOME:$PATH"
