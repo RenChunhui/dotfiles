@@ -28,11 +28,30 @@ get_forks=$(echo "$github_data" | awk -F'"forks_count": ' '{print $2}' | awk -F,
 printf "%s %s %s\n" "$(badge "STARS" "${get_stars}")" "$(badge "FORKS" "${get_forks}")" "$(badge "LICENSE" "MIT")"
 echo ""
 
+# 检查 sudo 密码
+if ! sudo -n true 2>/dev/null; then
+  echo "${BOLD}Please enter your sudo password (required for installation):${RESET}"
+  sudo -v
+fi
+
+# 检查 Git 用户信息
+if [ -z "$GIT_USER_NAME" ] || [ -z "$GIT_USER_EMAIL" ]; then
+  printf "${BOLD}Please enter your Git username: ${GRAY}"
+  read -r GIT_USER_NAME
+  printf "${RESET}"
+  printf "${BOLD}Please enter your Git email: ${GRAY}"
+  read -r GIT_USER_EMAIL
+  printf "${RESET}"
+fi
+
 # 引入执行脚本
+while true; do sudo -n true; sleep 60; done 2>/dev/null &
+KEEP_ALIVE_PID=$!
 echo "${BOLD}dotfiles${RESET}"
 for script in $(pwd)/local/libexec/*.sh; do
   . "$script"
 done
+kill $KEEP_ALIVE_PID
 
 echo ""
 echo "${BOLD}🎉 Installation complete!${RESET}"

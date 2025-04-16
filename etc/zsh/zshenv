@@ -18,6 +18,7 @@ export PATH="$DOTFILES_HOME/local/bin:$PATH"
 export ZDOTDIR=${ZDOTDIR:-$HOME/.config/zsh}
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
+export ZSH_SESSION_DIR="$XDG_STATE_HOME"/zsh/sessions
 
 # NodeJS
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history

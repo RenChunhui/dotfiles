@@ -9,6 +9,15 @@
   <img src="https://img.shields.io/github/stars/renchunhui/dotfiles?style=flat" alt="GitHub Repo stars" > 
 </p>
 
+<p align="center">
+  <a href="README_zh-CN.md">
+    <img src="https://img.shields.io/badge/Language-English-blue" alt="简体中文">
+  </a>
+  <a href="README.md">
+    <img src="https://img.shields.io/badge/语言-简体中文-red" alt="English">
+  </a>
+</p>
+
 A minimal, extensible dotfiles setup for macOS developers.Follows the XDG Base Directory specification and includes configurations for terminal, editors, package managers, and more.
 
 [![asciicast](https://asciinema.org/a/714797.svg)](https://asciinema.org/a/714797)

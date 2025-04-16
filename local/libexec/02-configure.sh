@@ -40,7 +40,13 @@ log ok "$(printf '%-30s' ghostty) ${GRAY}linked${RESET}"
 
 # Git
 rm -rf $XDG_CONFIG_HOME/git
-ln -s $DOTFILES_HOME/etc/git $XDG_CONFIG_HOME/git
+mkdir $XDG_CONFIG_HOME/git
+ln -s $DOTFILES_HOME/etc/git/attributes $XDG_CONFIG_HOME/git/attributes
+ln -s $DOTFILES_HOME/etc/git/ignore $XDG_CONFIG_HOME/git/ignore
+ln -s $DOTFILES_HOME/etc/git/message $XDG_CONFIG_HOME/git/message
+cp $DOTFILES_HOME/etc/git/config $XDG_CONFIG_HOME/git/config
+sed -i '' "s/__GIT_USER_NAME__/${GIT_USER_NAME}/g" $XDG_CONFIG_HOME/git/config
+sed -i '' "s/__GIT_USER_EMAIL__/${GIT_USER_EMAIL}/g" $XDG_CONFIG_HOME/git/config
 log ok "$(printf '%-30s' git) ${GRAY}linked${RESET}"
 
 # npm
