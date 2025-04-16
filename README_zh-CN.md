@@ -9,6 +9,15 @@
   <img src="https://img.shields.io/github/stars/renchunhui/dotfiles?style=flat" alt="GitHub Repo stars" >
 </p>
 
+<p align="center">
+  <a href="README_zh-CN.md">
+    <img src="https://img.shields.io/badge/Language-English-blue" alt="简体中文">
+  </a>
+  <a href="README.md">
+    <img src="https://img.shields.io/badge/语言-简体中文-red" alt="English">
+  </a>
+</p>
+
 一套用于快速配置 macOS 开发环境的 dotfiles 集合，遵循 XDG Base Directory 规范，包含终端、编辑器、包管理等常用工具的配置。
 
 ## ✨ 功能特性
