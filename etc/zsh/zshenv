@@ -25,6 +25,7 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 
 # Rust
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 
 # Go
 export GOPATH="$XDG_DATA_HOME"/go
@@ -34,6 +35,7 @@ export GOMODCACHE="$XDG_CACHE_HOME"/go/mod
 export PYTHON_HISTORY=$XDG_STATE_HOME/python_history
 export PYTHONPYCACHEPREFIX=$XDG_CACHE_HOME/python
 export PYTHONUSERBASE=$XDG_DATA_HOME/python
+export PATH="$HOME/.local/bin:$PATH"
 
 # npmrc global config
 export NPM_CONFIG_GLOBALCONFIG=$XDG_CONFIG_HOME/npm/npmrc

@@ -68,6 +68,7 @@ log ok "$(printf '%-30s' synology) ${GRAY}linked${RESET}"
 
 # Tmux
 rm -rf $XDG_CONFIG_HOME/tmux
-mkdir $XDG_CONFIG_HOME/tmux
-ln -snf $DOTFILES_HOME/etc/tmux/tmux.conf $XDG_CONFIG_HOME/tmux/tmux.conf
+chmod +x $DOTFILES_HOME/etc/tmux/scripts/status-left.sh
+chmod +x $DOTFILES_HOME/etc/tmux/scripts/status-right.sh
+ln -sfn $DOTFILES_HOME/etc/tmux $XDG_CONFIG_HOME/tmux
 log ok --last "$(printf '%-30s' tmux) ${GRAY}linked${RESET}"
