@@ -11,7 +11,7 @@ install_with_brew() {
 
     # 检查是否已经安装
     if brew list "$package" &>/dev/null; then
-      log ok "$(printf '%-30s' ${package}) ${GRAY}[$(printf "%02d" $count)/$total] installed${RESET}"
+      log ok "$(printf '%-30s' ${package}) ${GRAY}[$(printf "%02d" $count)/$total] [INSTALLED]${RESET}"
       continue
     fi
 
@@ -20,12 +20,12 @@ install_with_brew() {
     while [[ $retry_count -lt $max_retries ]]; do
       if [[ "$line" == *"brew"* ]]; then
         (brew install "$package" --quiet &>/dev/null) &
-        spinner $! "$(printf '%-30s' ${package}) ${GRAY}[$(printf "%02d" $count)/$total] installing...${RESET}" "$(printf '%-30s' ${package}) ${GRAY}[$(printf "%02d" $count)/$total] installed${RESET}"
+        spinner $! "$(printf '%-30s' ${package}) ${GRAY}[$(printf "%02d" $count)/$total] installing...${RESET}" "$(printf '%-30s' ${package}) ${GRAY}[$(printf "%02d" $count)/$total] [INSTALLED]${RESET}"
       fi
 
       if [[ "$line" == *"cask"* ]]; then
         (brew install --cask "$package" --quiet &>/dev/null) &
-        spinner $! "$(printf '%-30s' ${package}) ${GRAY}[$(printf "%02d" $count)/$total] installing...${RESET}" "$(printf '%-30s' ${package}) ${GRAY}[$(printf "%02d" $count)/$total] installed${RESET}"
+        spinner $! "$(printf '%-30s' ${package}) ${GRAY}[$(printf "%02d" $count)/$total] installing...${RESET}" "$(printf '%-30s' ${package}) ${GRAY}[$(printf "%02d" $count)/$total] [INSTALLED]${RESET}"
       fi
 
       # 检查是否成功

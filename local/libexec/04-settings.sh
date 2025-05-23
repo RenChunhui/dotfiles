@@ -1,12 +1,6 @@
 #!/bin/sh
 
-set -e
-
 log group "System Preferences"
-
-###############################################################################
-# 常规                                                                        #
-###############################################################################
 
 ###############################################################################
 # 访达                                                                        #
@@ -36,7 +30,9 @@ defaults write com.apple.finder WarnOnEmptyTrash -bool false
 # 显示隐藏文件
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
-log ok "$(printf '%-30s' Finder) ${GRAY}defaults${RESET}"
+log ok "Finder"
+
+
 
 ###############################################################################
 # 程序坞                                                                       #
@@ -78,7 +74,9 @@ defaults write com.apple.dock \
   "$(dock_item '/System/Applications/System Settings.app')"
 killall Dock
 
-log ok "$(printf '%-30s' Dock) ${GRAY}defaults${RESET}"
+log ok "Dock"
+
+
 
 ###############################################################################
 # 屏幕                                                                        #
@@ -100,14 +98,9 @@ defaults write com.apple.screencapture disable-shadow -bool true
 # 在非Apple LCD上启用亚像素字体渲染
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
-log ok "$(printf '%-30s' Screen) ${GRAY}defaults${RESET}"
+log ok "Screen"
 
-###############################################################################
-# 聚焦                                                                        #
-###############################################################################
 
-# 禁用 Spotlight
-# launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
 
 ###############################################################################
 # 相册                                                                        #
@@ -116,38 +109,27 @@ log ok "$(printf '%-30s' Screen) ${GRAY}defaults${RESET}"
 # 阻止 Photo 自动打开
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
-log ok --last "$(printf '%-30s' Photos) ${GRAY}defaults${RESET}"
+log ok "Photos"
+
+
 
 ###############################################################################
-# 邮箱                                                                        #
+# 墙纸                                                                        #
 ###############################################################################
 
-###############################################################################
-# 浏览器                                                                       #
-###############################################################################
+# 下载壁纸
+if [ ! -d "$HOME/Pictures/Wallpapers" ]; then
+  mkdir -p "$HOME"/Pictures/Wallpapers
+  curl -s "https://gruvbox-wallpapers.pages.dev/wallpapers/irl/canyon.jpg" -o "$HOME"/Pictures/Wallpapers/canyon.jpg
+  curl -s "https://gruvbox-wallpapers.pages.dev/wallpapers/irl/castle.jpg" -o "$HOME"/Pictures/Wallpapers/castle.jpg
+  curl -s "https://gruvbox-wallpapers.pages.dev/wallpapers/irl/road.jpg" -o "$HOME"/Pictures/Wallpapers/road.jpg
+else
+  log ok "$(printf '%-30s' wallpapers) ${GRAY}installed${RESET}"
+fi
 
-###############################################################################
-# 键盘                                                                        #
-###############################################################################
-
-# 禁用 Spotlight 搜索快捷键
-# defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys --dict-add 64 "{ enabled = 0 }"
-# defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys --dict-add 65 "{ enabled = 0 }"
-
-# log ok "$(printf '%-30s' Keyboards) ${GRAY}defaults${RESET}"
-
-###############################################################################
-# Xcode                                                                       #
-###############################################################################
-
-# 删除所有不可用的模拟器
-# xcrun simctl delete unavailable
-
-###############################################################################
-# 安全与隐私                                                                    #
-###############################################################################
-
-# 允许任何来源下载的 App
-# sudo spctl --master-disable
-
-# log ok "Security & Privacy"
+# 设置壁纸
+osascript <<EOD
+tell application "System Events"
+	set picture of every desktop to POSIX file "$HOME/Pictures/Wallpapers/canyon.jpg"
+end tell
+EOD

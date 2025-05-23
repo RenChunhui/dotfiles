@@ -38,7 +38,7 @@ gclone() {
       local current_progress=$(cat "$status_file" 2>/dev/null || echo "0")
 
       printf "\r\033[2K"  # 清除整行
-      printf "${GRAY}│   ├──${RESET} ${CYAN}%s${RESET} %-30s %s" "${spinner_array[i]}" "$repo_name" ${GRAY}"$current_progress%"${RESET}
+      printf "${GRAY}├─${RESET} ${CYAN}%s${RESET} %-30s %s" "${spinner_array[i]}" "$repo_name" ${GRAY}"$current_progress%"${RESET}
 
       i=$(( (i+1) % ${#spinner_array[@]} ))
       sleep $delay
@@ -50,9 +50,9 @@ gclone() {
 
     printf "\r\033[2K"  # 清除整行
     if [ "$exit_code" -eq 0 ]; then
-      log ok "$(printf '%-30s' $repo_name) ${GRAY}cloned${RESET}"
+      log ok "$(printf '%-30s' $repo_name) ${GRAY}[CLONED]${RESET}"
     else
-      log fail "$(printf '%-30s' $repo_name) ${GRAY}cloned${RESET}"
+      log fail "$(printf '%-30s' $repo_name) ${GRAY}[CLONED]${RESET}"
     fi
 
     rm -f "$status_file" "${status_file}.exit"
@@ -63,3 +63,10 @@ gclone() {
   enhanced_spinner $clone_pid
 }
 
+git_clone_safe() {
+  if [ ! -d $2 ]; then
+    gclone $1 $2
+  else
+    log ok "$(printf '%-30s' $(basename $2)) ${GRAY}[INSTALLED]${RESET}"
+  fi
+}

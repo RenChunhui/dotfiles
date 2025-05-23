@@ -1,6 +1,10 @@
 #!/bin/sh
-#
-# 安装脚本
+# ============================================
+# Description : 入口安装文件
+# Usage       : ./install.sh
+# Author      : Chunhui Ren
+# Email       : renchunhui2008@gmail.com
+# ============================================
 
 set -e
 
@@ -9,45 +13,31 @@ for script in $(pwd)/local/lib/*.sh; do
   . "$script"
 done
 
-echo ""
-echo "${BOLD}macOS supported${RESET}"
-echo "Easy setup for system packages, tools, and configs"
-echo ""
-echo "${BOLD}Author${RESET}: Chunhui Ren"
-echo "${BOLD}GitHub${RESET}: https://github.com/renchunhui/dotfiles"
-echo ""
+cat <<EOF
+              __     __  ____ __
+          ___/ /__  / /_/ _(_) /__ ___
+         / _  / _ \/ __/ _/ / / -_|_-<
+         \_,_/\___/\__/_//_/_/\__/___/
 
-# 获取 GitHub stars 和 forks 数量
-echo "⏳ Fetching GitHub repository data, please wait..."
-github_data=$(curl -s https://api.github.com/repos/renchunhui/dotfiles)
-tput cuu1
-tput el
-get_stars=$(echo "$github_data" | awk -F'"stargazers_count": ' '{print $2}' | awk -F, '{print $1}' | xargs)
-get_forks=$(echo "$github_data" | awk -F'"forks_count": ' '{print $2}' | awk -F, '{print $1}' | xargs)
-
-printf "%s %s %s\n" "$(badge "STARS" "${get_stars}")" "$(badge "FORKS" "${get_forks}")" "$(badge "LICENSE" "MIT")"
-echo ""
+───────────────────────────────────────────────
+     macOS development environment setup
+───────────────────────────────────────────────
+${BOLD}Platform${RESET} : $(platform)
+${BOLD}Network${RESET}  : $(net_status)
+───────────────────────────────────────────────
+EOF
 
 # 检查 sudo 密码
 if ! sudo -n true 2>/dev/null; then
-  echo "${BOLD}Please enter your sudo password (required for installation):${RESET}"
+  echo "${CYAN}◆${RESET}  ${BOLD}Please enter your sudo password:${RESET}"
+  printf "${GRAY}│${RESET}  "
   sudo -v
-fi
-
-# 检查 Git 用户信息
-if [ -z "$GIT_USER_NAME" ] || [ -z "$GIT_USER_EMAIL" ]; then
-  printf "${BOLD}Please enter your Git username: ${GRAY}"
-  read -r GIT_USER_NAME
-  printf "${RESET}"
-  printf "${BOLD}Please enter your Git email: ${GRAY}"
-  read -r GIT_USER_EMAIL
-  printf "${RESET}"
 fi
 
 # 引入执行脚本
 while true; do sudo -n true; sleep 60; done 2>/dev/null &
 KEEP_ALIVE_PID=$!
-echo "${BOLD}dotfiles${RESET}"
+
 for script in $(pwd)/local/libexec/*.sh; do
   . "$script"
 done

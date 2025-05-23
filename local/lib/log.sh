@@ -36,13 +36,13 @@ log() {
 
   case "$type" in
     group)
-      echo "${GRAY}├──${RESET} ${BOLD}${BLUE}$*${RESET}"
+      echo "${CYAN}◆  $*${RESET}"
       ;;
     ok)
       if $is_last; then
-        echo "${GRAY}│   └──${RESET} ${GREEN}●${RESET} $*"
+        echo "${GRAY}└─${RESET} ${GREEN}●${RESET} $*"
       else
-        echo "${GRAY}│   ├──${RESET} ${GREEN}●${RESET} $*"
+        echo "${GRAY}├─${RESET} ${GREEN}●${RESET} $*"
       fi
       ;;
     warn)
