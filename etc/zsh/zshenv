@@ -55,3 +55,6 @@ export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
 
 # SQLite
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
+
+# PostgreSQL
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
