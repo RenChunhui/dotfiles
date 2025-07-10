@@ -30,6 +30,7 @@ export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 # Go
 export GOPATH="$XDG_DATA_HOME"/go
 export GOMODCACHE="$XDG_CACHE_HOME"/go/mod
+export GOPROXY="https://goproxy.cn"
 
 # Python
 export PYTHON_HISTORY=$XDG_STATE_HOME/python_history
@@ -58,3 +59,4 @@ export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 
 # PostgreSQL
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"

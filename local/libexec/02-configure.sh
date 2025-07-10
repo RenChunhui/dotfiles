@@ -37,9 +37,7 @@ git_clone_safe https://github.com/RenChunhui/nvim.git $XDG_CONFIG_HOME/nvim
 # Synology
 ln_safe $DOTFILES_HOME/etc/synology $XDG_CONFIG_HOME/synology
 
-# Tmux
-rm -rf $XDG_CONFIG_HOME/tmux
-chmod +x $DOTFILES_HOME/etc/tmux/scripts/status-left.sh
-chmod +x $DOTFILES_HOME/etc/tmux/scripts/status-right.sh
-ln -sfn $DOTFILES_HOME/etc/tmux $XDG_CONFIG_HOME/tmux
-log ok "$(printf '%-30s' tmux) ${GRAY}[LINKED]${RESET}"
+# Zellij
+rm -rf $XDG_CONFIG_HOME/zellij
+ln -sfn $DOTFILES_HOME/etc/zellij $XDG_CONFIG_HOME/zellij
+log ok "$(printf '%-30s' zellij) ${GRAY}[LINKED]${RESET}"

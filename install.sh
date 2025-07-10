@@ -22,10 +22,24 @@ cat <<EOF
 ───────────────────────────────────────────────
      macOS development environment setup
 ───────────────────────────────────────────────
-${BOLD}Platform${RESET} : $(platform)
-${BOLD}Network${RESET}  : $(net_status)
-───────────────────────────────────────────────
+${BOLD}Platform${RESET}   : $(platform)
+${BOLD}Network${RESET}    : $(net_status)
+${BOLD}Environment${RESET}: $(environment)
 EOF
+
+# 安装 Homebrew
+printf "${BOLD}Homebrew${RESET}   : Installing... \r"
+if ! command -v brew &> /dev/null; then
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://mirrors.ustc.edu.cn/misc/brew-install.sh)"
+  if [[ $(uname -m) == "arm64" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  fi
+  printf "${BOLD}Homebrew${RESET}   : ${GREEN}Installed${RESET}       \n"
+else
+  printf "${BOLD}Homebrew${RESET}   : ${GREEN}Installed${RESET}       \n"
+fi
+
+echo "───────────────────────────────────────────────"
 
 # 检查 sudo 密码
 if ! sudo -n true 2>/dev/null; then
@@ -33,6 +47,12 @@ if ! sudo -n true 2>/dev/null; then
   printf "${GRAY}│${RESET}  "
   sudo -v
 fi
+
+# git user 配置
+echo "${CYAN}◆${RESET}  ${BOLD}Please enter your git username:${RESET}"
+read -p "${GRAY}│${RESET}  " GIT_USER_NAME
+echo "${CYAN}◆${RESET}  ${BOLD}Please enter your git email:${RESET}"
+read -p "${GRAY}│${RESET}  " GIT_USER_EMAIL
 
 # 引入执行脚本
 while true; do sudo -n true; sleep 60; done 2>/dev/null &

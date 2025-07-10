@@ -3,6 +3,9 @@
   email = __GIT_USER_EMAIL__
 [core]
 	editor = nvim
+  autocrlf = input
 	excludesfile = ~/.config/git/ignore_global
+[color]
+  ui = auto
 [commit]
 	template = ~/.config/git/message
