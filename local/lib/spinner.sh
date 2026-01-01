@@ -9,7 +9,7 @@ CYAN=$(tput setaf 6)
 RESET=$(tput sgr0)
 
 # Spinner 字符集，可自定义
-SPINNER_CHARS='◐◓◑◒'
+SPINNER_CHARS='◰◳◲◱'
 
 spinner() {
     local pid=$1
@@ -24,7 +24,7 @@ spinner() {
 
     while kill -0 $pid 2>/dev/null; do
         printf "\r\033[2K"  # 清除整行
-        printf "${GRAY}│   ├──${RESET} ${CYAN}%s ${RESET}%s" "${spinner_array[i]}" "$start_msg"
+        printf "${GRAY}├─${RESET} ${CYAN}%s ${RESET}%s" "${spinner_array[i]}" "$start_msg"
         i=$(( (i+1) % ${#spinner_array[@]} ))
         sleep $delay
     done
@@ -34,9 +34,9 @@ spinner() {
 
     printf "\r\033[2K"  # 再次清除整行
     if [ $exit_code -eq 0 ]; then
-        printf "${GRAY}│   ├──${RESET} ${GREEN}●${RESET} %s\n" "$end_msg"
+        printf "${GRAY}├─${RESET} ${GREEN}●${RESET} %s\n" "$end_msg"
     else
-        printf "${GRAY}│   ├──${RESET} ${RED}●${RESET} %s (失败)\n" "$end_msg"
+        printf "${GRAY}├─${RESET} ${RED}●${RESET} %s (失败)\n" "$end_msg"
     fi
 
     tput cnorm  # 恢复光标

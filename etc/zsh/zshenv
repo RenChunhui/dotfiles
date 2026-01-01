@@ -59,4 +59,3 @@ export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 
 # PostgreSQL
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
-export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"

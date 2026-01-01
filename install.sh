@@ -24,7 +24,6 @@ cat <<EOF
 ───────────────────────────────────────────────
 ${BOLD}Platform${RESET}   : $(platform)
 ${BOLD}Network${RESET}    : $(net_status)
-${BOLD}Environment${RESET}: $(environment)
 EOF
 
 # 安装 Homebrew
@@ -49,10 +48,12 @@ if ! sudo -n true 2>/dev/null; then
 fi
 
 # git user 配置
-echo "${CYAN}◆${RESET}  ${BOLD}Please enter your git username:${RESET}"
-read -p "${GRAY}│${RESET}  " GIT_USER_NAME
-echo "${CYAN}◆${RESET}  ${BOLD}Please enter your git email:${RESET}"
-read -p "${GRAY}│${RESET}  " GIT_USER_EMAIL
+if [ ! -f $XDG_CONFIG_HOME/git/config ]; then
+  echo "${CYAN}◆${RESET}  ${BOLD}Please enter your git username:${RESET}"
+  read -p "${GRAY}│${RESET}  " GIT_USER_NAME
+  echo "${CYAN}◆${RESET}  ${BOLD}Please enter your git email:${RESET}"
+  read -p "${GRAY}│${RESET}  " GIT_USER_EMAIL
+fi
 
 # 引入执行脚本
 while true; do sudo -n true; sleep 60; done 2>/dev/null &
