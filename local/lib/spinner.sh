@@ -9,7 +9,7 @@ CYAN=$(tput setaf 6)
 RESET=$(tput sgr0)
 
 # Spinner 字符集，可自定义
-SPINNER_CHARS='◰◳◲◱'
+SPINNER_CHARS='◐◓◑◒'
 
 spinner() {
     local pid=$1

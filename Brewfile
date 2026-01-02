@@ -12,15 +12,15 @@ brew "ripgrep"
 brew "rust"
 brew "tmux"
 
-cask "clash-verge-rev"
+cask "google-chrome"
 cask "ghostty"
 cask "iina"
 cask "qingg"
 cask "qq"
 cask "synology-drive"
 cask "tableplus"
+cask "visual-studio-code"
 cask "wechat"
-cask "wechatwebdevtools"
 
 cask "font-symbols-only-nerd-font"
 

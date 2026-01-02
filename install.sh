@@ -8,6 +8,8 @@
 
 set -e
 
+export DOTFILES_HOME=$HOME/.config/dotfiles
+
 # 引入辅助脚本
 for script in $(pwd)/local/lib/*.sh; do
   . "$script"
@@ -48,7 +50,7 @@ if ! sudo -n true 2>/dev/null; then
 fi
 
 # git user 配置
-if [ ! -f $XDG_CONFIG_HOME/git/config ]; then
+if [ ! -f $HOME/.config/git/config ]; then
   echo "${CYAN}◆${RESET}  ${BOLD}Please enter your git username:${RESET}"
   read -p "${GRAY}│${RESET}  " GIT_USER_NAME
   echo "${CYAN}◆${RESET}  ${BOLD}Please enter your git email:${RESET}"
