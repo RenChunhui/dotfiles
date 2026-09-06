@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# DOTFILES_HOME 依赖 .zshenv 提供,而本脚本正是用于建立该链接,首次安装时存在循环依赖。
+# 被 install.sh source 时 install.sh 已导出 DOTFILES_HOME,此处不会触发;
+# 单独执行本脚本时按自身位置推导仓库根目录 (local/libexec/../..)。
+export DOTFILES_HOME="${DOTFILES_HOME:-$(CDPATH= cd -- "$(dirname "$0")/../.." && pwd)}"
+
 log group "System required"
 
 # 检测 macOS 系统

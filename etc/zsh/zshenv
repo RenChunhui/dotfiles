@@ -15,7 +15,9 @@ export DOTFILES_HOME=$XDG_CONFIG_HOME/dotfiles
 export PATH="$DOTFILES_HOME/local/bin:$PATH"
 
 # ZSH
-export ZDOTDIR=${ZDOTDIR:-$HOME/.config/zsh}
+# 强制 ZDOTDIR:不能沿用 ${ZDOTDIR:-...},否则当环境已预导出 ZDOTDIR=$HOME
+# (某些 shell/终端的默认)时,zsh 会去 $HOME 读 .zshrc,与本仓库 ~/.config/zsh 布局错位。
+export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
 export ZSH_SESSION_DIR="$XDG_STATE_HOME"/zsh/sessions

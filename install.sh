@@ -4,6 +4,11 @@
 
 set -e
 
+# DOTFILES_HOME 由 zshenv 提供,但在首次安装(尚未链接 zshenv)时为空。
+# 脚本须在仓库根目录运行,这里依据 install.sh 自身位置兜底推导,
+# 避免 01-checkhealth.sh 把 ~/.zshenv 软链到错误路径。
+export DOTFILES_HOME="${DOTFILES_HOME:-$(CDPATH= cd -- "$(dirname "$0")" && pwd)}"
+
 # 引入辅助脚本
 for script in $(pwd)/local/lib/*.sh; do
   . "$script"
