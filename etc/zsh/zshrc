@@ -1,6 +1,14 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$ZDOTDIR/ohmyzsh"
 
+# 自愈:oh-my-zsh 缺失时(如安装中断/首次进入)自动补齐,避免终端启动即报错。
+# 插件的完整安装仍由 install.sh 的 02-configure.sh 负责。
+if [ ! -f "$ZSH/oh-my-zsh.sh" ]; then
+  echo "oh-my-zsh not found, cloning into $ZSH ..."
+  git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git "$ZSH" 2>/dev/null \
+    || echo "clone failed, please run ./install.sh to finish setup"
+fi
+
 ZSH_DISABLE_COMPFIX=true
 # Theme
 ZSH_THEME="robbyrussell"
